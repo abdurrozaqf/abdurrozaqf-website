@@ -53,7 +53,7 @@ export const MENU_REPOSITORES = [
     id: 5,
     title: "pokedex-app",
     description: "",
-    image: "/images/home-pokemon.png",
+    image: "/images/pokedex-app/pokemon-page.png",
     tech_stacks: [
       "React.js",
       "TypeScript",
