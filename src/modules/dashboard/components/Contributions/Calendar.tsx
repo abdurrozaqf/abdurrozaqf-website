@@ -73,18 +73,18 @@ export default function Calendar({ data }: CalendarProps) {
   return (
     <>
       <div className="relative flex flex-col">
-        <ul className="flex justify-end gap-[2.8px] overflow-hidden text-xs dark:text-neutral-400 md:justify-start">
+        <ul className="flex justify-end gap-[1.8px] overflow-hidden text-xs dark:text-neutral-400 md:justify-start">
           {months.map((month) => (
             <li
               key={month.firstDay}
               className={clsx(`${month.totalWeeks < 2 ? "invisible" : ""}`)}
-              style={{ minWidth: 15.4 * month.totalWeeks }}
+              style={{ minWidth: 14.4 * month.totalWeeks }}
             >
               {month.name}
             </li>
           ))}
         </ul>
-        <div className="flex justify-start gap-[3px] overflow-hidden">
+        <div className="flex justify-start gap-[1.8px] overflow-hidden">
           {weeks?.map((week) => (
             <div key={week.firstDay}>
               {week.contributionDays.map((contribution) => {
