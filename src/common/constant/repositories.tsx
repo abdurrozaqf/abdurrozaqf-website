@@ -45,8 +45,8 @@ export const MENU_REPOSITORES = [
       "Next.js",
       "TypeScript",
       "TailwindCSS",
-      "Axios",
       "React Query",
+      "Axios",
     ],
   },
   {
