@@ -33,7 +33,6 @@ export default function Layouts({ children }: LayoutsProps) {
   return (
     <div className="flex flex-col justify-center">
       <div className="w-full lg:min-h-screen flex flex-col items-center">
-        {/* {!url.includes(pathname) && <Navbar />} */}
         <div
           className={`w-full lg:max-w-[854px] transition-all duration-300 ${
             url.includes(pathname)
