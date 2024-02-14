@@ -1,16 +1,11 @@
-import { Inter as FontSans } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import "@/styles/globals.css";
 
 import ThemeProvider from "@/services/providers/theme-provider";
-import { cn } from "@/utils/utils";
-
 import Layouts from "@/components/layouts";
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   description: "Welcome to My Personal Website",
@@ -23,7 +18,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={fontSans.className}>
+      <body className={`${inter.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
