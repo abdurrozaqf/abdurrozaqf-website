@@ -1,9 +1,9 @@
+import { Send } from "lucide-react";
 import React from "react";
 
 import SectionSubHeading from "@/components/elements/SectionSubHeading";
 import SectionHeading from "@/components/elements/SectionHeading";
 
-import { Send } from "lucide-react";
 import Contact from "@/modules/contact";
 
 interface ContactProps {}
