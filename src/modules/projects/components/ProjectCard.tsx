@@ -1,10 +1,10 @@
+import Link from "next/link";
 import React from "react";
 
 import { Repositories } from "@/common/types/response";
 import { STACKS } from "@/common/constant/stacks";
 
 import { formatDate } from "@/utils/formatter";
-import Link from "next/link";
 
 interface ProjectCardProps {
   data: Repositories;
@@ -15,7 +15,7 @@ export default function ProjectCard({ data }: ProjectCardProps) {
 
   return (
     <Link href={`/projects/${name}`}>
-      <div className="w-full h-full border rounded-xl dark:bg-white/5 hover:scale-[1.02] transition-all cursor-pointer">
+      <div className="w-full h-full hover:scale-[1.02] transition-all duration-500 border rounded-xl backdrop-blur-md cursor-pointer relative overflow-hidden group">
         <div className="h-full flex flex-col px-4 py-6 justify-between space-y-6">
           <div className="space-y-4">
             <div className="space-y-1">
@@ -32,6 +32,7 @@ export default function ProjectCard({ data }: ProjectCardProps) {
           </div>
           <div>{primaryLanguage && <>{STACKS[primaryLanguage.name]}</>}</div>
         </div>
+        <div className="absolute bottom-2 left-4 w-[50px] group-hover:w-[160px] h-[120px] transition-all duration-500 bg-gradient-to-tr dark:from-indigo-600 dark:to-indigo-500 blur-[95px] rounded-full"></div>
       </div>
     </Link>
   );
