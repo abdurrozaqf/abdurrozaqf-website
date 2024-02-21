@@ -1,7 +1,4 @@
-"use client";
-
 import { BoxesIcon } from "lucide-react";
-import { motion } from "framer-motion";
 import { Suspense } from "react";
 
 import SectionSubHeading from "@/components/elements/SectionSubHeading";
@@ -10,16 +7,13 @@ import LoadingProjects from "./LoadingProjects";
 import ProjectCard from "./ProjectCard";
 
 import { Repositories } from "@/common/types/response";
-
-// import useFetchRepositories from "@/hooks/useFetchRepositories";
+import { MotionDiv } from "@/utils/motion";
 
 interface ProjectListsProps {
   data: Repositories[];
 }
 
 export default function ProjectLists({ data }: ProjectListsProps) {
-  // const { data: datas, isPending } = useFetchRepositories();
-
   return (
     <section className="space-y-6">
       <div className="space-y-2">
@@ -35,14 +29,14 @@ export default function ProjectLists({ data }: ProjectListsProps) {
       <Suspense fallback={<LoadingProjects />}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center">
           {data?.map((item, index) => (
-            <motion.div
+            <MotionDiv
               key={item.id}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
               <ProjectCard data={item} />
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </Suspense>
