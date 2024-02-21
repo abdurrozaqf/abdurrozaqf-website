@@ -14,10 +14,10 @@ export default function SocialMediaList() {
           target="_black"
         >
           <div
-            className={`flex items-center gap-x-2 ${item.backgroundColor} px-2 py-1 rounded`}
+            className={`flex items-center gap-x-2 ${item.backgroundColor} px-3 py-1.5 rounded text-white`}
           >
             {item.icon}
-            <p className="font-medium tracking-wide">{item.title}</p>
+            <p className="tracking-wide text-xs">{item.title}</p>
           </div>
         </Link>
       ))}
