@@ -17,17 +17,12 @@ export const SOCIAL_MEDIA = [
     title: "Linkedin",
     href: "https://www.linkedin.com/in/abdurrozaqfakhruddin/",
     icon: <LinkedinIcon size={iconSize} />,
-
-    eventName: "Social: Linkedin",
     backgroundColor: "bg-blue-600",
   },
   {
     title: "Instagram",
     href: "https://instagram.com/abdurrozaqf_",
     icon: <InstagramIcon size={iconSize} />,
-    isShow: true,
-    isExternal: true,
-    eventName: "Social: Instagram",
     backgroundColor: "bg-pink-600",
   },
 ];
