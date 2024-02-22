@@ -20,8 +20,8 @@ export default function ProjectDetail({ data }: ProjectDetail) {
 
   return (
     <section className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-x-2">
+      <div className="flex items-center justify-center md:justify-between">
+        <div className=" hidden md:flex items-center gap-x-2">
           <p className="font-medium text-[15px] text-neutral-700 dark:text-neutral-300">
             Tech Stack :
           </p>
