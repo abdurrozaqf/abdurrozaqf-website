@@ -17,7 +17,7 @@ export async function generateMetadata({
   params,
 }: DetailProjectProps): Promise<Metadata> {
   return {
-    title: params.slug + " | Projects",
+    title: params.slug,
   };
 }
 
