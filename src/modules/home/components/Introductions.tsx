@@ -19,7 +19,7 @@ export default function Introductions({}: IntroductionsProps) {
         </div>
       </div>
       <div className="space-y-4">
-        <p className="leading-[1.8] text-neutral-800 dark:text-neutral-300 md:leading-loose text-justify">
+        <p className="leading-[1.6] text-neutral-800 dark:text-neutral-300 md:leading-loose text-justify">
           Passionate and seasoned Software Engineer with a strong focus on
           frontend development. Proficient in TypeScript and well-versed in all
           aspects of web technologies. Collaborative team player dedicated to

@@ -73,7 +73,7 @@ export default function Calendar({ data }: CalendarProps) {
   return (
     <>
       <div className="relative flex flex-col">
-        <ul className="flex justify-end gap-[1.8px] overflow-hidden text-xs dark:text-neutral-400 md:justify-start">
+        <ul className="flex justify-end gap-[1.8px] overflow-hidden text-xs dark:text-neutral-400 lg:justify-start">
           {months.map((month) => (
             <li
               key={month.firstDay}
@@ -84,7 +84,7 @@ export default function Calendar({ data }: CalendarProps) {
             </li>
           ))}
         </ul>
-        <div className="flex justify-start gap-[1.8px] overflow-hidden">
+        <div className="flex justify-end lg:justify-start gap-[1.8px] overflow-hidden">
           {weeks?.map((week) => (
             <div key={week.firstDay}>
               {week.contributionDays.map((contribution) => {
@@ -110,7 +110,7 @@ export default function Calendar({ data }: CalendarProps) {
                               transition: { delay: getRandomDelayAnimate },
                             },
                           }}
-                          className="my-[3px] block h-[13px] w-[13px] rounded-sm bg-slate-300 dark:bg-slate-800"
+                          className="block my-[3px] h-[13px] w-[13px] rounded-sm bg-slate-300 dark:bg-slate-800"
                           style={
                             backgroundColor ? { backgroundColor } : undefined
                           }
@@ -153,13 +153,13 @@ export default function Calendar({ data }: CalendarProps) {
         </div>
       </div>
       <div className="flex items-center justify-between pr-2">
-        <p className="text-sm">
-          {totalContributions} contributions in the last year{" "}
+        <p className="text-[12px] md:text-sm">
+          {totalContributions} contributions in the last year
         </p>
         <div className="flex items-center gap-2 text-sm">
           <p className="dark:text-neutral-400">Less</p>
           <ul className="flex gap-1">
-            <motion.li className="h-[13px] w-[13px] rounded-sm bg-neutral-300 dark:bg-neutral-800" />
+            <motion.li className="h-[10px] w-[10px] md:h-[12px] md:w-[12px] rounded-sm bg-neutral-300 dark:bg-neutral-800" />
             {contributionColors.map((item, index) => (
               <motion.li
                 key={item}
@@ -172,12 +172,12 @@ export default function Calendar({ data }: CalendarProps) {
                     transition: { delay: index * 0.3 },
                   },
                 }}
-                className="h-[12px] w-[12px] rounded-sm"
+                className="h-[10px] w-[10px] md:h-[12px] md:w-[12px] rounded-sm"
                 style={{ backgroundColor: item }}
               />
             ))}
           </ul>
-          <p>More</p>
+          <p className="text-[12px] md:text-sm">More</p>
         </div>
       </div>
     </>

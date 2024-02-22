@@ -41,7 +41,7 @@ export async function getRepositories() {
   });
 
   const result = response.data?.data.user.repositories.nodes.filter(
-    (item: any) => reposToHide.includes(item.name)
+    (item: Repositories) => reposToHide.includes(item.name)
   );
 
   return result as Repositories[];
