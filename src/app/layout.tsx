@@ -2,13 +2,27 @@ import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import "@/styles/globals.css";
 
-import ThemeProvider from "@/services/providers/theme-provider";
 import Layouts from "@/components/layouts";
+
+import ThemeProvider from "@/services/providers/theme-provider";
+import { METADATA } from "@/common/constant/metadata";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  keywords: METADATA.keyword,
+  creator: METADATA.creator,
   description: "Welcome to My Personal Website",
+  authors: {
+    name: METADATA.creator,
+    url: METADATA.openGraph.url,
+  },
+  openGraph: {
+    url: METADATA.openGraph.url,
+    siteName: METADATA.openGraph.siteName,
+    locale: METADATA.openGraph.locale,
+    type: "website",
+  },
 };
 
 interface RootLayoutProps {
