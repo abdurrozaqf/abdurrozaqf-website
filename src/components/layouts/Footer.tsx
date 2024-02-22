@@ -13,10 +13,18 @@ export default function Footer() {
           © 2024 Abdur Rozaq Fakhruddin. All rights reserved
         </p>
         <div className="flex items-center gap-x-3">
-          <Link href={`https://github.com/abdurrozaqf`} target="_blank">
+          <Link
+            href={`https://github.com/abdurrozaqf`}
+            target="_blank"
+            aria-label="github"
+          >
             <SiGithub size={20} />
           </Link>
-          <Link href={`https://linkedin.com/in/abdurrozaqf`} target="_blank">
+          <Link
+            href={`https://linkedin.com/in/abdurrozaqf`}
+            target="_blank"
+            aria-label="linkedin"
+          >
             <SiLinkedin size={20} />
           </Link>
         </div>

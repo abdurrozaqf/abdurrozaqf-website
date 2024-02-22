@@ -1,5 +1,6 @@
 "use client";
 
+import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import React from "react";
 
@@ -7,8 +8,6 @@ import { Button } from "@/components/ui/button";
 import Menu from "./Menu";
 
 import { MENU_ITEMS } from "@/common/constant/menu";
-
-import { MoonIcon, MoonStar, SunIcon } from "lucide-react";
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -22,6 +21,7 @@ export default function Navbar() {
       <Button
         type="button"
         variant="outline"
+        aria-label="change theme"
         onClick={handleTheme}
         className={`w-fit h-fit p-2 border-none ${
           theme === "light" ? "btn-theme" : "btn-theme-dark"

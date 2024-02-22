@@ -1,13 +1,14 @@
 "use client";
 
+import React, { lazy, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import React, { useEffect } from "react";
 import AOS from "aos";
 
-import Footer from "./Footer";
 import Navbar from "./Navbar/index";
 
 import "aos/dist/aos.css";
+
+const Footer = lazy(() => import("./Footer"));
 
 interface LayoutsProps {
   children: React.ReactNode;
