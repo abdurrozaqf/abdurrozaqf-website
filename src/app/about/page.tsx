@@ -5,7 +5,7 @@ import Container from "@/components/elements/Container";
 import About from "@/modules/about";
 
 export const metadata: Metadata = {
-  title: "About | Abdur Rozaq F",
+  title: "About",
   description: "My Personal Background",
 };
 

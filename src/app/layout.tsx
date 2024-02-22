@@ -10,6 +10,10 @@ import { METADATA } from "@/common/constant/metadata";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  title: {
+    default: "Abdur Rozaq F",
+    template: "%s | Abdur Rozaq F",
+  },
   keywords: METADATA.keyword,
   creator: METADATA.creator,
   description: "Welcome to My Personal Website",

@@ -4,11 +4,11 @@ import PageHeading from "@/components/elements/PageHeading";
 import Container from "@/components/elements/Container";
 
 import { getRepositories } from "@/services/apis/github";
-import Projects from "@/modules/projects";
 import { Repositories } from "@/common/types/response";
+import Projects from "@/modules/projects";
 
 export const metadata: Metadata = {
-  title: "Projects | Abdur Rozaq F",
+  title: "Projects",
   description: "My All Projects",
 };
 
@@ -18,7 +18,6 @@ const PAGE_DESCRIPTION =
 
 export default async function ProjectPage() {
   const projectsData = await getProjets();
-
   return (
     <>
       <Container data-aos="fade-left">
