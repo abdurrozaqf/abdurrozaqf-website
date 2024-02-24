@@ -1,4 +1,5 @@
 import {
+  SiAntdesign,
   SiAxios,
   SiChakraui,
   SiCss3,
@@ -77,4 +78,5 @@ export const STACKS: stacksProps = {
   // "React Table": <SiReacttable size={iconSize} className="text-rose-600" />,
   Axios: <SiAxios size={iconSize} className="text-indigo-600" />,
   Flutter: <SiFlutter size={iconSize} className="text-blue-400" />,
+  "Ant Design": <SiAntdesign size={iconSize} className="text-sky-400" />,
 };

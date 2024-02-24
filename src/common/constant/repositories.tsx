@@ -63,4 +63,31 @@ export const MENU_REPOSITORES = [
       "Vite",
     ],
   },
+  {
+    id: 6,
+    title: "real-estate-landing-page",
+    description: "",
+    image: "/images/realestate-landingpage/realestate-page.png",
+    tech_stacks: [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Ant Design",
+      "Redux",
+    ],
+  },
+  {
+    id: 7,
+    title: "Wisata-App",
+    description: "",
+    image: "/images/wisata-app/wisata-page.png",
+    tech_stacks: [
+      "React.js",
+      "TypeScript",
+      "TailwindCSS",
+      "React Router",
+      "Axios",
+      "Vite",
+    ],
+  },
 ];

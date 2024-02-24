@@ -35,6 +35,7 @@ export default function ProjectDetail({ data }: ProjectDetail) {
           <Link
             aria-label={data.name}
             href={data.html_url}
+            target="_blank"
             className="flex items-center gap-x-2"
           >
             <SiGithub size={20} />

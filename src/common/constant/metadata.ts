@@ -1,6 +1,6 @@
 export const METADATA = {
   creator: "Abdur Rozaq F",
-  description: "Personal website, portfolio",
+  description: "Personal website, portfolio, a short story of me",
   keyword:
     "abdurrozaqf, abdur rozaq f, programming tips, belajar javascript, belajar typescript",
   authors: {
@@ -13,4 +13,5 @@ export const METADATA = {
     locale: "id-ID",
   },
   exTitle: "| Abdur Rozaq F",
+  profile: "/profile.jpg",
 };

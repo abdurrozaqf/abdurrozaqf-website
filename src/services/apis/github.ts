@@ -31,6 +31,8 @@ export async function getRepositories() {
     "byek-movies",
     "pokedex-app",
     "sinau-apps",
+    "Wisata-App",
+    "real-estate-landing-page",
   ];
 
   const response = await axiosWithConfig.post(GITHUB_API_BASE_URL, {

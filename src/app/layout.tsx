@@ -10,18 +10,24 @@ import { METADATA } from "@/common/constant/metadata";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : process.env.DOMAIN || ""
+  ),
   title: {
     default: "Abdur Rozaq F",
     template: "%s | Abdur Rozaq F",
   },
+  description: METADATA.description,
   keywords: METADATA.keyword,
   creator: METADATA.creator,
-  description: "Welcome to My Personal Website",
   authors: {
     name: METADATA.creator,
     url: METADATA.openGraph.url,
   },
   openGraph: {
+    images: METADATA.profile,
     url: METADATA.openGraph.url,
     siteName: METADATA.openGraph.siteName,
     locale: METADATA.openGraph.locale,

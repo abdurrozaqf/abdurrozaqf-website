@@ -23,6 +23,8 @@ export default function Layouts({ children }: LayoutsProps) {
     "/projects/sinau-apps",
     "/projects/byek-movies",
     "/projects/pokedex-app",
+    "/projects/Wisata-App",
+    "/projects/real-estate-landing-page",
   ];
   useEffect(() => {
     AOS.init({
