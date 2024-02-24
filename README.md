@@ -2,11 +2,11 @@
 
 Personal website and portofolio built with Next Js, Tailwind CSS, and Shadcn/ui.
 
-<!-- Click [_here_](https://byek-movies.vercel.app/) for result. -->
+Click [_here_](https://abdurrozaqf.vercel.app/) for result.
 
 ## Tech Stack
 
-Next Js, Tailwind CSS, Shadcn/ui, React Query, Axios
+Next Js, Tailwind CSS, Shadcn/ui, React Query, Framer Motion, AOS, Axios
 
 ## Run Locally
 
