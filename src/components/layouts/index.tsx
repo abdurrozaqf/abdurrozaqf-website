@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import AOS from "aos";
 
 import Navbar from "./Navbar/index";
-
 import "aos/dist/aos.css";
 
 const Footer = lazy(() => import("./Footer"));
@@ -16,7 +15,6 @@ interface LayoutsProps {
 
 export default function Layouts({ children }: LayoutsProps) {
   const pathname = usePathname();
-
   const url = [
     "/projects/hi-SPEC",
     "/projects/cloudbite",
@@ -26,6 +24,7 @@ export default function Layouts({ children }: LayoutsProps) {
     "/projects/Wisata-App",
     "/projects/real-estate-landing-page",
   ];
+
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -53,5 +52,3 @@ export default function Layouts({ children }: LayoutsProps) {
     </div>
   );
 }
-
-const a = "min-h-screen font-sans antialiased flex flex-col overflow-auto";

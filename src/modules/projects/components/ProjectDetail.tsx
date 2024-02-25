@@ -21,15 +21,15 @@ export default function ProjectDetail({ data }: ProjectDetail) {
   return (
     <section className="space-y-6">
       <div className="flex items-center justify-center md:justify-between">
-        <div className=" hidden md:flex items-center gap-x-2">
+        <div className="hidden md:flex items-center gap-x-2">
           <p className="font-medium text-[15px] text-neutral-700 dark:text-neutral-300">
             Tech Stack :
           </p>
-          <span className="flex items-center gap-x-2">
+          <ul className="flex items-center gap-x-2">
             {detail?.tech_stacks.map((item: string, index: number) => (
-              <div key={index}>{item && <>{STACKS[item]}</>}</div>
+              <li key={index}>{item && <>{STACKS[item]}</>}</li>
             ))}
-          </span>
+          </ul>
         </div>
         <div className="flex gap-x-8">
           <Link
@@ -52,17 +52,15 @@ export default function ProjectDetail({ data }: ProjectDetail) {
           </Link>
         </div>
       </div>
-      <div>
-        <Image
-          src={detail?.image!}
-          priority
-          alt={data.name}
-          width="0"
-          height="100"
-          sizes="100vw"
-          className="w-full h-[404.28px] object-cover object-top rounded"
-        />
-      </div>
+      <Image
+        src={detail?.image!}
+        alt={data.name}
+        priority
+        width="0"
+        height="100"
+        sizes="100vw"
+        className="w-full h-[404.28px] object-cover object-top rounded"
+      />
       <Separator className="my-2" />
       <div className="space-y-2">
         <p className="text-xl font-bold">Stack Used</p>

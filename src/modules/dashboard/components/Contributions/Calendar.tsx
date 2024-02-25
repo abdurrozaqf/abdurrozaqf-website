@@ -71,7 +71,7 @@ export default function Calendar({ data }: CalendarProps) {
   const totalContributions = data?.totalContributions || 0;
 
   return (
-    <>
+    <section>
       <div className="relative flex flex-col">
         <ul className="flex justify-end gap-[1.8px] overflow-hidden text-xs dark:text-neutral-400 lg:justify-start">
           {months.map((month) => (
@@ -95,7 +95,7 @@ export default function Calendar({ data }: CalendarProps) {
                   Math.random() * week.contributionDays.length * 0.15;
 
                 return (
-                  <TooltipProvider>
+                  <TooltipProvider key={contribution.date}>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <motion.span
@@ -180,6 +180,6 @@ export default function Calendar({ data }: CalendarProps) {
           <p className="text-[12px] md:text-sm">More</p>
         </div>
       </div>
-    </>
+    </section>
   );
 }

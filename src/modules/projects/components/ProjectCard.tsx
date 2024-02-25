@@ -30,9 +30,9 @@ export default function ProjectCard({ data }: ProjectCardProps) {
               {description !== null ? description : "~"}
             </p>
           </div>
-          <div>{primaryLanguage && <>{STACKS[primaryLanguage.name]}</>}</div>
+          {primaryLanguage && <>{STACKS[primaryLanguage.name]}</>}
         </div>
-        <div className="absolute bottom-2 left-4 w-[50px] group-hover:w-[160px] h-[120px] transition-all duration-500 bg-gradient-to-tr dark:from-indigo-600 dark:to-indigo-500 blur-[95px] rounded-full"></div>
+        <div className="absolute bottom-2 left-4 w-[50px] group-hover:w-[160px] h-[120px] transition-all duration-500 bg-gradient-to-tr dark:from-indigo-600 dark:to-indigo-500 blur-[95px] rounded-full" />
       </div>
     </Link>
   );
