@@ -6,7 +6,11 @@ import About from "@/modules/about";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "My Personal Background",
+  description:
+    "My personal background encompasses a diverse range of experiences and skills.",
+  alternates: {
+    canonical: `${process.env.DOMAIN}/about`,
+  },
 };
 
 const PAGE_TITLE = "About";

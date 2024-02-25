@@ -9,7 +9,10 @@ import Projects from "@/modules/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "My All Projects",
+  description: "My projects have all been created by me",
+  alternates: {
+    canonical: `${process.env.DOMAIN}/projects`,
+  },
 };
 
 const PAGE_TITLE = "Projects";
