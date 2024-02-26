@@ -1,17 +1,22 @@
 export const METADATA = {
-  creator: "Abdur Rozaq F",
-  description: "Personal website, portfolio, a short story of me",
-  keyword:
-    "abdurrozaqf, abdur rozaq f, programming tips, belajar javascript, belajar typescript",
+  title: "Abdur Rozaq Fakhruddin",
   authors: {
     name: "Abdur Rozaq Fakhruddin",
     url: process.env.DOMAIN,
   },
+  creator: "Abdur Rozaq F",
+  description: "Personal website, portfolio, a short story of me",
+  keyword: [
+    "abdurrozaqf",
+    "abdur rozaq fakhruddin",
+    "website abdur rozaq",
+    "portofolio abdur rozaq f",
+    "portofolio abdur rozaq fakhruddin",
+  ],
   openGraph: {
     url: process.env.DOMAIN,
     siteName: "Abdur Rozaq Fakhruddin",
     locale: "id-ID",
   },
-  exTitle: "| Abdur Rozaq F",
-  profile: "/profile.jpg",
+  siteUrl: "https://abdurrozaqf.vercel.app/",
 };

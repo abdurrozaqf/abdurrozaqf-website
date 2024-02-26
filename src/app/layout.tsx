@@ -7,7 +7,11 @@ import Layouts from "@/components/layouts";
 import ThemeProvider from "@/services/providers/theme-provider";
 import { METADATA } from "@/common/constant/metadata";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -21,18 +25,39 @@ export const metadata: Metadata = {
   },
   description: METADATA.description,
   keywords: METADATA.keyword,
-  creator: METADATA.creator,
   authors: {
     name: METADATA.creator,
     url: METADATA.openGraph.url,
   },
+  creator: METADATA.creator,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
   openGraph: {
-    images: METADATA.profile,
-    url: METADATA.openGraph.url,
-    siteName: METADATA.openGraph.siteName,
-    locale: METADATA.openGraph.locale,
     type: "website",
+    locale: METADATA.openGraph.locale,
+    url: METADATA.openGraph.url,
+    title: METADATA.title,
+    description: METADATA.description,
+    siteName: METADATA.openGraph.siteName,
+    images: [
+      {
+        url: `${METADATA.siteUrl}/og-picture.png`,
+        width: 1200,
+        height: 630,
+        alt: METADATA.title,
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: METADATA.title,
+    description: METADATA.description,
+    images: [`${METADATA.siteUrl}/og-picture.png`],
+    creator: "@abdurrozaqf",
+  },
+  manifest: `${METADATA.siteUrl}/site.webmanifest`,
 };
 
 interface RootLayoutProps {
@@ -42,6 +67,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
+      <head />
       <body className={`${inter.className}`}>
         <ThemeProvider
           attribute="class"
