@@ -26,27 +26,23 @@ export const metadata: Metadata = {
   description: METADATA.description,
   keywords: METADATA.keyword,
   authors: {
-    name: METADATA.creator,
-    url: METADATA.openGraph.url,
+    name: METADATA.authors.name,
+    url: METADATA.authors.url,
   },
   creator: METADATA.creator,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
   openGraph: {
     type: "website",
-    locale: METADATA.openGraph.locale,
     url: METADATA.openGraph.url,
-    title: METADATA.title,
-    description: METADATA.description,
+    title: METADATA.openGraph.title,
+    locale: METADATA.openGraph.locale,
     siteName: METADATA.openGraph.siteName,
+    description: METADATA.openGraph.description,
     images: [
       {
-        url: `${METADATA.siteUrl}/og-picture.png`,
+        url: METADATA.openGraph.images.url,
         width: 1200,
         height: 630,
-        alt: METADATA.title,
+        alt: METADATA.openGraph.images.alt,
       },
     ],
   },
@@ -55,9 +51,9 @@ export const metadata: Metadata = {
     title: METADATA.title,
     description: METADATA.description,
     images: [`${METADATA.siteUrl}/og-picture.png`],
-    creator: "@abdurrozaqf",
+    creator: "@abdurrozaqf_",
   },
-  manifest: `${METADATA.siteUrl}/site.webmanifest`,
+  manifest: METADATA.manifest,
 };
 
 interface RootLayoutProps {
