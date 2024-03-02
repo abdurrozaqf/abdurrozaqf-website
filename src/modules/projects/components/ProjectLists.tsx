@@ -7,7 +7,7 @@ import LoadingProjects from "./LoadingProjects";
 import ProjectCard from "./ProjectCard";
 
 import { Repositories } from "@/common/types/response";
-import { MotionDiv } from "@/utils/motion";
+import { MotionLi } from "@/utils/motion";
 
 interface ProjectListsProps {
   data: Repositories[];
@@ -27,18 +27,18 @@ export default function ProjectLists({ data }: ProjectListsProps) {
       </div>
 
       <Suspense fallback={<LoadingProjects />}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center">
+        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center">
           {data?.map((item, index) => (
-            <MotionDiv
+            <MotionLi
               key={item.id}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
               <ProjectCard data={item} />
-            </MotionDiv>
+            </MotionLi>
           ))}
-        </div>
+        </ul>
       </Suspense>
     </section>
   );

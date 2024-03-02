@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 import { ScreenShare } from "lucide-react";
 import { SiGithub } from "react-icons/si";
@@ -21,22 +20,22 @@ export default function ProjectDetail({ data }: ProjectDetail) {
   return (
     <section className="space-y-6">
       <div className="flex items-center justify-center md:justify-between">
-        <div className="hidden md:flex items-center gap-x-2">
+        <div className="hidden md:flex items-center space-x-2">
           <p className="font-medium text-[15px] text-neutral-700 dark:text-neutral-300">
             Tech Stack :
           </p>
-          <ul className="flex items-center gap-x-2">
+          <ul className="flex items-center space-x-2">
             {detail?.tech_stacks.map((item: string, index: number) => (
               <li key={index}>{item && <>{STACKS[item]}</>}</li>
             ))}
           </ul>
         </div>
-        <div className="flex gap-x-8">
+        <div className="flex space-x-8">
           <Link
             aria-label={data.name}
             href={data.html_url}
             target="_blank"
-            className="flex items-center gap-x-2"
+            className="flex items-center space-x-2"
           >
             <SiGithub size={20} />
             <span>Source Code</span>
@@ -45,7 +44,7 @@ export default function ProjectDetail({ data }: ProjectDetail) {
             aria-label={data.name}
             href={data.homepage}
             target="_blank"
-            className="flex items-center gap-x-2"
+            className="flex items-center space-x-2"
           >
             <ScreenShare size={20} />
             <span>Live Demo</span>
@@ -55,18 +54,18 @@ export default function ProjectDetail({ data }: ProjectDetail) {
       <Image
         src={detail?.image!}
         alt={data.name}
-        priority
         width="0"
         height="100"
         sizes="100vw"
-        className="w-full h-[404.28px] object-cover object-top rounded"
+        loading="lazy"
+        className="w-full h-[404.28px] object-cover object-top rounded-lg"
       />
       <Separator className="my-2" />
       <div className="space-y-2">
         <p className="text-xl font-bold">Stack Used</p>
         <ul className="ml-5 list-disc space-y-2">
-          {detail?.tech_stacks.map((item) => (
-            <li key={item}>
+          {detail?.tech_stacks.map((item, index) => (
+            <li key={index}>
               <p>{item}</p>
             </li>
           ))}
