@@ -73,18 +73,18 @@ export default function Calendar({ data }: CalendarProps) {
   return (
     <section>
       <div className="relative flex flex-col">
-        <ul className="flex justify-end gap-[1.8px] overflow-hidden text-xs dark:text-neutral-400 lg:justify-start">
+        <ul className="flex justify-end gap-[2.9px] overflow-hidden text-xs dark:text-neutral-400 lg:justify-start">
           {months.map((month) => (
             <li
               key={month.firstDay}
               className={clsx(`${month.totalWeeks < 2 ? "invisible" : ""}`)}
-              style={{ minWidth: 14.4 * month.totalWeeks }}
+              style={{ minWidth: 13.8 * month.totalWeeks }}
             >
               {month.name}
             </li>
           ))}
         </ul>
-        <div className="flex justify-end lg:justify-start gap-[1.8px] overflow-hidden">
+        <div className="flex justify-end lg:justify-start gap-[2.9px] overflow-hidden">
           {weeks?.map((week) => (
             <div key={week.firstDay}>
               {week.contributionDays.map((contribution) => {
@@ -95,7 +95,11 @@ export default function Calendar({ data }: CalendarProps) {
                   Math.random() * week.contributionDays.length * 0.15;
 
                 return (
-                  <TooltipProvider key={contribution.date}>
+                  <TooltipProvider
+                    key={contribution.date}
+                    delayDuration={50}
+                    skipDelayDuration={50}
+                  >
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <motion.span
@@ -110,7 +114,7 @@ export default function Calendar({ data }: CalendarProps) {
                               transition: { delay: getRandomDelayAnimate },
                             },
                           }}
-                          className="block my-[3px] h-[13px] w-[13px] rounded-sm bg-slate-300 dark:bg-slate-800"
+                          className="block my-[2.9px] h-[12px] w-[12px] rounded-sm bg-slate-300 dark:bg-slate-800"
                           style={
                             backgroundColor ? { backgroundColor } : undefined
                           }
