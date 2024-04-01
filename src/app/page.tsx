@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 };
 
 export default async function HomPage() {
-  const githubData = await getGithubData();
+  // const githubData = await getGithubData();
   return (
     <>
       <Container data-aos="fade-left">
-        <Home githubData={githubData} />
+        <Home />
       </Container>
     </>
   );

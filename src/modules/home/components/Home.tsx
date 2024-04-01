@@ -5,16 +5,14 @@ import Dashboard from "@/modules/dashboard";
 
 const SkillList = lazy(() => import("./SkillList"));
 
-interface HomeProps {
-  githubData: any;
-}
+interface HomeProps {}
 
-export default function Home({ githubData }: HomeProps) {
+export default function Home({}: HomeProps) {
   return (
     <>
       <Introductions />
       <Separator className="my-6" />
-      <Dashboard githubData={githubData} />
+      <Dashboard />
       <Separator className="my-6" />
       <SkillList />
     </>

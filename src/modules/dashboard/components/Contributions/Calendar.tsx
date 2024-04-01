@@ -11,30 +11,10 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { formatDate } from "@/utils/formatter";
-
-interface Contribution {
-  date: string;
-  contributionCount: number;
-  color: string;
-}
-
-interface Month {
-  name: string;
-  firstDay: string;
-  totalWeeks: number;
-  contributionsCount: number;
-}
+import { Contributions } from "@/common/types/response";
 
 interface CalendarProps {
-  data?: {
-    totalContributions?: number;
-    weeks: {
-      firstDay: string;
-      contributionDays: Contribution[];
-    }[];
-    months: Month[];
-    colors: string[];
-  };
+  data?: Contributions;
 }
 
 export default function Calendar({ data }: CalendarProps) {
@@ -48,7 +28,7 @@ export default function Calendar({ data }: CalendarProps) {
 
   const weeks = data?.weeks ?? [];
   const months =
-    data?.months?.map((month: Month) => {
+    data?.months?.map((month) => {
       const filterContributionDay = weeks
         .filter(
           (week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7)

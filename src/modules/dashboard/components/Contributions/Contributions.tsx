@@ -1,14 +1,13 @@
 import { SiGithub } from "react-icons/si";
+import { Suspense } from "react";
 
 import SectionSubHeading from "@/components/elements/SectionSubHeading";
 import SectionHeading from "@/components/elements/SectionHeading";
-import Calendar from "./Calendar";
 
-interface ContributionsProps {
-  githubData: any;
-}
+import ContributionsLoading from "./ContributionsLoading";
+import ContributionStats from "./ContributionStats";
 
-export default function Contributions({ githubData }: ContributionsProps) {
+export default async function Contributions() {
   return (
     <section className="space-y-6">
       <div className="space-y-2">
@@ -23,14 +22,9 @@ export default function Contributions({ githubData }: ContributionsProps) {
           <p>@abdurrozaqf</p>
         </SectionSubHeading>
       </div>
-      {!githubData && <div className="dark:text-neutral-400">No Data</div>}
-      <div className="py-2">
-        {githubData && (
-          <div className="space-y-3">
-            <Calendar data={githubData} />
-          </div>
-        )}
-      </div>
+      <Suspense fallback={<ContributionsLoading />}>
+        <ContributionStats />
+      </Suspense>
     </section>
   );
 }

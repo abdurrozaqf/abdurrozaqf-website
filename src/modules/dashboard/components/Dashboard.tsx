@@ -1,13 +1,9 @@
 import Contributions from "./Contributions";
 
-interface DashboardProps {
-  githubData: any;
-}
-
-export default function Dashboard({ githubData }: DashboardProps) {
+export default function Dashboard() {
   return (
     <>
-      <Contributions githubData={githubData} />
+      <Contributions />
     </>
   );
 }
