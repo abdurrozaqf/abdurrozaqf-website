@@ -16,13 +16,13 @@ const PAGE_DESCRIPTION =
   " This is my personal dashboard, built with Next.js API routes deployed as serverless functions.";
 
 export default async function DahboardPage() {
-  const githubData = await getGithubData();
+  // const githubData = await getGithubData();
 
   return (
     <>
       <Container>
         <PageHeading title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
-        <Dashboard githubData={githubData} />
+        {/* <Dashboard githubData={githubData} /> */}
         {/* <p className="text-slate-700 dark:text-slate-300 mb-2">Statistic</p>
       <img
         src="https://github-readme-stats.vercel.app/api/top-langs?username=abdurrozaqf&layout=compact&theme=react&hide=php&langs_count=6"
