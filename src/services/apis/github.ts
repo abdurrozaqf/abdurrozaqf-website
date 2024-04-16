@@ -28,10 +28,9 @@ export async function getRepositories() {
   const reposToHide = [
     "hi-SPEC",
     "cloudbite",
+    "sinau-apps",
     "byek-movies",
     "pokedex-app",
-    "sinau-apps",
-    "Wisata-App",
     "real-estate-landing-page",
   ];
 
