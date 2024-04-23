@@ -25,7 +25,7 @@ export async function getGithubData() {
 }
 
 export async function getRepositories() {
-  const reposToHide = [
+  const reposToShow = [
     "hi-SPEC",
     "cloudbite",
     "sinau-apps",
@@ -42,7 +42,7 @@ export async function getRepositories() {
   });
 
   const result = response.data?.data.user.repositories.nodes.filter(
-    (item: Repositories) => reposToHide.includes(item.name)
+    (item: Repositories) => reposToShow.includes(item.name)
   );
 
   return result as Repositories[];
