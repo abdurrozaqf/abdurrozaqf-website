@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="w-full flex justify-center py-4">
       <div className="w-full lg:max-w-[854px] px-4 md:px-8 flex items-center justify-between">
         <p className="text-[12px] md:text-sm tracking-wide">
-          © 2024 Abdur Rozaq Fakhruddin. All rights reserved
+          © 2025 Abdur Rozaq Fakhruddin. All rights reserved
         </p>
         <div className="flex items-center gap-x-3">
           <Link
