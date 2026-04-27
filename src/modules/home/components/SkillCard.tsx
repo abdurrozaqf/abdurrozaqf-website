@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 
 interface SkillCardProps {
   name: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 export default function SkillCard({ name, icon }: SkillCardProps) {

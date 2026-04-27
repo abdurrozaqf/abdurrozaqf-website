@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ScreenShare } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 
 import { Separator } from "@/components/ui/separator";
@@ -40,7 +39,7 @@ export default function ProjectDetail({ data }: ProjectDetail) {
             <SiGithub size={20} />
             <span>Source Code</span>
           </Link>
-          <Link
+          {/* <Link
             aria-label={data.name}
             href={data.homepage}
             target="_blank"
@@ -48,7 +47,7 @@ export default function ProjectDetail({ data }: ProjectDetail) {
           >
             <ScreenShare size={20} />
             <span>Live Demo</span>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <Image

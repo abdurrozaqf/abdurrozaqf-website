@@ -1,5 +1,6 @@
-import { getGithubData } from "@/services/apis/github";
+import { getGithubData } from "@/action/github";
 import Calendar from "./Calendar";
+import { Contributions } from "@/common/types/response";
 
 export default async function ContributionStats() {
   const githubData = await getGithubData();
@@ -10,7 +11,7 @@ export default async function ContributionStats() {
       <div className="py-2">
         {githubData && (
           <div className="space-y-3">
-            <Calendar data={githubData} />
+            <Calendar data={githubData.data as Contributions} />
           </div>
         )}
       </div>

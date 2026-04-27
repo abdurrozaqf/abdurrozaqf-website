@@ -1,4 +1,5 @@
 import { HiCode } from "react-icons/hi";
+import * as React from "react";
 
 import SectionSubHeading from "@/components/elements/SectionSubHeading";
 import MarqueeElement from "@/components/elements/MarqueeElement";
@@ -7,7 +8,7 @@ import { STACKS } from "@/common/constant/stacks";
 import SkillCard from "./SkillCard";
 
 export default function SkillList() {
-  const stacksInArray: Array<[string, JSX.Element]> = Object.entries(
+  const stacksInArray: Array<[string, React.ReactNode]> = Object.entries(
     STACKS
   ).sort(() => Math.random() - 0.5);
   return (
