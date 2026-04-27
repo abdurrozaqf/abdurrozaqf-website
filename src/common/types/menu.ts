@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { JSX, ReactNode } from "react";
 
 export type MenuItemProps = {
   title: string;
   href: string;
-  icon?: JSX.Element;
+  icon?: JSX.Element | ReactNode;
   isShow?: boolean;
   isExternal?: boolean;
   onClick?: () => void;

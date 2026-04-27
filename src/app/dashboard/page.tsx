@@ -1,8 +1,5 @@
 import { Metadata } from "next";
 
-import { getGithubData } from "@/services/apis/github";
-import Dashboard from "@/modules/dashboard";
-
 import PageHeading from "@/components/elements/PageHeading";
 import Container from "@/components/elements/Container";
 

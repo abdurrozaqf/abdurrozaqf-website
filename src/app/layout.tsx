@@ -1,17 +1,16 @@
-import { Inter } from "next/font/google";
+import { Geist } from "next/font/google";
 import { Metadata } from "next";
+
+import "@/styles/circular-transition.css";
 import "@/styles/globals.css";
 
 import Layouts from "@/components/layouts";
 
-import ThemeProvider from "@/services/providers/theme-provider";
 import { METADATA } from "@/common/constant/metadata";
+import AppProviders from "@/providers/app-providers";
+import { cn } from "@/utils/utils";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -62,17 +61,11 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <head />
-      <body className={`${inter.className}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+    <html lang="en" className={cn("font-sans", geist.variable)}>
+      <body className={cn("antialiased")} suppressHydrationWarning>
+        <AppProviders>
           <Layouts>{children}</Layouts>
-        </ThemeProvider>
+        </AppProviders>
       </body>
     </html>
   );

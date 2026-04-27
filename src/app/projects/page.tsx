@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import PageHeading from "@/components/elements/PageHeading";
 import Container from "@/components/elements/Container";
 
-import { getRepositories } from "@/services/apis/github";
+import { getGithubRepositories } from "@/action/github";
 import { Repositories } from "@/common/types/response";
 import Projects from "@/modules/projects";
 
@@ -32,6 +32,6 @@ export default async function ProjectPage() {
 }
 
 async function getProjets(): Promise<Repositories[]> {
-  const response = await getRepositories();
-  return response;
+  const response = await getGithubRepositories();
+  return response.data as Repositories[];
 }

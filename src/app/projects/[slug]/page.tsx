@@ -7,24 +7,24 @@ import Container from "@/components/elements/Container";
 
 import ProjectDetail from "@/modules/projects/components/ProjectDetail";
 import { DetailRepositories } from "@/common/types/response";
-import { getDetailRepo } from "@/services/apis/github";
+import { getGithubDetailRepository } from "@/action/github";
 
-interface DetailProjectProps {
-  params: { slug: string };
+interface Props {
+  params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: DetailProjectProps): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const detail = await getProjets(slug);
   return {
-    title: params.slug,
+    title: detail.name,
+    description: detail.description,
   };
 }
 
-export default async function DetailProjectPage({
-  params,
-}: DetailProjectProps) {
-  const detail = await getProjets(params.slug);
+export default async function DetailProjectPage({ params }: Props) {
+  const { slug } = await params;
+  const detail = await getProjets(slug);
 
   return (
     <>
@@ -38,6 +38,6 @@ export default async function DetailProjectPage({
 }
 
 async function getProjets(slug: string): Promise<DetailRepositories> {
-  const response = await getDetailRepo(slug);
-  return response;
+  const response = await getGithubDetailRepository(slug);
+  return response.data as DetailRepositories;
 }

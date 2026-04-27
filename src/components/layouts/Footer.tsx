@@ -3,14 +3,16 @@
 import Link from "next/link";
 import React from "react";
 
-import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
+import { BsLinkedin } from "react-icons/bs";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="w-full flex justify-center py-4">
       <div className="w-full lg:max-w-[854px] px-4 md:px-8 flex items-center justify-between">
         <p className="text-[12px] md:text-sm tracking-wide">
-          © 2025 Abdur Rozaq Fakhruddin. All rights reserved
+          © {currentYear} Abdur Rozaq Fakhruddin. All rights reserved
         </p>
         <div className="flex items-center gap-x-3">
           <Link
@@ -25,7 +27,7 @@ export default function Footer() {
             target="_blank"
             aria-label="linkedin"
           >
-            <SiLinkedin size={20} />
+            <BsLinkedin size={20} />
           </Link>
         </div>
       </div>

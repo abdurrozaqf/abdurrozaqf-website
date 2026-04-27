@@ -1,7 +1,7 @@
 import {
   BsGithub as GithubIcon,
   BsLinkedin as LinkedinIcon,
-  BsInstagram as InstagramIcon,
+  // BsInstagram as InstagramIcon,
 } from "react-icons/bs";
 
 const iconSize = 20;
@@ -19,10 +19,10 @@ export const SOCIAL_MEDIA = [
     icon: <LinkedinIcon size={iconSize} />,
     backgroundColor: "bg-blue-600",
   },
-  {
-    title: "Instagram",
-    href: "https://instagram.com/abdurrozaqf_",
-    icon: <InstagramIcon size={iconSize} />,
-    backgroundColor: "bg-pink-600",
-  },
+  // {
+  //   title: "Instagram",
+  //   href: "https://instagram.com/abdurrozaqf_",
+  //   icon: <InstagramIcon size={iconSize} />,
+  //   backgroundColor: "bg-pink-600",
+  // },
 ];
