@@ -2,7 +2,7 @@
 
 Personal website and portfolio built with Next.js. Showcase selected projects, GitHub contribution activity, skills, and background — with a clean, responsive layout and dark/light theme support.
 
-[Live Demo](https://abdurrozaqf.vercel.app/) · [Quick Start](#getting-started) · [Features](#features) · [Structure](#project-structure)
+[Live Demo](https://abdurrozaqf.abdurrozaqf-dev.workers.dev/) · [Quick Start](#getting-started) · [Features](#features) · [Structure](#project-structure)
 
 ---
 
@@ -72,7 +72,7 @@ Example:
 ```env
 NEXT_PUBLIC_GITHUB_BASE_URL=https://api.github.com
 NEXT_PUBLIC_GITHUB_TOKEN=your_github_personal_access_token
-NEXT_PUBLIC_DOMAIN=https://abdurrozaqf.vercel.app
+NEXT_PUBLIC_DOMAIN=https://abdurrozaqf.abdurrozaqf-dev.workers.dev
 ```
 
 4. **Start the development server**
