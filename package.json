@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
@@ -48,6 +52,7 @@
     "zustand": "^4.5.0"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.1",
     "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^19.2.14",
@@ -55,6 +60,7 @@
     "autoprefixer": "^10.0.1",
     "postcss": "^8.5.16",
     "tailwindcss": "^4.3.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.105.0"
   }
 }

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Projects",
   description: "My projects have all been created by me",
   alternates: {
-    canonical: `${process.env.DOMAIN}/projects`,
+    canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/projects`,
   },
 };
 

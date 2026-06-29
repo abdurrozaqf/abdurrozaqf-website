@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "My personal background encompasses a diverse range of experiences and skills.",
   alternates: {
-    canonical: `${process.env.DOMAIN}/about`,
+    canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/about`,
   },
 };
 

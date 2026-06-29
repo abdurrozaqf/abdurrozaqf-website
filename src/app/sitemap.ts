@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const domain = process.env.DOMAIN || "https://abdurrozaqf.vercel.app/";
+  const domain =
+    process.env.NEXT_PUBLIC_DOMAIN || "https://abdurrozaqf.vercel.app/";
   return [
     {
       url: domain,

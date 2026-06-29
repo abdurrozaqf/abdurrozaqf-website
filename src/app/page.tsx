@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Welcome to my portfolio website. Here, you'll find a showcase of my work, skills, and experiences.",
   alternates: {
-    canonical: process.env.DOMAIN,
+    canonical: process.env.NEXT_PUBLIC_DOMAIN,
   },
 };
 
