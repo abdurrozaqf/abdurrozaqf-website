@@ -1,4 +1,4 @@
-import { Geist } from "next/font/google";
+import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { Metadata } from "next";
 
 import "@/styles/circular-transition.css";
@@ -8,9 +8,14 @@ import Layouts from "@/components/layouts";
 
 import { METADATA } from "@/common/constant/metadata";
 import AppProviders from "@/providers/app-providers";
-import { cn } from "@/utils/utils";
+import { cn } from "@/libs/utils";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const playfairDisplayHeading = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
+
+const notoSans = Noto_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -61,7 +66,14 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html
+      lang="en"
+      className={cn(
+        "font-sans",
+        notoSans.variable,
+        playfairDisplayHeading.variable
+      )}
+    >
       <body className={cn("antialiased")} suppressHydrationWarning>
         <AppProviders>
           <Layouts>{children}</Layouts>
