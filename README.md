@@ -2,7 +2,7 @@
 
 Personal website and portfolio built with Next.js. Showcase selected projects, GitHub contribution activity, skills, and background — with a clean, responsive layout and dark/light theme support.
 
-[Live Demo](https://abdurrozaqf.abdurrozaqf-dev.workers.dev/) · [Quick Start](#getting-started) · [Features](#features) · [Structure](#project-structure)
+[Live Demo](https://abdurrozaqf.codur.workers.dev/) · [Quick Start](#getting-started) · [Features](#features) · [Structure](#project-structure)
 
 ---
 
