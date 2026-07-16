@@ -1,7 +1,7 @@
 export const GITHUB_API_BASE_URL = "https://api.github.com/graphql";
 export const GITHUB_ACCOUNTS = {
   username: "abdurrozaqf",
-  token: process.env.NEXT_PUBLIC_GITHUB_TOKEN,
+  token: process.env.GITHUB_TOKEN,
   endpoint: "/api/github?type=personal",
   type: "personal",
   is_active: true,

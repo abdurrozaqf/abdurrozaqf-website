@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import axios from "axios";
 
 // ================================ GITHUB API ================================
-const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_BASE_URL = process.env.NEXT_PUBLIC_GITHUB_BASE_URL;
 
 export const axiosGithub = axios.create({
@@ -15,22 +15,40 @@ export const axiosGithub = axios.create({
 });
 
 axiosGithub.interceptors.request.use(async (config) => {
-  console.log("-------------------------------------------------------------------");
+  console.log(
+    "-------------------------------------------------------------------"
+  );
   console.log(`[API Request] ${config.method?.toUpperCase()} ${config.url}`);
-  console.log("-------------------------------------------------------------------");
+  console.log(
+    "-------------------------------------------------------------------"
+  );
   return config;
 });
 
 axiosGithub.interceptors.response.use(
   (response) => {
-    console.log("-------------------------------------------------------------------");
-    console.log(`[API Response] ${response.config.method?.toUpperCase()} ${response.config.url} ${response.status}`);
-    console.log("-------------------------------------------------------------------");
+    console.log(
+      "-------------------------------------------------------------------"
+    );
+    console.log(
+      `[API Response] ${response.config.method?.toUpperCase()} ${
+        response.config.url
+      } ${response.status}`
+    );
+    console.log(
+      "-------------------------------------------------------------------"
+    );
     return response;
   },
   (error) => {
-    console.error(`[API Error] ${error.config?.method?.toUpperCase()} ${error.config?.url} ${error.response?.status}`);
-    console.log("-------------------------------------------------------------------");
+    console.error(
+      `[API Error] ${error.config?.method?.toUpperCase()} ${
+        error.config?.url
+      } ${error.response?.status}`
+    );
+    console.log(
+      "-------------------------------------------------------------------"
+    );
     return Promise.reject(error);
   }
 );
@@ -44,7 +62,9 @@ export const axiosAuth = axios.create({
 });
 
 axiosAuth.interceptors.request.use(async (config) => {
-  console.log("-------------------------------------------------------------------");
+  console.log(
+    "-------------------------------------------------------------------"
+  );
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
   if (!token) {
@@ -64,15 +84,27 @@ axiosAuth.interceptors.request.use(async (config) => {
 axiosAuth.interceptors.response.use(
   (response) => {
     // Log successful response
-    console.log(`[API Response] ${response.config.method?.toUpperCase()} ${response.config.url} ${response.status}`);
-    console.log("-------------------------------------------------------------------");
+    console.log(
+      `[API Response] ${response.config.method?.toUpperCase()} ${
+        response.config.url
+      } ${response.status}`
+    );
+    console.log(
+      "-------------------------------------------------------------------"
+    );
 
     return response;
   },
   async (error) => {
     // Log error response
-    console.error(`[API Error] ${error.config?.method?.toUpperCase()} ${error.config?.url} ${error.response?.status}`);
-    console.log("-------------------------------------------------------------------");
+    console.error(
+      `[API Error] ${error.config?.method?.toUpperCase()} ${
+        error.config?.url
+      } ${error.response?.status}`
+    );
+    console.log(
+      "-------------------------------------------------------------------"
+    );
 
     return Promise.reject(error);
   }
@@ -88,7 +120,9 @@ export const axiosPublic = axios.create({
 
 axiosPublic.interceptors.request.use(async (config) => {
   // Log request
-  console.log("-------------------------------------------------------------------");
+  console.log(
+    "-------------------------------------------------------------------"
+  );
   console.log(`[API Request] ${config.method?.toUpperCase()} ${config.url}`);
 
   return config;
@@ -97,15 +131,27 @@ axiosPublic.interceptors.request.use(async (config) => {
 axiosPublic.interceptors.response.use(
   (response) => {
     // Log successful response
-    console.log(`[API Response] ${response.config.method?.toUpperCase()} ${response.config.url} ${response.status}`);
-    console.log("-------------------------------------------------------------------");
+    console.log(
+      `[API Response] ${response.config.method?.toUpperCase()} ${
+        response.config.url
+      } ${response.status}`
+    );
+    console.log(
+      "-------------------------------------------------------------------"
+    );
 
     return response;
   },
   (error) => {
     // Log error response
-    console.error(`[API Error] ${error.config?.method?.toUpperCase()} ${error.config?.url} ${error.response?.status}`);
-    console.log("-------------------------------------------------------------------");
+    console.error(
+      `[API Error] ${error.config?.method?.toUpperCase()} ${
+        error.config?.url
+      } ${error.response?.status}`
+    );
+    console.log(
+      "-------------------------------------------------------------------"
+    );
 
     return Promise.reject(error);
   }

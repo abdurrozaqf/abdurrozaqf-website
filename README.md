@@ -64,15 +64,15 @@ npm install
 | Variable                      | Description                                         |
 | ----------------------------- | --------------------------------------------------- |
 | `NEXT_PUBLIC_GITHUB_BASE_URL` | GitHub REST API base URL (`https://api.github.com`) |
-| `NEXT_PUBLIC_GITHUB_TOKEN`    | GitHub personal access token (Bearer)               |
+| `GITHUB_TOKEN`                | GitHub personal access token (Bearer)               |
 | `NEXT_PUBLIC_DOMAIN`          | Production site URL (used for SEO canonical links)  |
 
 Example:
 
 ```env
 NEXT_PUBLIC_GITHUB_BASE_URL=https://api.github.com
-NEXT_PUBLIC_GITHUB_TOKEN=your_github_personal_access_token
-NEXT_PUBLIC_DOMAIN=https://abdurrozaqf.abdurrozaqf-dev.workers.dev
+GITHUB_TOKEN=your_github_personal_access_token
+NEXT_PUBLIC_DOMAIN=https://abdurrozaqf.codur.workers.dev
 ```
 
 4. **Start the development server**
