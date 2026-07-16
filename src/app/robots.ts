@@ -1,9 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const domain =
-    process.env.NEXT_PUBLIC_DOMAIN ||
-    "https://abdurrozaqf.abdurrozaqf-dev.workers.dev/";
+  const domain = process.env.NEXT_PUBLIC_DOMAIN || "https://codur.dev/";
   return {
     rules: {
       userAgent: "*",

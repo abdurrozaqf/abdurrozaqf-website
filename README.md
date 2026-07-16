@@ -2,7 +2,7 @@
 
 Personal website and portfolio built with Next.js. Showcase selected projects, GitHub contribution activity, skills, and background — with a clean, responsive layout and dark/light theme support.
 
-[Live Demo](https://abdurrozaqf.codur.workers.dev/) · [Quick Start](#getting-started) · [Features](#features) · [Structure](#project-structure)
+[Live Demo](https://codur.dev/) · [Quick Start](#getting-started) · [Features](#features) · [Structure](#project-structure)
 
 ---
 
@@ -72,7 +72,7 @@ Example:
 ```env
 NEXT_PUBLIC_GITHUB_BASE_URL=https://api.github.com
 GITHUB_TOKEN=your_github_personal_access_token
-NEXT_PUBLIC_DOMAIN=https://abdurrozaqf.codur.workers.dev
+NEXT_PUBLIC_DOMAIN=https://codur.dev
 ```
 
 4. **Start the development server**
