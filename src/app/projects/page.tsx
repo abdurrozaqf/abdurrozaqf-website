@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 
-import PageHeading from "@/components/elements/PageHeading";
-import Container from "@/components/elements/Container";
+import PageHeading from "@/components/elements/page-heading";
+import Container from "@/components/elements/container";
 
-import { getGithubRepositories } from "@/action/github";
-import { Repositories } from "@/common/types/response";
-import Projects from "@/modules/projects";
+import { getGithubRepositories } from "@/actions/github";
+import { Repositories } from "@/types/response";
+import Projects from "@/features/projects";
 
 export const metadata: Metadata = {
   title: "Projects",

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
-import PageHeading from "@/components/elements/PageHeading";
-import Container from "@/components/elements/Container";
-import Contact from "@/modules/contact";
+import PageHeading from "@/components/elements/page-heading";
+import Container from "@/components/elements/container";
+import Contact from "@/features/contact";
 
 export const metadata: Metadata = {
   title: "Contact | Abdur Rozaq F",

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
-import PageHeading from "@/components/elements/PageHeading";
-import Container from "@/components/elements/Container";
-import About from "@/modules/about";
+import PageHeading from "@/components/elements/page-heading";
+import Container from "@/components/elements/container";
+import About from "@/features/about";
 
 export const metadata: Metadata = {
   title: "About",

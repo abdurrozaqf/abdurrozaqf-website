@@ -2,8 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { githubQueryKeys } from "./queries-key/github.key";
-import { getGithubRepositories } from "@/action/github";
+import { githubQueryKeys } from "./query-keys/github";
+import { getGithubRepositories } from "@/actions/github";
 
 export default function useFetchRepositories() {
   return useQuery({

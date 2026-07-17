@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 import React from "react";
 
-import PageHeading from "@/components/elements/PageHeading";
-import BackButton from "@/components/elements/BackButton";
-import Container from "@/components/elements/Container";
+import PageHeading from "@/components/elements/page-heading";
+import BackButton from "@/components/elements/back-button";
+import Container from "@/components/elements/container";
 
-import ProjectDetail from "@/modules/projects/components/ProjectDetail";
-import { DetailRepositories } from "@/common/types/response";
-import { getGithubDetailRepository } from "@/action/github";
+import ProjectDetail from "@/features/projects/components/project-detail";
+import { DetailRepositories } from "@/types/response";
+import { getGithubDetailRepository } from "@/actions/github";
 
 interface Props {
   params: Promise<{ slug: string }>;

@@ -4,11 +4,11 @@ import { Metadata } from "next";
 import "@/styles/circular-transition.css";
 import "@/styles/globals.css";
 
-import Layouts from "@/components/layouts";
+import Layouts from "@/components/layout";
 
-import { METADATA } from "@/common/constant/metadata";
+import { METADATA } from "@/lib/constants/metadata";
 import AppProviders from "@/providers/app-providers";
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 
 const playfairDisplayHeading = Playfair_Display({
   subsets: ["latin"],

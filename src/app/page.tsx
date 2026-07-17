@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
-import Container from "@/components/elements/Container";
-import { METADATA } from "@/common/constant/metadata";
-import Home from "@/modules/home";
+import Container from "@/components/elements/container";
+import { METADATA } from "@/lib/constants/metadata";
+import Home from "@/features/home";
 
 export const metadata: Metadata = {
   title: `${METADATA.creator} | Personal Website`,
