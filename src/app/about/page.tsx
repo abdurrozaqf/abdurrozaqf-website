@@ -16,9 +16,7 @@ export const metadata: Metadata = {
 const PAGE_TITLE = "About";
 const PAGE_DESCRIPTION = "A short story of me";
 
-interface AboutPageProps {}
-
-export default function AboutPage({}: AboutPageProps) {
+export default function AboutPage() {
   return (
     <>
       <Container data-aos="fade-left">

@@ -1,21 +1,25 @@
-import { Noto_Sans, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { Metadata } from "next";
 
 import "@/styles/circular-transition.css";
 import "@/styles/globals.css";
 
-import Layouts from "@/components/layout";
-
-import { METADATA } from "@/lib/constants/metadata";
 import AppProviders from "@/providers/app-providers";
+import { METADATA } from "@/lib/constants/metadata";
+import Layouts from "@/components/layout";
 import { cn } from "@/lib/utils";
 
 const playfairDisplayHeading = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-heading",
+  display: "swap",
 });
 
-const notoSans = Noto_Sans({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -69,12 +73,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       className={cn(
-        "font-sans",
-        notoSans.variable,
+        "w-full h-full antialiased",
+        inter.variable,
         playfairDisplayHeading.variable
       )}
+      suppressHydrationWarning
     >
-      <body className={cn("antialiased")} suppressHydrationWarning>
+      <body className={cn("w-full h-min overflow-y-auto overflow-x-hidden")}>
         <AppProviders>
           <Layouts>{children}</Layouts>
         </AppProviders>

@@ -15,24 +15,33 @@ Personal website and portfolio built with Next.js. Showcase selected projects, G
 - **Project detail pages** — Per-repo overview with tech stack, screenshots, and source links
 - **About page** — Personal summary with animated paragraphs
 - **Contact page** — Social media links for quick reach-out
-- **Dark / light mode** — System-aware theme toggle via `next-themes`
+- **Dark / light mode** — System-aware theme toggle with circular transition
 - **Responsive layout** — Mobile-first design with Tailwind CSS
 - **SEO ready** — Open Graph metadata, sitemap, robots.txt, and web manifest
 
 ## Tech Stack
 
-| Category      | Technology                                         |
-| ------------- | -------------------------------------------------- |
-| Framework     | [Next.js 15](https://nextjs.org/) (App Router)     |
-| Language      | [TypeScript](https://www.typescriptlang.org/)      |
-| Styling       | [Tailwind CSS 4](https://tailwindcss.com/)         |
-| UI Components | [shadcn/ui](https://ui.shadcn.com/) + Radix UI     |
-| Data Fetching | [TanStack React Query](https://tanstack.com/query) |
-| HTTP Client   | [Axios](https://axios-http.com/)                   |
-| Animation     | [Framer Motion](https://www.framer.com/motion/)    |
-| Scroll FX     | [AOS](https://michalsnik.github.io/aos/)           |
-| State         | [Zustand](https://zustand-demo.pmnd.rs/)           |
-| Icons         | [Lucide React](https://lucide.dev/) + React Icons  |
+| Category      | Technology                                                |
+| ------------- | --------------------------------------------------------- |
+| Framework     | [Next.js 16](https://nextjs.org/) (App Router)            |
+| Language      | [TypeScript](https://www.typescriptlang.org/) + React 19  |
+| Styling       | [Tailwind CSS 4](https://tailwindcss.com/)                |
+| UI Components | [shadcn/ui](https://ui.shadcn.com/) + Radix UI            |
+| Data Fetching | [TanStack React Query](https://tanstack.com/query)        |
+| HTTP Client   | [Axios](https://axios-http.com/)                          |
+| Animation     | [Framer Motion](https://www.framer.com/motion/)           |
+| Scroll FX     | [AOS](https://michalsnik.github.io/aos/)                  |
+| State         | [Zustand](https://zustand-demo.pmnd.rs/)                  |
+| Icons         | [Lucide React](https://lucide.dev/) + React Icons         |
+| Deploy        | [OpenNext](https://opennext.js.org/) + Cloudflare Workers |
+
+## Architecture
+
+Feature-based layout: routes stay thin in `app/`, page UI lives in `features/`, shared UI in `components/`, and shared helpers in `lib/`, `hooks/`, and `types/`.
+
+Import direction: `app` → `features` → `components` → `hooks` → `lib`.
+
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for principles, naming conventions, and data flow.
 
 ## Getting Started
 
@@ -47,8 +56,8 @@ Personal website and portfolio built with Next.js. Showcase selected projects, G
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/abdurrozaqf/abdurrozaq-website
-cd abdurrozaq-website
+git clone https://github.com/abdurrozaqf/abdurrozaqf-website.git
+cd abdurrozaqf-website
 ```
 
 2. **Install dependencies**
@@ -61,11 +70,11 @@ npm install
 
    Copy `.env.example` to `.env.local` and fill in your credentials:
 
-| Variable                      | Description                                         |
-| ----------------------------- | --------------------------------------------------- |
-| `NEXT_PUBLIC_GITHUB_BASE_URL` | GitHub REST API base URL (`https://api.github.com`) |
-| `GITHUB_TOKEN`                | GitHub personal access token (Bearer)               |
-| `NEXT_PUBLIC_DOMAIN`          | Production site URL (used for SEO canonical links)  |
+| Variable                      | Description                                        |
+| ----------------------------- | -------------------------------------------------- |
+| `NEXT_PUBLIC_GITHUB_BASE_URL` | GitHub API base URL (`https://api.github.com`)     |
+| `GITHUB_TOKEN`                | GitHub personal access token (Bearer)              |
+| `NEXT_PUBLIC_DOMAIN`          | Production site URL (used for SEO canonical links) |
 
 Example:
 
@@ -85,47 +94,62 @@ npm run dev
 
 ## Scripts
 
-| Command         | Description                |
-| --------------- | -------------------------- |
-| `npm run dev`   | Start development server   |
-| `npm run build` | Create a production build  |
-| `npm run start` | Serve the production build |
-| `npm run lint`  | Run ESLint                 |
+| Command              | Description                                      |
+| -------------------- | ------------------------------------------------ |
+| `npm run dev`        | Start Next.js development server                 |
+| `npm run build`      | Production build (Next.js + OpenNext Cloudflare) |
+| `npm run start`      | Serve the local Next.js production build         |
+| `npm run lint`       | Run ESLint                                       |
+| `npm run preview`    | Build and preview on Cloudflare locally          |
+| `npm run deploy`     | Build and deploy to Cloudflare Workers           |
+| `npm run upload`     | Build and upload worker without full deploy flow |
+| `npm run cf-typegen` | Generate Cloudflare env TypeScript types         |
 
 ## Project Structure
 
 ```
 abdurrozaqf-website/
-├── public/                  # Static assets & project screenshots
+├── public/                     # Static assets & project screenshots
 ├── src/
-│   ├── action/              # Server actions (GitHub data fetching)
-│   ├── app/                 # Next.js App Router pages
-│   │   ├── about/           # About page
-│   │   ├── contact/         # Contact page
+│   ├── actions/                # Server actions (GitHub data fetching)
+│   ├── app/                    # Next.js App Router pages & metadata
+│   │   ├── about/
+│   │   ├── contact/
 │   │   ├── projects/
-│   │   │   └── [slug]/      # Project detail page
+│   │   │   └── [slug]/         # Project detail page
 │   │   ├── layout.tsx
-│   │   ├── page.tsx         # Homepage
+│   │   ├── page.tsx            # Homepage
 │   │   ├── manifest.ts
 │   │   ├── robots.ts
 │   │   └── sitemap.ts
-│   ├── common/
-│   │   ├── constant/        # Menu, metadata, stacks, repos, GitHub queries
-│   │   ├── mocks/           # Mock data (summary, etc.)
-│   │   └── types/           # Shared TypeScript types
 │   ├── components/
-│   │   ├── elements/        # Reusable UI elements (cards, marquee, …)
-│   │   ├── layouts/         # Navbar, footer, page shell
-│   │   └── ui/              # shadcn/ui primitives
-│   ├── hooks/               # React Query hooks & shared utilities
-│   ├── libs/                # Axios helpers, response utils
-│   ├── modules/             # Feature modules (home, projects, about, …)
-│   ├── providers/           # React Query, theme providers
-│   ├── services/
-│   │   └── apis/            # Axios client & API configs
-│   ├── styles/              # Global CSS
-│   └── utils/               # Formatters, motion helpers
-├── components.json          # shadcn/ui configuration
+│   │   ├── elements/           # Shared UI building blocks
+│   │   ├── layout/             # Navbar, footer, page shell
+│   │   └── ui/                 # shadcn/ui primitives
+│   ├── features/               # Feature modules (isolated by domain)
+│   │   ├── about/
+│   │   ├── contact/
+│   │   ├── dashboard/          # GitHub contributions widget
+│   │   ├── home/
+│   │   └── projects/
+│   ├── hooks/                  # Shared hooks & React Query keys
+│   │   └── query-keys/
+│   ├── lib/                    # Shared utilities & config
+│   │   ├── api/                # Legacy / unused API client stubs
+│   │   ├── constants/          # Menu, metadata, stacks, GitHub queries
+│   │   ├── mocks/              # Mock data (about summary, etc.)
+│   │   ├── axios.ts            # GitHub Axios clients
+│   │   ├── formatter.ts
+│   │   ├── motion.ts
+│   │   ├── response.ts
+│   │   └── utils.ts            # cn() helper (shadcn)
+│   ├── providers/              # App, React Query, and theme providers
+│   ├── styles/                 # Global CSS & theme transition
+│   ├── types/                  # Shared TypeScript types
+│   └── proxy.ts
+├── components.json             # shadcn/ui configuration
+├── open-next.config.ts         # OpenNext Cloudflare config
+├── wrangler.jsonc              # Cloudflare Workers config
 └── package.json
 ```
 
@@ -141,7 +165,7 @@ abdurrozaqf-website/
 
 ## API Integration
 
-GitHub data is fetched through a centralized Axios instance (`src/libs/axios.helper.ts`) and server actions (`src/action/github.ts`). Key integrations include:
+GitHub data is fetched through Axios helpers (`src/lib/axios.ts`) and server actions (`src/actions/github.ts`). Key integrations include:
 
 - **GraphQL** `contributionsCollection` — Contribution calendar for the homepage dashboard
 - **GraphQL** `repositories` — Filtered list of curated public repositories
@@ -151,12 +175,17 @@ Server components prefetch homepage and project data; client components use Reac
 
 ## Deployment
 
-The app is optimized for deployment on [Vercel](https://vercel.com/). Set the same environment variables in your hosting provider's dashboard before deploying.
+The app targets [Cloudflare Workers](https://workers.cloudflare.com/) via [OpenNext](https://opennext.js.org/cloudflare).
+
+1. Set the same environment variables (`GITHUB_TOKEN`, `NEXT_PUBLIC_GITHUB_BASE_URL`, `NEXT_PUBLIC_DOMAIN`) in your Cloudflare project.
+2. Preview locally, then deploy:
 
 ```bash
-npm run build
-npm run start
+npm run preview
+npm run deploy
 ```
+
+You can still run a plain Next.js production server locally with `npm run build` and `npm run start` if needed.
 
 ## Acknowledgments
 

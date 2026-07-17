@@ -12,9 +12,7 @@ export const metadata: Metadata = {
 const PAGE_TITLE = "Contact";
 const PAGE_DESCRIPTION = "Let`s get in touch";
 
-interface ContactPageProps {}
-
-export default function ContactPage({}: ContactPageProps) {
+export default function ContactPage() {
   return (
     <>
       <Container>
