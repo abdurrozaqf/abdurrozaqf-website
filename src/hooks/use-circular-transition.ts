@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useCallback } from "react";
-import { useTheme } from "@/hooks/use-theme";
+import { useTheme } from "next-themes";
 
 interface CircularTransitionHook {
   startTransition: (

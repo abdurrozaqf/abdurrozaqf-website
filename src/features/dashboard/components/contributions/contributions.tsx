@@ -1,10 +1,8 @@
 import { SiGithub } from "react-icons/si";
-import { Suspense } from "react";
 
 import SectionSubHeading from "@/components/elements/section-sub-heading";
 import SectionHeading from "@/components/elements/section-heading";
 
-import ContributionsLoading from "./contributions-loading";
 import ContributionStats from "./contribution-stats";
 
 export default async function Contributions() {
@@ -22,9 +20,7 @@ export default async function Contributions() {
           <p>@abdurrozaqf</p>
         </SectionSubHeading>
       </div>
-      <Suspense fallback={<ContributionsLoading />}>
-        <ContributionStats />
-      </Suspense>
+      <ContributionStats />
     </section>
   );
 }

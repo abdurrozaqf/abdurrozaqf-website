@@ -1,6 +1,6 @@
 import { getGithubData } from "@/actions/github";
-import Calendar from "./calendar";
 import { Contributions } from "@/types/response";
+import Calendar from "./calendar";
 
 export default async function ContributionStats() {
   const githubData = await getGithubData();
