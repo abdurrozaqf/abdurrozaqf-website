@@ -1,12 +1,13 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import type { ReactNode } from "react";
 
-interface Props {
-  children: React.ReactNode;
+interface ReactQueryProviderProps {
+  children: ReactNode;
 }
 
-export function ReactQueryProvider({ children }: Props) {
+export function ReactQueryProvider({ children }: ReactQueryProviderProps) {
   const queryClient = new QueryClient({
     // queryCache: new QueryCache({
     //   onError: (error: unknown) => {
@@ -28,7 +29,7 @@ export function ReactQueryProvider({ children }: Props) {
     // }),
     defaultOptions: {
       queries: {
-        retry: 0,
+        retry: 2,
         refetchOnWindowFocus: true,
       },
     },
