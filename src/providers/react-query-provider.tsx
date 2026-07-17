@@ -1,7 +1,7 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import type { ReactNode } from "react";
+import { type ReactNode } from "react";
 
 interface ReactQueryProviderProps {
   children: ReactNode;
@@ -9,28 +9,11 @@ interface ReactQueryProviderProps {
 
 export function ReactQueryProvider({ children }: ReactQueryProviderProps) {
   const queryClient = new QueryClient({
-    // queryCache: new QueryCache({
-    //   onError: (error: unknown) => {
-    //     const axiosError = error as AxiosError;
-    //     if (axiosError?.response?.status === 401) {
-    //       console.log("Session expired");
-    //       router.push("/login");
-    //     }
-    //   },
-    // }),
-    // mutationCache: new MutationCache({
-    //   onError: (error: unknown) => {
-    //     const axiosError = error as AxiosError;
-    //     if (axiosError?.response?.status === 401) {
-    //       console.log("Session expired");
-    //       router.push("/login");
-    //     }
-    //   },
-    // }),
     defaultOptions: {
       queries: {
-        retry: 2,
+        retry: 0,
         refetchOnWindowFocus: true,
+        staleTime: 1000 * 60,
       },
     },
   });

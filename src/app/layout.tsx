@@ -9,7 +9,7 @@ import { METADATA } from "@/lib/constants/metadata";
 import Layouts from "@/components/layout";
 import { cn } from "@/lib/utils";
 
-const playfairDisplayHeading = Playfair_Display({
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
@@ -72,12 +72,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={cn(
-        "w-full h-full antialiased",
-        inter.variable,
-        playfairDisplayHeading.variable
-      )}
       suppressHydrationWarning
+      className={cn(
+        "w-full h-full antialiased dark",
+        playfairDisplay.variable,
+        inter.variable
+      )}
     >
       <body className={cn("w-full h-min overflow-y-auto overflow-x-hidden")}>
         <AppProviders>

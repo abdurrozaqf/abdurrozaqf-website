@@ -11,11 +11,16 @@ interface AppProvidersProps {
 
 export default function AppProviders({ children }: AppProvidersProps) {
   return (
-    <ReactQueryProvider>
-      <ThemeProvider defaultTheme="system">
+    <ThemeProvider
+      enableSystem
+      attribute="class"
+      defaultTheme="dark"
+      disableTransitionOnChange
+    >
+      <ReactQueryProvider>
         <TooltipProvider>{children}</TooltipProvider>
         <Toaster position="top-right" richColors />
-      </ThemeProvider>
-    </ReactQueryProvider>
+      </ReactQueryProvider>
+    </ThemeProvider>
   );
 }
