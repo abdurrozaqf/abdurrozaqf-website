@@ -74,12 +74,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
       lang="en"
       suppressHydrationWarning
       className={cn(
-        "w-full h-full antialiased dark",
+        "w-full h-full antialiased",
         playfairDisplay.variable,
         inter.variable
       )}
     >
-      <body className={cn("w-full h-min overflow-y-auto overflow-x-hidden")}>
+      <body
+        suppressHydrationWarning
+        className={cn("w-full h-min overflow-y-auto overflow-x-hidden")}
+      >
         <AppProviders>
           <Layouts>{children}</Layouts>
         </AppProviders>
