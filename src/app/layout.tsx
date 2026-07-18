@@ -6,7 +6,7 @@ import "@/styles/globals.css";
 
 import AppProviders from "@/providers/app-providers";
 import { METADATA } from "@/lib/constants/metadata";
-import Layouts from "@/components/layout";
+import Layouts from "@/components/layouts";
 import { cn } from "@/lib/utils";
 
 const playfairDisplay = Playfair_Display({

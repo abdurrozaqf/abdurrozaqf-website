@@ -4,7 +4,7 @@ import React, { lazy, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import AOS from "aos";
 
-import Navbar from "./navbar/index";
+import Navbar from "./navbar";
 import "aos/dist/aos.css";
 
 const Footer = lazy(() => import("./footer"));
