@@ -1,17 +1,25 @@
-"use client";
+import type { ComponentProps } from "react";
+import { cn } from "@/lib/utils";
 
-import { ReactNode } from "react";
-
-interface ContainerProps {
-  children: ReactNode;
-  className?: string;
-  [propName: string]: ReactNode | string | undefined;
-}
-
-export default function Container({ children, ...others }: ContainerProps) {
+function Container({ className, ...others }: ComponentProps<"section">) {
   return (
-    <div className="mb-10 p-4 md:p-8" {...others}>
-      {children}
-    </div>
+    <section
+      className={cn(
+        "relative w-full px-3 md:px-5 xl:px-10 border-b",
+        className
+      )}
+      {...others}
+    />
   );
 }
+
+function ContainerContent({ className, ...others }: ComponentProps<"div">) {
+  return (
+    <div
+      className={cn("mx-auto max-w-container-max w-full", className)}
+      {...others}
+    />
+  );
+}
+
+export { Container, ContainerContent };

@@ -29,6 +29,9 @@ export interface Repositories {
   updatedAt: Date;
   isFork: boolean;
   primaryLanguage: { name: string };
+  repositoryTopics: {
+    nodes: [{ topic: { name: string } }];
+  };
   stargazerCount: number;
   forkCount: number;
   url: string;

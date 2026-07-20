@@ -1,53 +1,18 @@
-"use client";
-
-import React, { lazy, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import AOS from "aos";
+import type { ReactNode } from "react";
 
 import Navbar from "./navbar";
-import "aos/dist/aos.css";
-
-const Footer = lazy(() => import("./footer"));
+import Footer from "./footer";
 
 interface LayoutsProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function Layouts({ children }: LayoutsProps) {
-  const pathname = usePathname();
-  const url = [
-    "/projects/hi-SPEC",
-    "/projects/cloudbite",
-    "/projects/sinau-apps",
-    "/projects/byek-movies",
-    "/projects/pokedex-app",
-    "/projects/real-estate-landing-page",
-  ];
-
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      delay: 50,
-    });
-  }, []);
-
   return (
-    <div className="flex flex-col justify-center">
-      <div className="w-full lg:min-h-screen flex flex-col items-center">
-        <div
-          className={`w-full lg:max-w-[854px] transition-all duration-300 ${
-            url.includes(pathname)
-              ? "-translate-y-10 opacity-0"
-              : "translate-y-0 opacity-100"
-          }`}
-        >
-          <Navbar />
-        </div>
-        <main className="w-full flex-1 scroll-smooth transition-all duration-300 lg:max-w-[854px]">
-          {children}
-        </main>
-        <Footer />
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <main className="flex-1 w-full mx-auto scroll-smooth">{children}</main>
+      <Footer />
+    </>
   );
 }

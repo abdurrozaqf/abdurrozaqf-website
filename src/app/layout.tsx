@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Bebas_Neue, JetBrains_Mono } from "next/font/google";
 import { Metadata } from "next";
 
 import "@/styles/circular-transition.css";
@@ -9,15 +9,22 @@ import { METADATA } from "@/lib/constants/metadata";
 import Layouts from "@/components/layouts";
 import { cn } from "@/lib/utils";
 
-const playfairDisplay = Playfair_Display({
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const bebasNeue = Bebas_Neue({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
 });
 
-const inter = Inter({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -75,8 +82,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       suppressHydrationWarning
       className={cn(
         "w-full h-full antialiased",
-        playfairDisplay.variable,
-        inter.variable
+        inter.variable,
+        bebasNeue.variable,
+        jetbrainsMono.variable
       )}
     >
       <body

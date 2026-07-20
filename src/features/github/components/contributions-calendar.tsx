@@ -11,16 +11,17 @@ import {
 
 import { formatDate } from "@/lib/formatter";
 import { Contributions } from "@/types/response";
+import { cn } from "@/lib/utils";
 
-const WEEK_GAP = 2.9;
-const DAY_DOT_SIZE = 12;
-const WEEK_COLUMN_WIDTH = DAY_DOT_SIZE + WEEK_GAP;
+const DAY_DOT_SIZE = 14;
 
-interface CalendarProps {
+interface ContributionsCalendarProps {
   data?: Contributions;
 }
 
-export default function Calendar({ data }: CalendarProps) {
+export default function ContributionsCalendar({
+  data,
+}: ContributionsCalendarProps) {
   const weeks = useMemo(() => data?.weeks ?? [], [data?.weeks]);
   const months = useMemo(() => data?.months ?? [], [data?.months]);
   const CONTRIBUTION_COLORS = useMemo(() => data?.colors ?? [], [data?.colors]);
@@ -49,10 +50,10 @@ export default function Calendar({ data }: CalendarProps) {
         return {
           name: month.name,
           firstDay: month.firstDay,
-          left: startWeekIndex >= 0 ? startWeekIndex * WEEK_COLUMN_WIDTH : null,
+          weekIndex: startWeekIndex >= 0 ? startWeekIndex : null,
         };
       })
-      .filter((month) => month.left !== null);
+      .filter((month) => month.weekIndex !== null);
 
     return labels.filter((month, index) => {
       if (index === 0) {
@@ -60,36 +61,42 @@ export default function Calendar({ data }: CalendarProps) {
       }
 
       const previousMonth = labels[index - 1];
-      if (previousMonth.left === null || month.left === null) {
+      if (previousMonth.weekIndex === null || month.weekIndex === null) {
         return false;
       }
 
-      return month.left - previousMonth.left >= WEEK_COLUMN_WIDTH * 2;
+      return month.weekIndex - previousMonth.weekIndex >= 2;
     });
-  }, [months, weeks, WEEK_COLUMN_WIDTH]);
+  }, [months, weeks]);
 
   return (
-    <section>
+    <section className="w-full min-w-0 space-y-4">
       <div className="relative flex flex-col">
-        <div className="flex justify-end lg:justify-start">
+        <div className="flex justify-end w-full overflow-hidden">
           <div
-            className="relative"
-            style={{ width: weeks.length * WEEK_COLUMN_WIDTH - WEEK_GAP }}
+            className="relative w-full"
+            style={{ minWidth: weeks.length * DAY_DOT_SIZE }}
           >
             <ul className="relative h-5 overflow-hidden text-xs dark:text-neutral-400">
               {MONTH_LABELS.map((month) => (
                 <li
                   key={month.firstDay}
                   className="absolute top-0"
-                  style={{ left: month.left ?? 0 }}
+                  style={{
+                    left: `${
+                      ((month.weekIndex ?? 0) / Math.max(weeks.length, 1)) * 100
+                    }%`,
+                  }}
                 >
                   {month.name}
                 </li>
               ))}
             </ul>
             <div
-              className="flex overflow-hidden"
-              style={{ columnGap: `${WEEK_GAP}px` }}
+              className={cn("grid w-full overflow-hidden")}
+              style={{
+                gridTemplateColumns: `repeat(${weeks.length}, minmax(${DAY_DOT_SIZE}px, 1fr))`,
+              }}
             >
               {weeks.map((week) => (
                 <div key={week.firstDay}>
@@ -119,7 +126,9 @@ export default function Calendar({ data }: CalendarProps) {
                                 transition: { delay: animateDelay },
                               },
                             }}
-                            className="block my-[2.9px] h-[12px] w-[12px] rounded-sm bg-slate-300 dark:bg-slate-800"
+                            className={cn(
+                              "block my-1 rounded border bg-foreground/10 size-3.5"
+                            )}
                             style={
                               backgroundColor ? { backgroundColor } : undefined
                             }
@@ -137,13 +146,13 @@ export default function Calendar({ data }: CalendarProps) {
         </div>
       </div>
       <div className="flex items-center justify-between pr-2">
-        <p className="text-[12px] md:text-sm">
+        <p className="text-sm">
           {TOTAL_CONTRIBUTIONS} contributions in the last year
         </p>
         <div className="flex items-center gap-2 text-sm">
           <p className="dark:text-neutral-400">Less</p>
           <ul className="flex gap-1">
-            <motion.li className="h-[10px] w-[10px] md:h-[12px] md:w-[12px] rounded-sm bg-neutral-300 dark:bg-neutral-800" />
+            <motion.li className="size-3.5 rounded bg-foreground/10" />
             {CONTRIBUTION_COLORS.map((item, index) => (
               <motion.li
                 key={item}
@@ -156,12 +165,12 @@ export default function Calendar({ data }: CalendarProps) {
                     transition: { delay: index * 0.3 },
                   },
                 }}
-                className="h-[10px] w-[10px] md:h-[12px] md:w-[12px] rounded-sm"
+                className="size-3.5 rounded"
                 style={{ backgroundColor: item }}
               />
             ))}
           </ul>
-          <p className="text-[12px] md:text-sm">More</p>
+          <p className="text-sm">More</p>
         </div>
       </div>
     </section>
