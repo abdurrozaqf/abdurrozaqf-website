@@ -1,0 +1,59 @@
+{
+  "established": "2018",
+  "specialty": "Front-End Specialist",
+  "portrait": "/profile-picture.jpg",
+  "cvHref": "/Abdur Rozaq Fakhruddin - Resume.pdf",
+  "story": {
+    "lead": "I view code not just as a set of instructions, but as a digital architecture that requires structural integrity. My journey began at the intersection of educational technology and modern web engineering, where I discovered the power of precise interfaces.",
+    "paragraphs": [
+      "I'm a bachelor of Educational Technology and a Front-End Engineer enthusiast. Through the Immersive IT Bootcamp at Alterra Academy, I deepened my craft across JavaScript, UI/UX, Git, React.js, Next.js, Tailwind CSS, REST APIs, and deployment with Vercel.",
+      "I specialize in resilient, accessible, and performant systems—stripping away the unnecessary to reveal the essential. I thrive between design and development, translating clean aesthetics into fluid interactive experiences. Build for longevity. Code for precision. Design for humans."
+    ]
+  },
+  "experience": [
+    {
+      "title": "Front-End Engineer",
+      "company": "PRIMUSE",
+      "period": "Mar 2024 — Jul 2026",
+      "current": true,
+      "description": "Building high-performance web applications with React, Next.js, and TypeScript. Focused on lighthouse scores above 90%, responsive design, and production-ready interfaces.",
+      "tags": [
+        "TypeScript",
+        "React/Next.js",
+        "AWS",
+        "Cloudflare",
+        "CI/CD",
+        "REST APIs"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Core Tech",
+      "items": [
+        { "name": "TypeScript", "icon": "terminal" },
+        { "name": "React/Next.js", "icon": "code" },
+        { "name": "Tailwind CSS", "icon": "palette" },
+        { "name": "Zustand", "icon": "layers" },
+        { "name": "React Query", "icon": "database" }
+      ]
+    },
+    {
+      "category": "Engineering",
+      "items": [
+        { "name": "GitHub", "icon": "git" },
+        { "name": "Figma", "icon": "pen" },
+        { "name": "AWS Amplify", "icon": "cloud" },
+        { "name": "Cloudflare", "icon": "cloud" }
+      ]
+    },
+    {
+      "category": "Tools",
+      "items": [
+        { "name": "Figma", "icon": "pen" },
+        { "name": "GitHub Actions", "icon": "git" },
+        { "name": "REST / GraphQL", "icon": "database" }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,12 @@
 import type { TContributions, TResponseGithubOverview } from "../types/github";
 
+const EXCLUDED_REPOS = [
+  "frontend-technical-test",
+  "abdurrozaqf",
+  "no-ones",
+  "BE-no-ones",
+];
+
 interface Props {
   data: TResponseGithubOverview;
 }
@@ -8,7 +15,7 @@ export function mapGithubOverview({ data }: Props) {
   const overview = data.user;
   const pinnedRepos = overview.pinnedItems.nodes;
   const repos = overview.repositories.nodes.filter(
-    (repo) => repo.name !== "frontend-technical-test"
+    (repo) => !EXCLUDED_REPOS.includes(repo.name)
   );
 
   const latestRepo = repos.toSorted(

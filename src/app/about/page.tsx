@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {};
+import AboutPage from "@/features/about";
 
-export default async function Page() {
-  return <div>page</div>;
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Engineering philosophy, experience, and technical toolkit of Abdur Rozaq Fakhruddin — Front-End Engineer.",
+};
+
+export default function Page() {
+  return <AboutPage />;
 }
