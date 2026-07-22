@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
-// import { redirect } from "next/navigation";
 import { AxiosError } from "axios";
-import { BaseResponse, Pagination } from "@/types/api";
 
-// import { BaseResponse, Pagination } from "@/types/response.type";
-// import { deleteLocalSession } from "@/actions/auth.action";
+import type { BaseResponse, Pagination } from "@/types/api";
 
 const ResponseHelper = {
-  apiSuccess: <T>(message: string, data: T, pagination?: Pagination): NextResponse => {
+  apiSuccess: <T>(
+    message: string,
+    data: T,
+    pagination?: Pagination
+  ): NextResponse => {
     return NextResponse.json(
       {
         success: true,
@@ -41,7 +42,7 @@ const ResponseHelper = {
     );
   },
   error: (message: string, error?: unknown) => {
-    const status = error instanceof AxiosError ? error.response?.status : 500;
+    // const status = error instanceof AxiosError ? error.response?.status : 500;
     // if (status === 401) {
     //   deleteLocalSession();
     //   redirect("/login");
@@ -49,7 +50,8 @@ const ResponseHelper = {
 
     return {
       success: false,
-      message: error instanceof AxiosError ? error.response?.data.message : message,
+      message:
+        error instanceof AxiosError ? error.response?.data.message : message,
       data: null,
     };
   },

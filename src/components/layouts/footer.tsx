@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-import { PORTFOLIO } from "@/lib/constants/portfolio";
-
+import { SOCIAL_MEDIA } from "@/constants/social-media";
 export default function PortfolioFooter() {
   const currentYear = new Date().getFullYear();
 
@@ -22,7 +21,7 @@ export default function PortfolioFooter() {
       <div className="flex flex-col justify-between col-span-1 p-6 md:col-span-2 md:p-12">
         <span className="block mb-8 modular-label">[ 10 // CONNECT ]</span>
         <div className="grid grid-cols-2 gap-8">
-          {PORTFOLIO.socials.map((social) => {
+          {SOCIAL_MEDIA.map((social) => {
             const isExternal = social.href.startsWith("http");
             return (
               <Link

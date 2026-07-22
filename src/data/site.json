@@ -1,0 +1,25 @@
+{
+  "brand": "codur.dev",
+  "name": "Abdur Rozaq F",
+  "role": "Front-End Engineer",
+  "status": "Available for hire",
+  "location": "Remote / Indonesia",
+  "timezone": "UTC+07",
+  "intro": "Architecting high-performance digital interfaces with technical precision and editorial finesse. Focused on the intersection of clean systems and front-end engineering.",
+  "intro_2": "Passionate and seasoned Software Engineer with a strong focus on frontend development. Proficient in TypeScript and well-versed in all aspects of web technologies. Collaborative team player dedicated to delivering efficient, scalable, and visually appealing web applications.",
+  "stacks": [
+    "React / Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Prisma",
+    "Supabase"
+  ],
+  "socials": [
+    { "title": "GitHub", "href": "https://github.com/abdurrozaqf" },
+    {
+      "title": "LinkedIn",
+      "href": "https://www.linkedin.com/in/abdurrozaqfakhruddin/"
+    },
+    { "title": "Contact", "href": "/contact" }
+  ]
+}

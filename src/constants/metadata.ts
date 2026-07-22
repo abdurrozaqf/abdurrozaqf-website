@@ -3,6 +3,7 @@ export const METADATA = {
   authors: {
     name: "Abdur Rozaq Fakhruddin",
     url: "https://codur.dev/",
+    role: "Front-end Engineer",
   },
   creator: "Abdur Rozaq F",
   description:

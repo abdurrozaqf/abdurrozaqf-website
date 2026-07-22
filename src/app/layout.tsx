@@ -5,9 +5,9 @@ import "@/styles/circular-transition.css";
 import "@/styles/globals.css";
 
 import AppProviders from "@/providers/app-providers";
-import { METADATA } from "@/lib/constants/metadata";
+import { METADATA } from "@/constants/metadata";
 import Layouts from "@/components/layouts";
-import { cn } from "@/lib/utils";
+import { cn } from "@/libs/utils";
 
 const inter = Inter({
   subsets: ["latin"],
