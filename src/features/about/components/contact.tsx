@@ -6,9 +6,7 @@ import SectionHeading from "@/components/elements/section-heading";
 
 import Contact from "@/features/contact";
 
-interface ContactProps {}
-
-export default function Contacts({}: ContactProps) {
+export default function Contacts() {
   return (
     <section className="space-y-6">
       <div className="space-y-2">

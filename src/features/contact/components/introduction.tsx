@@ -8,7 +8,7 @@ export default function Introduction() {
         welcome. Whether you need assistance with a project, guidance on a
         particular issue, or simply want to connect, feel free to reach out to
         me at any time. I value open communication and am dedicated to providing
-        support and solutions whenever needed. Don't hesitate to send me an
+        support and solutions whenever needed. Don&apos;t hesitate to send me an
         email, give me a call, or reach out through any other convenient means.
         I look forward to assisting you and engaging in productive discussions.
       </p>

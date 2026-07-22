@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-import { SOCIAL_MEDIA } from "@/lib/constants/social-media";
+import { SOCIAL_MEDIA } from "@/constants/social-media";
 
 export default function SocialMediaList() {
   return (

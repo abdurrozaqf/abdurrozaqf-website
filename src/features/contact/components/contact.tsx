@@ -1,5 +1,3 @@
-import React from "react";
-
 import SocialMediaList from "./social-media-list";
 import Introduction from "./introduction";
 

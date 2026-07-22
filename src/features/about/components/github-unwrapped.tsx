@@ -1,7 +1,3 @@
-import React from "react";
-
-type Props = {};
-
-export default function GitHubUnwrapped({}: Props) {
+export default function GitHubUnwrapped() {
   return <div>GitHubUnwrapped</div>;
 }
