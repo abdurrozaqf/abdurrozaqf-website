@@ -1,19 +1,37 @@
-import { lazy } from "react";
+import ProjectsSection from "./projects-section";
+import StatusSection from "./status-section";
+import StatsSection from "./stats-section";
+import HeroSection from "./hero-section";
+import { getGithubContributions, getGithubOverview } from "@/features/github";
 
-import { Separator } from "@/components/ui/separator";
-import Dashboard from "@/features/dashboard";
-import Introductions from "./introductions";
+export default async function HomePage() {
+  const [overview_res, contributions_res] = await Promise.all([
+    getGithubOverview(),
+    getGithubContributions(),
+  ]);
 
-const SkillList = lazy(() => import("./skill-list"));
+  if (!overview_res?.data || !contributions_res?.data) {
+    return null;
+  }
 
-export default function Home() {
+  const { stats, repositories, pinnedRepositories } = overview_res.data;
+
+  const featured_project = repositories[0];
+  const secondary_projects = repositories.slice(1, 3);
+
   return (
     <>
-      <Introductions />
-      <Separator className="my-6" />
-      <Dashboard />
-      <Separator className="my-6" />
-      <SkillList />
+      <HeroSection />
+      <StatusSection />
+      <ProjectsSection
+        featuredProject={featured_project}
+        secondaryProjects={secondary_projects}
+      />
+      <StatsSection
+        contributions={contributions_res?.data}
+        pinned_repositories={pinnedRepositories}
+        stats={stats}
+      />
     </>
   );
 }
