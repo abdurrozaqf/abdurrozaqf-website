@@ -9,23 +9,31 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import { formatDate } from "@/lib/formatter";
-import { Contributions } from "@/types/response";
-import { cn } from "@/lib/utils";
+import { formatDateLong } from "@/utils/formatter";
+import { TContributions } from "@/features/github";
+import { cn } from "@/libs/utils";
 
 const DAY_DOT_SIZE = 14;
 
-interface ContributionsCalendarProps {
-  data?: Contributions;
+interface Props {
+  data?: TContributions;
 }
 
-export default function ContributionsCalendar({
-  data,
-}: ContributionsCalendarProps) {
-  const weeks = useMemo(() => data?.weeks ?? [], [data?.weeks]);
-  const months = useMemo(() => data?.months ?? [], [data?.months]);
-  const CONTRIBUTION_COLORS = useMemo(() => data?.colors ?? [], [data?.colors]);
-  const TOTAL_CONTRIBUTIONS = data?.totalContributions ?? 0;
+export default function ContributionsCalendar({ data }: Props) {
+  const {
+    weeks,
+    months,
+    colors: CONTRIBUTION_COLORS,
+    totalContributions: TOTAL_CONTRIBUTIONS,
+  } = useMemo(
+    () => ({
+      weeks: data?.weeks ?? [],
+      months: data?.months ?? [],
+      colors: data?.colors ?? [],
+      totalContributions: data?.totalContributions ?? 0,
+    }),
+    [data]
+  );
 
   const RANDOM_DELAY_BY_DATE = useMemo(() => {
     const delayMap = new Map<string, number>();
@@ -107,10 +115,14 @@ export default function ContributionsCalendar({
                       RANDOM_DELAY_BY_DATE.get(contribution.date) ?? 0;
                     const tooltipText =
                       contribution.contributionCount === 0
-                        ? `No contributions on ${formatDate(contribution.date)}`
+                        ? `No contributions on ${formatDateLong(
+                            contribution.date
+                          )}`
                         : `${
                             contribution.contributionCount
-                          } contributions on ${formatDate(contribution.date)}`;
+                          } contributions on ${formatDateLong(
+                            contribution.date
+                          )}`;
 
                     return (
                       <Tooltip key={contribution.date}>

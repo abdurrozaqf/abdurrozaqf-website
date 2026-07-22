@@ -1,15 +1,19 @@
 import { FolderCodeIcon, GitForkIcon, StarIcon } from "lucide-react";
 import Link from "next/link";
 
-import { PORTFOLIO } from "@/lib/constants/portfolio";
-import type { Repositories } from "@/types/response";
+import { GITHUB_ACCOUNTS } from "@/features/github";
+import type { TRepositories } from "@/features/github";
 
-export default function Repositories({ repos }: { repos: Repositories[] }) {
+interface Props {
+  repositories: TRepositories[] | undefined;
+}
+
+export default function PinnedRepositories({ repositories }: Props) {
   return (
     <div className="grid grid-cols-1 gap-px p-px md:grid-cols-2 bg-foreground/20">
-      {repos.length > 0 ? (
+      {repositories?.length && repositories?.length > 0 ? (
         <>
-          {repos.map((repo) => {
+          {repositories?.map((repo) => {
             return (
               <Link
                 key={repo.name}
@@ -25,7 +29,8 @@ export default function Repositories({ repos }: { repos: Repositories[] }) {
                   </span>
                 </div>
                 <p className="mb-8 text-sm leading-5 text-muted-foreground line-clamp-2">
-                  {repo.description || `Open-source work by ${PORTFOLIO.name}.`}
+                  {repo.description ||
+                    `Open-source work by ${GITHUB_ACCOUNTS.username}.`}
                 </p>
                 <div className="flex items-center gap-6 mb-4">
                   <div className="flex items-center gap-2">
@@ -57,7 +62,9 @@ export default function Repositories({ repos }: { repos: Repositories[] }) {
             );
           })}
 
-          {repos.length % 2 !== 0 && <div className="flex-1 bg-background" />}
+          {repositories?.length && repositories?.length % 2 !== 0 && (
+            <div className="flex-1 bg-background" />
+          )}
         </>
       ) : (
         <div className="col-span-full bg-[#0a0a0a] p-8 font-mono text-xs uppercase text-muted-foreground">
