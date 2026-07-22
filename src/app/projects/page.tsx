@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {};
+import ProjectsPage from "@/features/projects";
 
-export default async function Page() {
-  return <div>page</div>;
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "A curated collection of technical explorations focusing on high-performance interfaces, brutalist aesthetics, and seamless user interaction.",
+};
+
+export default function Page() {
+  return <ProjectsPage />;
 }
