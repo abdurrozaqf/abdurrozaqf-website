@@ -6,8 +6,8 @@ import ExperienceItem from "./experience-item";
 export default function AboutExperience() {
   return (
     <Container>
-      <ContainerContent className="grid grid-cols-1 col-span-4 md:grid-cols-4 border-x">
-        <div className="col-span-1 p-6 bg-muted/20 md:p-12 md:border-r">
+      <ContainerContent className="grid grid-cols-1 col-span-4 divide-y md:grid-cols-4 border-x md:divide-y-0 md:divide-x">
+        <div className="col-span-1 p-6 bg-muted/20 md:p-12">
           <span className="block mb-6 modular-label md:mb-8">
             [ 03 // TRACK RECORD ]
           </span>
@@ -16,7 +16,7 @@ export default function AboutExperience() {
           </h2>
         </div>
 
-        <div className="col-span-1 divide-y-2 divide-foreground md:col-span-3">
+        <div className="col-span-1 divide-y md:col-span-3">
           {about.experience.map((role) => (
             <ExperienceItem
               key={`${role.company}-${role.period}`}

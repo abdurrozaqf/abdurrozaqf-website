@@ -17,7 +17,8 @@ export default function AboutHero() {
             <span className="text-muted-foreground">PHILOSOPHY</span>
           </h1>
           <div className="font-mono text-xs uppercase tracking-[0.2em] text-foreground">
-            {`[ EST. ${about.established} / ${about.specialty.toUpperCase()} ]`}
+            {/* {`[ EST. ${about.established} / ${about.specialty.toUpperCase()} ]`} */}
+            {`[ ${about.specialty.toUpperCase()} ]`}
           </div>
         </div>
 

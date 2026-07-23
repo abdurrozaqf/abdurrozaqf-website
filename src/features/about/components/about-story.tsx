@@ -15,7 +15,7 @@ export default function AboutStory() {
         </div>
 
         <div className="flex flex-col col-span-1 gap-8 p-6 md:col-span-3 md:p-12">
-          <p className="max-w-3xl text-xl leading-relaxed md:text-2xl">
+          <p className="max-w-3xl text-lg leading-relaxed md:text-xl">
             {about.story.lead}
           </p>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
