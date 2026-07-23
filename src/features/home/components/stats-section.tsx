@@ -5,6 +5,7 @@ import { useMemo, lazy } from "react";
 import { Container, ContainerContent } from "@/components/elements/container";
 import type { TContributions, TRepositories } from "@/features/github";
 import { formatDate } from "@/utils/formatter";
+import { cn } from "@/libs/utils";
 
 const ContributionCalendar = lazy(
   () => import("@/features/github/components/contributions-calendar")
@@ -108,7 +109,17 @@ export default function StatsSection(props: Props) {
                 className="flex justify-between mb-2 font-mono text-xs uppercase"
               >
                 <span>{stat.label}</span>
-                <span className="text-muted-foreground">{stat.value}</span>
+                <span
+                  className={cn(
+                    "text-muted-foreground",
+                    stat.label === "Last Updated" ||
+                      stat.label === "Latest Repo"
+                      ? "tracking-tighter"
+                      : ""
+                  )}
+                >
+                  {stat.value}
+                </span>
               </div>
             ))}
           </div>
