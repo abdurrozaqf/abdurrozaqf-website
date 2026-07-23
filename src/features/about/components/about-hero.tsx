@@ -24,12 +24,12 @@ export default function AboutHero() {
 
         <div className="relative hidden overflow-hidden grayscale contrast-125 md:block md:col-span-1 min-h-64">
           <Image
-            src={about.portrait}
-            alt="Engineer portrait"
             fill
-            className="object-cover"
-            sizes="25vw"
             priority
+            sizes="25vw"
+            src={about.portrait}
+            className="object-cover"
+            alt="Profile Picture of Abdur Rozaq Fakhruddin"
           />
         </div>
       </ContainerContent>

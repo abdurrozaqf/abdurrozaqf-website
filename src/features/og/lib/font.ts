@@ -3,6 +3,13 @@ import { OG_FONT } from "../constants";
 const FONT_CACHE = new Map<string, ArrayBuffer>();
 
 /**
+ * Google Fonts CSS varies by User-Agent. This older Safari UA returns
+ * TTF/OTF, which `next/og` (Satori) can embed reliably.
+ */
+const GOOGLE_FONTS_USER_AGENT =
+  "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1";
+
+/**
  * Loads a Google Font once per isolate and reuses the buffer.
  * Omits the `text` subset so one cached file covers every repo title.
  */
@@ -23,8 +30,9 @@ export async function loadOgFont(
   const cssResponse = await fetch(
     `https://fonts.googleapis.com/css2?${params.toString()}`,
     {
-      // Font CSS rarely changes; keep it warm at the edge.
-      next: { revalidate: 60 * 60 * 24 * 30 },
+      headers: {
+        "User-Agent": GOOGLE_FONTS_USER_AGENT,
+      },
     }
   );
 
@@ -41,9 +49,7 @@ export async function loadOgFont(
     throw new Error(`Could not resolve font source for ${family}`);
   }
 
-  const fontResponse = await fetch(match[1], {
-    next: { revalidate: 60 * 60 * 24 * 30 },
-  });
+  const fontResponse = await fetch(match[1]);
 
   if (!fontResponse.ok) {
     throw new Error(`Failed to fetch font file for ${family}`);

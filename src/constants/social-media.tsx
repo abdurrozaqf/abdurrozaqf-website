@@ -22,7 +22,7 @@ export const SOCIAL_MEDIA = [
   },
   {
     title: "Email",
-    href: "mailto:abdurrozaqfakhruddin@gmail.com",
+    href: "mailto:rozaqa27@gmail.com",
     icon: <MailIcon size={iconSize} />,
     backgroundColor: "bg-green-600",
   },

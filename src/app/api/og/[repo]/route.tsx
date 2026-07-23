@@ -12,8 +12,6 @@ import {
   RepoOgCard,
 } from "@/features/og";
 
-export const runtime = "edge";
-
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ repo: string }> }
