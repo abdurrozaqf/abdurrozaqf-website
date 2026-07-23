@@ -18,7 +18,7 @@ export default function ProjectsHeader({ projectCount }: ProjectsHeaderProps) {
           <h1 className="mb-6 font-heading text-[64px] uppercase leading-[0.85] tracking-tight md:mb-8 md:text-[100px] lg:text-[120px]">
             PROJECTS
           </h1>
-          <p className="max-w-2xl text-lg leading-relaxed border-l-2 border-foreground pl-6 text-muted-foreground md:text-xl">
+          <p className="max-w-2xl pl-6 text-lg leading-relaxed border-l-2 border-foreground text-muted-foreground md:text-xl">
             Building digital experiences with precision. A curated collection of
             technical explorations focusing on high-performance interfaces,
             brutalist aesthetics, and seamless user interaction.

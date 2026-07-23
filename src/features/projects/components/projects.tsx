@@ -2,7 +2,7 @@ import { getGithubOverview } from "@/features/github";
 
 import ProjectsHeader from "./projects-header";
 import ProjectLists from "./project-lists";
-import ProjectsCta from "./projects-cta";
+// import ProjectsCta from "./projects-cta";
 
 const SELECTED_WORKS_LIMIT = 6;
 
@@ -19,7 +19,7 @@ export default async function ProjectsPage() {
     <>
       <ProjectsHeader projectCount={projects.length} />
       <ProjectLists projects={projects} />
-      <ProjectsCta />
+      {/* <ProjectsCta /> */}
     </>
   );
 }

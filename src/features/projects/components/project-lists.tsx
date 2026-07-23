@@ -21,32 +21,33 @@ export default function ProjectLists({ projects }: ProjectListsProps) {
             TECHNICAL_REPOSITORY
           </h3>
           <span className="hidden font-mono text-[10px] uppercase tracking-widest text-background/60 sm:inline">
-            Filtered by: Excellence
+            Filtered by: Latest updates
           </span>
         </ContainerContent>
       </Container>
 
       <Container>
-        <ContainerContent className="grid grid-cols-1 md:grid-cols-4 border-x">
-          {featured.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={index}
-              variant="featured"
-              showRightBorder={index < featured.length - 1}
-            />
-          ))}
-
-          {compact.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={index + FEATURED_COUNT}
-              variant="compact"
-              showRightBorder={(index + 1) % 4 !== 0}
-            />
-          ))}
+        <ContainerContent className="divide-y border-x">
+          <ul className="grid grid-cols-1 divide-y md:divide-y-0 md:divide-x md:grid-cols-4">
+            {featured.map((project, index) => (
+              <ProjectCard
+                index={index}
+                key={project.id}
+                project={project}
+                variant="featured"
+              />
+            ))}
+          </ul>
+          <ul className="grid grid-cols-1 divide-y md:divide-y-0 md:divide-x md:grid-cols-4">
+            {compact.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index + FEATURED_COUNT}
+                variant="compact"
+              />
+            ))}
+          </ul>
         </ContainerContent>
       </Container>
     </>

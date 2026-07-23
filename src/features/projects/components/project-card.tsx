@@ -1,18 +1,14 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
 import type { TRepositories } from "@/features/github";
 import { getRepositoryOgImage } from "@/features/og";
-import { MotionDiv } from "@/libs/motion";
 import { cn } from "@/libs/utils";
 
 interface ProjectCardProps {
   project: TRepositories;
   index: number;
   variant?: "featured" | "compact";
-  showRightBorder?: boolean;
 }
 
 function formatIndex(index: number): string {
@@ -20,10 +16,9 @@ function formatIndex(index: number): string {
 }
 
 export default function ProjectCard({
-  project,
   index,
+  project,
   variant = "compact",
-  showRightBorder = false,
 }: ProjectCardProps) {
   const isFeatured = variant === "featured";
   const topics = project.repositoryTopics.nodes.slice(0, isFeatured ? 3 : 2);
@@ -31,25 +26,17 @@ export default function ProjectCard({
   const href = `/projects/${project.name}`;
 
   return (
-    <MotionDiv
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+    <li
       className={cn(
-        "flex flex-col border-b",
-        isFeatured ? "col-span-1 md:col-span-2" : "col-span-1",
-        showRightBorder && "md:border-r"
+        "flex flex-col",
+        isFeatured ? "col-span-1 md:col-span-2" : "col-span-1"
       )}
     >
-      <Link
-        href={href}
-        className="group project-card flex flex-col flex-1 divide-y"
-      >
-        <div className="flex flex-col flex-1 p-6 md:p-8">
+      <Link href={href} className="flex flex-col flex-1 group">
+        <div className="flex flex-col flex-1 p-6 border-b md:p-8">
           <span
             className={cn(
-              "block modular-label",
+              "block modular-label tracking-tighter",
               isFeatured ? "mb-6" : "mb-4"
             )}
           >
@@ -58,7 +45,7 @@ export default function ProjectCard({
 
           <h4
             className={cn(
-              "uppercase font-heading transition-transform duration-300 group-hover:translate-x-2.5",
+              "uppercase font-heading transition-transform duration-300",
               isFeatured
                 ? "mb-4 text-3xl md:text-4xl"
                 : "mb-2 text-xl md:text-2xl"
@@ -76,13 +63,13 @@ export default function ProjectCard({
                 {topics.map((topic) => (
                   <span
                     key={topic.topic.name}
-                    className="px-2 py-1 font-mono text-[10px] uppercase border-2 border-foreground"
+                    className="px-2 py-1 font-mono text-[10px] uppercase border"
                   >
                     {topic.topic.name}
                   </span>
                 ))}
                 {project.primaryLanguage?.name && topics.length === 0 && (
-                  <span className="px-2 py-1 font-mono text-[10px] uppercase border-2 border-foreground">
+                  <span className="px-2 py-1 font-mono text-[10px] uppercase border">
                     {project.primaryLanguage.name}
                   </span>
                 )}
@@ -94,13 +81,13 @@ export default function ProjectCard({
                 {topics.map((topic) => (
                   <span
                     key={topic.topic.name}
-                    className="px-2 py-0.5 font-mono text-[9px] uppercase border-2 border-foreground"
+                    className="px-2 py-0.5 font-mono text-[9px] uppercase border"
                   >
                     {topic.topic.name}
                   </span>
                 ))}
                 {project.primaryLanguage?.name && topics.length === 0 && (
-                  <span className="px-2 py-0.5 font-mono text-[9px] uppercase border-2 border-foreground">
+                  <span className="px-2 py-0.5 font-mono text-[9px] uppercase border">
                     {project.primaryLanguage.name}
                   </span>
                 )}
@@ -112,17 +99,9 @@ export default function ProjectCard({
           )}
         </div>
 
-        <div
-          className={cn(
-            "relative w-full overflow-hidden",
-            isFeatured ? "aspect-video" : "aspect-square"
-          )}
-        >
+        <div className={cn("relative w-full overflow-hidden aspect-video")}>
           <Image
-            src={getRepositoryOgImage(
-              project.name,
-              isFeatured ? "16/9" : "1/1"
-            )}
+            src={getRepositoryOgImage(project.name, "16/9")}
             alt={project.name}
             fill
             className="object-cover grayscale transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grayscale-0"
@@ -135,6 +114,6 @@ export default function ProjectCard({
           />
         </div>
       </Link>
-    </MotionDiv>
+    </li>
   );
 }
