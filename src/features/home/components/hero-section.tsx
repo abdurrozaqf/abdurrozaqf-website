@@ -7,7 +7,7 @@ import { METADATA } from "@/constants/metadata";
 export default function HeroSection() {
   return (
     <Container>
-      <ContainerContent className="grid grid-cols-1 col-span-4 divide-x md:grid-cols-4 border-x">
+      <ContainerContent className="grid grid-cols-1 col-span-4 md:divide-x md:grid-cols-4 border-x">
         <div className="col-span-1 p-6 md:col-span-3 md:p-12">
           <span className="block mb-6 modular-label md:mb-8">
             [ 01 // HERO ]

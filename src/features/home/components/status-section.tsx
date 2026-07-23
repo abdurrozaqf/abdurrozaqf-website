@@ -4,7 +4,7 @@ import site_data from "@/data/site.json";
 export default function StatusSection() {
   return (
     <Container>
-      <ContainerContent className="grid grid-cols-1 col-span-4 divide-x md:grid-cols-4 border-x">
+      <ContainerContent className="grid grid-cols-1 col-span-4 divide-y md:divide-x md:divide-y-0 md:grid-cols-4 border-x">
         <div className="flex flex-col justify-between col-span-1 p-6 md:col-span-2 md:p-12">
           <div>
             <span className="block mb-8 modular-label">[ 02 // STATUS ]</span>
@@ -18,7 +18,7 @@ export default function StatusSection() {
               </span>
             </div>
           </div>
-          <p className="max-w-lg text-lg leading-relaxed md:text-xl text-balance">
+          <p className="max-w-lg text-base leading-relaxed md:text-lg text-balance">
             {site_data.intro_2}
           </p>
         </div>

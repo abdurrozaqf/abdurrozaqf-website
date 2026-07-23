@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
+import { FoldersIcon, HomeIcon, User2Icon } from "lucide-react";
 import { cn } from "@/libs/utils";
 
 const NAV_LINKS = [
@@ -10,6 +11,19 @@ const NAV_LINKS = [
   { title: "projects", href: "/projects" },
   { title: "about", href: "/about" },
 ] as const;
+
+function NavLinkIcon({ href }: { href: string }) {
+  switch (href) {
+    case "/":
+      return <HomeIcon />;
+    case "/projects":
+      return <FoldersIcon />;
+    case "/about":
+      return <User2Icon />;
+    default:
+      return null;
+  }
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -60,9 +74,27 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center justify-end px-4">
+          {NAV_LINKS.map((link) => {
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "px-2 font-mono uppercase mx-auto",
+                  "block md:hidden"
+                )}
+              >
+                <NavLinkIcon href={link.href} />
+              </Link>
+            );
+          })}
           <Link
             href="/contact"
-            className="px-4 py-2 font-mono text-xs tracking-widest uppercase transition-colors bg-foreground text-background hover:bg-foreground/70"
+            className={cn(
+              "px-4 py-2 font-mono text-xs tracking-widest uppercase",
+              "transition-colors hover:bg-foreground/70 bg-foreground text-background",
+              "hidden md:block"
+            )}
           >
             Connect
           </Link>

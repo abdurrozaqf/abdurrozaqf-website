@@ -62,7 +62,7 @@ export default function StatsSection(props: Props) {
 
   return (
     <Container>
-      <ContainerContent className="grid grid-cols-1 col-span-4 divide-x md:grid-cols-4 border-x">
+      <ContainerContent className="grid grid-cols-1 col-span-4 divide-y md:divide-x md:divide-y-0 md:grid-cols-4 border-x">
         <div className="col-span-1 p-6 md:p-12">
           <span className="block mb-8 modular-label">[ 08 // STATS ]</span>
           <h3 className="mb-12 text-3xl leading-none uppercase font-heading">
@@ -114,13 +114,13 @@ export default function StatsSection(props: Props) {
           </div>
         </div>
 
-        <div className="flex flex-col w-full col-span-1 py-6 md:col-span-3 md:py-12 gap-8">
+        <div className="flex flex-col w-full col-span-1 gap-8 py-6 md:col-span-3 md:py-12">
           <div className="flex items-start justify-between px-6 md:px-12">
             <span className="modular-label">[ 09 // CONTRIBUTIONS ]</span>
             {/* <TerminalIcon className="size-10" aria-hidden /> */}
           </div>
 
-          <h3 className="text-3xl leading-none uppercase font-heading px-6 md:px-12">
+          <h3 className="px-6 text-3xl leading-none uppercase font-heading md:px-12">
             Contributions Calendar
           </h3>
 
@@ -129,7 +129,7 @@ export default function StatsSection(props: Props) {
           </div>
 
           <hr />
-          <h3 className="text-3xl leading-none uppercase font-heading px-6 md:px-12">
+          <h3 className="px-6 text-3xl leading-none uppercase font-heading md:px-12">
             Pinned Repositories
           </h3>
 
