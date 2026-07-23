@@ -1,9 +1,19 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 
-import { FoldersIcon, HomeIcon, User2Icon } from "lucide-react";
+import {
+  FoldersIcon,
+  HomeIcon,
+  MoonIcon,
+  SunIcon,
+  User2Icon,
+} from "lucide-react";
+
+import { useCircularTransition } from "@/hooks/use-circular-transition";
 import { cn } from "@/libs/utils";
 
 const NAV_LINKS = [
@@ -26,7 +36,18 @@ function NavLinkIcon({ href }: { href: string }) {
 }
 
 export default function Navbar() {
+  const { resolvedTheme } = useTheme();
   const pathname = usePathname();
+
+  const [mounted, setMounted] = useState<boolean>(false);
+  const { toggleTheme } = useCircularTransition();
+  const IS_DARK = resolvedTheme === "dark";
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMounted(true);
+    }, 100);
+  }, []);
 
   return (
     <header
@@ -88,7 +109,7 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link
+          {/* <Link
             href="/contact"
             className={cn(
               "px-4 py-2 font-mono text-xs tracking-widest uppercase",
@@ -97,7 +118,31 @@ export default function Navbar() {
             )}
           >
             Connect
-          </Link>
+          </Link> */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={
+              mounted
+                ? IS_DARK
+                  ? "Switch to light theme"
+                  : "Switch to dark theme"
+                : "Toggle theme"
+            }
+            className={cn(
+              "px-4 py-2 font-mono text-xs tracking-widest uppercase",
+              "transition-colors hover:bg-foreground/70 bg-foreground text-background",
+              "hidden md:flex items-center gap-2",
+              "cursor-pointer"
+            )}
+          >
+            {mounted && IS_DARK ? (
+              <SunIcon className="size-4" aria-hidden />
+            ) : (
+              <MoonIcon className="size-4" aria-hidden />
+            )}
+            Theme
+          </button>
         </div>
       </div>
     </header>
