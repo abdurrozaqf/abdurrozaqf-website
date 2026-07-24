@@ -1,4 +1,4 @@
-import { METADATA, SITE_URL, absoluteUrl } from "@/constants/metadata";
+import { METADATA, SITE_URL } from "@/constants/metadata";
 
 export const SCHEMA_IDS = {
   person: `${SITE_URL}#person`,
@@ -91,7 +91,7 @@ interface SoftwareSourceCodeInput {
 export function buildSoftwareSourceCodeSchema(
   input: SoftwareSourceCodeInput
 ): JsonLdObject {
-  const pageUrl = absoluteUrl(input.path);
+  const pageUrl = `${SITE_URL}${input.path}`;
 
   return {
     "@context": "https://schema.org",
@@ -124,7 +124,7 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]): JsonLdObject {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: absoluteUrl(item.path),
+      item: `${SITE_URL}${item.path}`,
     })),
   };
 }
