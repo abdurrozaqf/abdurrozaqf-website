@@ -29,10 +29,9 @@ export default function Footer() {
       >
         <div className="flex flex-col justify-between col-span-1 p-6 md:p-12">
           <Link href="/" className="w-fit">
-            <h1 className="text-3xl tracking-tighter uppercase font-heading md:text-4xl">
-              {/* {PORTFOLIO.brand} */}
+            <span className="block text-3xl tracking-tighter uppercase font-heading md:text-4xl">
               codur.dev
-            </h1>
+            </span>
           </Link>
           {/* <div className="mt-8 font-mono text-xs leading-relaxed uppercase text-muted-foreground">
             STATUS: OPERATIONAL

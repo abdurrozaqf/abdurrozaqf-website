@@ -100,6 +100,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-label={link.title}
                 className={cn(
                   "px-2 font-mono uppercase mx-auto",
                   "block md:hidden"
