@@ -17,9 +17,7 @@ export default function PinnedRepositories({ repositories }: Props) {
             return (
               <Link
                 key={repo.name}
-                href={repo.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/projects/${repo.name}`}
                 className="p-6 transition-colors cursor-pointer group bg-background/90 hover:bg-background/70 md:p-8"
               >
                 <div className="flex items-center gap-3 mb-4">

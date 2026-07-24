@@ -68,41 +68,9 @@ export default function StatsSection(props: Props) {
           <span className="block mb-8 modular-label">[ 08 // STATS ]</span>
           <h3 className="mb-12 text-3xl leading-none uppercase font-heading">
             System Activity
-            {/* <br /> */}
-            {/* Activity */}
           </h3>
 
           <div className="space-y-8">
-            {/* <div>
-              <div className="flex justify-between mb-2 font-mono text-xs uppercase">
-                <span>Yearly Commits</span>
-                <span className="text-muted-foreground">
-                  {contributions?.totalContributions?.toLocaleString()}
-                </span>
-              </div>
-              <div className="h-1.5 border border-muted-foreground/20 bg-muted">
-                <div
-                  className="h-full bg-foreground"
-                  style={{ width: `${commitProgress}%` }}
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="flex justify-between mb-2 font-mono text-xs uppercase">
-                <span>Public Repos</span>
-                <span className="text-muted-foreground">
-                  {stats.repositories?.toLocaleString()}
-                </span>
-              </div>
-              <div className="h-1.5 border border-muted-foreground/20 bg-muted">
-                <div
-                  className="h-full bg-foreground"
-                  style={{ width: `${repoProgress}%` }}
-                />
-              </div>
-            </div> */}
-
             {stats_list.map((stat) => (
               <div
                 key={stat.label}
@@ -128,7 +96,6 @@ export default function StatsSection(props: Props) {
         <div className="flex flex-col w-full col-span-1 gap-8 py-6 md:col-span-3 md:py-12">
           <div className="flex items-start justify-between px-6 md:px-12">
             <span className="modular-label">[ 09 // CONTRIBUTIONS ]</span>
-            {/* <TerminalIcon className="size-10" aria-hidden /> */}
           </div>
 
           <h3 className="px-6 text-3xl leading-none uppercase font-heading md:px-12">

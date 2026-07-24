@@ -10,7 +10,7 @@ export default function ProjectsCta() {
           WANT TO SEE MORE TECHNICAL DEEP DIVES?
         </p>
         <Link
-          href="/contact"
+          href="mailto:rozaqa27@gmail.com"
           className="px-8 py-4 text-2xl tracking-tighter uppercase transition-all duration-300 border-2 border-foreground bg-foreground font-heading text-background hover:bg-background hover:text-foreground md:px-12 md:py-6 md:text-4xl"
         >
           Contact Me For Repository Access

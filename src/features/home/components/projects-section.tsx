@@ -35,7 +35,11 @@ export default function ProjectsSection({
       <Container>
         <ContainerContent className="grid grid-cols-1 divide-y md:divide-y-0 md:divide-x md:grid-cols-4 border-x">
           <Link
-            href={featuredProject?.url ?? "#"}
+            href={
+              featuredProject?.name
+                ? `/projects/${featuredProject.name}`
+                : "/projects"
+            }
             className="flex flex-col flex-1 w-full col-span-1 divide-y md:col-span-2"
           >
             <div className="flex flex-col flex-1 p-6 md:p-8">
@@ -80,7 +84,7 @@ export default function ProjectsSection({
               return (
                 <Link
                   key={project.id}
-                  href={project.url}
+                  href={`/projects/${project.name}`}
                   className={cn(
                     "grid flex-1 w-full grid-cols-1 xl:grid-cols-2"
                   )}

@@ -57,12 +57,15 @@ export type TDetailRepositories = {
   clone_url: string;
   homepage: string;
   watchers_count: number;
+  stargazers_count: number;
   language: string;
   visibility: string;
   forks: number;
   open_issues: number;
   watchers: number;
   default_branch: string;
+  subscribers_count: number;
+  topics: string[];
   owner: {
     login: string;
     id: number;
