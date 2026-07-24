@@ -41,7 +41,7 @@ export const GITHUB_OVERVIEW_QUERY = `
 
       repositories(
         privacy: PUBLIC
-        first: 100
+        first: 10
         ownerAffiliations: OWNER
         orderBy: {
           field: PUSHED_AT
