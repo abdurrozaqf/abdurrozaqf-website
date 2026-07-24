@@ -1,12 +1,16 @@
 import { Inter, Bebas_Neue, JetBrains_Mono } from "next/font/google";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 import "@/styles/circular-transition.css";
 import "@/styles/globals.css";
 
+import { METADATA, SITE_URL, buildPageMetadata } from "@/constants/metadata";
 import AppProviders from "@/providers/app-providers";
-import { METADATA } from "@/constants/metadata";
+
+import { JsonLd } from "@/components/elements/json-ld";
 import Layouts from "@/components/layouts";
+
+import { buildSiteSchemas } from "@/libs/seo";
 import { cn } from "@/libs/utils";
 
 const inter = Inter({
@@ -28,15 +32,17 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const homeMetadata = buildPageMetadata({
+  title: METADATA.title,
+  description: METADATA.description,
+  path: "",
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : process.env.NEXT_PUBLIC_DOMAIN || ""
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Abdur Rozaq F",
-    template: "%s | Abdur Rozaq F",
+    default: METADATA.title,
+    template: `%s | ${METADATA.shortTitle}`,
   },
   description: METADATA.description,
   keywords: METADATA.keyword,
@@ -45,29 +51,10 @@ export const metadata: Metadata = {
     url: METADATA.authors.url,
   },
   creator: METADATA.creator,
-  openGraph: {
-    type: "website",
-    url: METADATA.openGraph.url,
-    title: METADATA.openGraph.title,
-    locale: METADATA.openGraph.locale,
-    siteName: METADATA.openGraph.siteName,
-    description: METADATA.openGraph.description,
-    images: [
-      {
-        url: METADATA.openGraph.images.url,
-        width: 1200,
-        height: 630,
-        alt: METADATA.openGraph.images.alt,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: METADATA.title,
-    description: METADATA.description,
-    images: [`${METADATA.siteUrl}/og-picture.png`],
-    creator: "@abdurrozaqf_",
-  },
+  alternates: homeMetadata.alternates,
+  openGraph: homeMetadata.openGraph,
+  twitter: homeMetadata.twitter,
+  robots: homeMetadata.robots,
   manifest: METADATA.manifest,
 };
 
@@ -93,6 +80,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <AppProviders>
           <Layouts>{children}</Layouts>
+          <JsonLd data={buildSiteSchemas()} />
         </AppProviders>
       </body>
     </html>

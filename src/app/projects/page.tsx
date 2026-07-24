@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 
-import ProjectsPage from "@/features/projects";
+import { ProjectsPage } from "@/features/projects";
+import { buildPageMetadata } from "@/constants/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Projects",
   description:
-    "A curated collection of technical explorations focusing on high-performance interfaces, brutalist aesthetics, and seamless user interaction.",
-};
+    "Selected Next.js and React projects by Abdur Rozaq Fakhruddin — high-performance interfaces, brutalist aesthetics, and production-ready front-end engineering.",
+  path: "/projects",
+});
 
 export default function Page() {
   return <ProjectsPage />;

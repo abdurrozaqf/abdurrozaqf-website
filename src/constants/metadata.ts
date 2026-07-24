@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
 
-function normalizeSiteUrl(url: string): string {
-  return url.replace(/\/+$/, "");
-}
-
-export const SITE_URL = normalizeSiteUrl(
-  process.env.NEXT_PUBLIC_DOMAIN || "https://codur.dev"
-);
-
-export function absoluteUrl(path = ""): string {
-  if (!path || path === "/") {
-    return SITE_URL;
-  }
-
-  return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
-}
+export const SITE_URL = process.env.NEXT_PUBLIC_DOMAIN || "https://codur.dev";
 
 const SITE_DESCRIPTION =
   "Front-End Engineer specializing in Next.js, React, and TypeScript. Explore the portfolio of Abdur Rozaq Fakhruddin — high-performance web interfaces, based in Indonesia.";
 
 const DEFAULT_OG_IMAGE = {
-  url: absoluteUrl("/og-picture.png"),
+  url: `${SITE_URL}/og-picture.png`,
   width: 1200,
   height: 630,
   alt: "Abdur Rozaq Fakhruddin — Front-End Engineer",
@@ -96,7 +82,7 @@ export function buildPageMetadata({
   type = "website",
   noIndex = false,
 }: BuildPageMetadataOptions): Metadata {
-  const url = absoluteUrl(path);
+  const url = `${SITE_URL}${path}`;
   const ogImage = image ?? METADATA.openGraph.images;
   const socialTitle = toSocialTitle(title);
 

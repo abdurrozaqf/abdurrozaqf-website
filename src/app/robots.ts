@@ -1,13 +1,14 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+
+import { SITE_URL } from "@/constants/metadata";
 
 export default function robots(): MetadataRoute.Robots {
-  const domain = process.env.NEXT_PUBLIC_DOMAIN || "https://codur.dev/";
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/private/",
     },
-    sitemap: `${domain}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }
