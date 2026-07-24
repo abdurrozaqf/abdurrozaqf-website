@@ -1,15 +1,15 @@
 import { ImageResponse } from "next/og";
 
 import {
+  OG_FONT,
+  OG_CACHE_SECONDS,
+  OG_STALE_SECONDS,
   getOgCacheControl,
   getOgSize,
   loadOgFont,
   normalizeRepoParam,
-  OG_CACHE_SECONDS,
-  OG_FONT,
-  OG_STALE_SECONDS,
   parseOgRatio,
-  RepoOgCard,
+  RepoOgCardV2,
 } from "@/features/og";
 
 export async function GET(
@@ -29,14 +29,11 @@ export async function GET(
   try {
     const font = await loadOgFont();
 
-    return new ImageResponse(<RepoOgCard ratio={ratio} title={repo} />, {
+    return new ImageResponse(<RepoOgCardV2 ratio={ratio} title={repo} />, {
       width,
       height,
       headers: {
-        "Cache-Control": getOgCacheControl(
-          OG_CACHE_SECONDS,
-          OG_STALE_SECONDS
-        ),
+        "Cache-Control": getOgCacheControl(OG_CACHE_SECONDS, OG_STALE_SECONDS),
       },
       fonts: [
         {

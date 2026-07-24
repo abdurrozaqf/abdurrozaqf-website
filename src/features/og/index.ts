@@ -10,6 +10,7 @@ export {
   REPO_NAME_PATTERN,
 } from "./constants";
 export { RepoOgCard } from "./components/repo-og-card";
+export { RepoOgCardV2 } from "./components/repo-og-card-v2";
 export { loadOgFont } from "./lib/font";
 export {
   formatOgTitle,
