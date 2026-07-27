@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -26,8 +25,8 @@ import {
 import { Container, ContainerContent } from "@/components/elements/container";
 import { formatDate, formatDateLong } from "@/utils/formatter";
 import type { TDetailRepositories } from "@/features/github";
-import { getRepositoryOgImage } from "@/features/og";
 import { METADATA } from "@/constants/metadata";
+import { ProjectVisual } from "@/features/projects";
 import { cn } from "@/libs/utils";
 
 import {
@@ -184,23 +183,13 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
       <Container>
         <ContainerContent className="col-span-4 border-x">
           <figure className="group">
-            <div className="relative w-full overflow-hidden aspect-video">
-              <Image
-                fill
-                src={getRepositoryOgImage(repo.name, "16/9")}
-                alt={`${repo.name} project preview by ${METADATA.authors.name}`}
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 1200px"
-                priority
-                unoptimized
-              />
-            </div>
+            <ProjectVisual name={repo.name} className="aspect-video" />
 
             <figcaption className="flex flex-col gap-5 p-6 border-t md:flex-row md:items-center md:justify-between md:gap-8 md:px-12 md:py-8">
               <div className="min-w-0">
                 <span className="block mb-1 modular-label">Preview</span>
                 <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">
-                  Dynamic OG · 16:9
+                  Repository Card
                 </p>
               </div>
 

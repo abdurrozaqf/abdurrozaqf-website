@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { Container, ContainerContent } from "@/components/elements/container";
 import type { TRepositories } from "@/features/github";
-import { getRepositoryOgImage } from "@/features/og";
 import { cn } from "@/libs/utils";
+import { ProjectVisual } from "@/features/projects";
 
 interface Props {
   featuredProject: TRepositories | undefined;
@@ -64,17 +63,10 @@ export default function ProjectsSection({
                 ))}
               </div>
             </div>
-            <div className="relative w-full h-auto overflow-hidden aspect-video">
-              <Image
-                src={getRepositoryOgImage(featuredProject?.name ?? "", "16/9")}
-                alt={featuredProject?.name ?? "Featured Project"}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-                unoptimized
-              />
-            </div>
+            <ProjectVisual
+              name={featuredProject?.name ?? ""}
+              className="aspect-video"
+            />
           </Link>
 
           <div className="flex flex-col w-full col-span-1 divide-y md:col-span-2">
@@ -113,24 +105,16 @@ export default function ProjectsSection({
                       ))}
                     </div>
                   </div>
-                  <div className="relative hidden overflow-hidden aspect-square min-h-45 xl:block">
-                    <Image
-                      src={getRepositoryOgImage(project.name, "1/1")}
-                      alt={project.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                      unoptimized
+                  <div className="hidden xl:block">
+                    <ProjectVisual
+                      name={project.name}
+                      className="aspect-square min-h-45"
                     />
                   </div>
-                  <div className="relative block overflow-hidden aspect-video xl:hidden">
-                    <Image
-                      src={getRepositoryOgImage(project.name, "16/9")}
-                      alt={project.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                      unoptimized
+                  <div className="block xl:hidden">
+                    <ProjectVisual
+                      name={project.name}
+                      className="aspect-video"
                     />
                   </div>
                 </Link>

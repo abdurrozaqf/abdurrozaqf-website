@@ -1,9 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import type { TRepositories } from "@/features/github";
-import { getRepositoryOgImage } from "@/features/og";
 import { cn } from "@/libs/utils";
+import { ProjectVisual } from "@/features/projects";
 
 interface ProjectCardProps {
   project: TRepositories;
@@ -28,7 +27,7 @@ export default function ProjectCard({
   return (
     <li
       className={cn(
-        "flex flex-col",
+        "flex flex-col w-full",
         isFeatured ? "col-span-1 md:col-span-2" : "col-span-1"
       )}
     >
@@ -99,20 +98,7 @@ export default function ProjectCard({
           )}
         </div>
 
-        <div className={cn("relative w-full overflow-hidden aspect-video")}>
-          <Image
-            src={getRepositoryOgImage(project.name, "16/9")}
-            alt={project.name}
-            fill
-            className="object-cover grayscale transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grayscale-0"
-            sizes={
-              isFeatured
-                ? "(max-width: 768px) 100vw, 50vw"
-                : "(max-width: 768px) 100vw, 25vw"
-            }
-            unoptimized
-          />
-        </div>
+        <ProjectVisual name={project.name} className="aspect-video" />
       </Link>
     </li>
   );
