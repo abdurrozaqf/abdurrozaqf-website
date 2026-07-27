@@ -1,24 +1,21 @@
-import { getGithubOverview } from "@/features/github";
+import { TMappedGithubOverview } from "@/features/github";
 
 import ProjectsHeader from "./projects-header";
 import ProjectLists from "./project-lists";
-// import ProjectsCta from "./projects-cta";
 
 const SELECTED_WORKS_LIMIT = 6;
 
-export default async function ProjectsPage() {
-  const overview = await getGithubOverview();
+interface Props {
+  overview?: TMappedGithubOverview | null;
+}
 
-  if (!overview?.data) {
-    return null;
-  }
-
-  const projects = overview.data.repositories.slice(0, SELECTED_WORKS_LIMIT);
+export default async function ProjectsPage({ overview }: Props) {
+  const projects = overview?.repositories.slice(0, SELECTED_WORKS_LIMIT) ?? [];
 
   return (
     <>
       <ProjectsHeader projectCount={projects.length} />
-      <ProjectLists projects={projects} />
+      {projects.length > 0 && <ProjectLists projects={projects} />}
       {/* <ProjectsCta /> */}
     </>
   );

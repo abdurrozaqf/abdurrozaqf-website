@@ -2,19 +2,21 @@ import ProjectsSection from "./projects-section";
 import StatusSection from "./status-section";
 import StatsSection from "./stats-section";
 import HeroSection from "./hero-section";
-import { getGithubContributions, getGithubOverview } from "@/features/github";
 
-export default async function HomePage() {
-  const [overview_res, contributions_res] = await Promise.all([
-    getGithubOverview(),
-    getGithubContributions(),
-  ]);
+import { TContributions, TMappedGithubOverview } from "@/features/github";
+// import { getGithubContributions, getGithubOverview } from "@/features/github";
 
-  if (!overview_res?.data || !contributions_res?.data) {
-    return null;
-  }
+interface Props {
+  overview?: TMappedGithubOverview | null;
+  contributions?: TContributions | null;
+}
 
-  const { stats, repositories, pinnedRepositories } = overview_res.data;
+export default function HomePage({ overview, contributions }: Props) {
+  const { repositories, pinnedRepositories, stats } = overview ?? {
+    repositories: [],
+    pinnedRepositories: [],
+    stats: null,
+  };
 
   const featured_project = repositories[0];
   const secondary_projects = repositories.slice(1, 3);
@@ -23,15 +25,19 @@ export default async function HomePage() {
     <>
       <HeroSection />
       <StatusSection />
-      <ProjectsSection
-        featuredProject={featured_project}
-        secondaryProjects={secondary_projects}
-      />
-      <StatsSection
-        contributions={contributions_res?.data}
-        pinned_repositories={pinnedRepositories}
-        stats={stats}
-      />
+      {featured_project && secondary_projects && (
+        <ProjectsSection
+          featuredProject={featured_project}
+          secondaryProjects={secondary_projects}
+        />
+      )}
+      {contributions && stats && (
+        <StatsSection
+          contributions={contributions}
+          pinned_repositories={pinnedRepositories}
+          stats={stats}
+        />
+      )}
     </>
   );
 }

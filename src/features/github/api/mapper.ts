@@ -1,4 +1,8 @@
-import type { TContributions, TResponseGithubOverview } from "../types/github";
+import type {
+  TContributions,
+  TRepositories,
+  TResponseGithubOverview,
+} from "../types/github";
 
 const EXCLUDED_REPOS = [
   "frontend-technical-test",
@@ -7,12 +11,22 @@ const EXCLUDED_REPOS = [
   "BE-no-ones",
 ];
 
-interface Props {
-  data: TResponseGithubOverview;
-}
+export type TMappedGithubOverview = {
+  stats: {
+    repositories: number;
+    stars: number;
+    forks: number;
+    latestRepo: TRepositories;
+    lastUpdated: string;
+  };
+  repositories: TRepositories[];
+  pinnedRepositories: TRepositories[];
+};
 
-export function mapGithubOverview({ data }: Props) {
-  const overview = data.user;
+export function mapGithubOverview({
+  user,
+}: TResponseGithubOverview): TMappedGithubOverview {
+  const overview = user;
   const pinnedRepos = overview.pinnedItems.nodes;
   const repos = overview.repositories.nodes.filter(
     (repo) => !EXCLUDED_REPOS.includes(repo.name)

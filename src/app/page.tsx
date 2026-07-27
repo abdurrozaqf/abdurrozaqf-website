@@ -1,12 +1,18 @@
+import { getGithubContributions, getGithubOverview } from "@/features/github";
 import { JsonLd } from "@/components/elements/json-ld";
 import { buildProfilePageSchema } from "@/libs/seo";
 import { HomePage } from "@/features/home";
 
-export default function Page() {
+export default async function Page() {
+  const [overview, contributions] = await Promise.all([
+    getGithubOverview(),
+    getGithubContributions(),
+  ]);
+
   return (
     <>
       <JsonLd data={buildProfilePageSchema()} />
-      <HomePage />
+      <HomePage overview={overview.data} contributions={contributions.data} />
     </>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { ProjectsPage } from "@/features/projects";
 import { buildPageMetadata } from "@/constants/metadata";
+import { getGithubOverview } from "@/features/github";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Projects",
@@ -10,6 +11,8 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/projects",
 });
 
-export default function Page() {
-  return <ProjectsPage />;
+export default async function Page() {
+  const overview = await getGithubOverview();
+
+  return <ProjectsPage overview={overview.data} />;
 }

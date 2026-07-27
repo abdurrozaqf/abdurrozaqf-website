@@ -72,9 +72,9 @@ npm install
 
 | Variable                      | Description                                        |
 | ----------------------------- | -------------------------------------------------- |
+| `NEXT_PUBLIC_DOMAIN`          | Production site URL (used for SEO canonical links) |
 | `NEXT_PUBLIC_GITHUB_BASE_URL` | GitHub API base URL (`https://api.github.com`)     |
 | `GITHUB_TOKEN`                | GitHub personal access token (Bearer)              |
-| `NEXT_PUBLIC_DOMAIN`          | Production site URL (used for SEO canonical links) |
 
 Example:
 
