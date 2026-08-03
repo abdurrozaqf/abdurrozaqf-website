@@ -1,29 +1,49 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Accessibility,
-  Code2,
-  Database,
+  Atom,
+  Bot,
+  Boxes,
+  Braces,
+  Cloud,
+  CloudCog,
+  CodeXml,
   Gauge,
   GitBranch,
-  LayoutTemplate,
-  Palette,
+  ListTodo,
+  Network,
   PenTool,
-  Terminal,
+  Route,
+  Send,
+  ShieldCheck,
+  Sparkles,
+  Wind,
+  Workflow,
+  Zap,
 } from "lucide-react";
 
 import { Container, ContainerContent } from "@/components/elements/container";
 import about from "@/data/about.json";
 
 const SKILL_ICONS: Record<string, LucideIcon> = {
-  code: Code2,
-  terminal: Terminal,
-  palette: Palette,
-  layout: LayoutTemplate,
-  gauge: Gauge,
-  accessibility: Accessibility,
-  pen: PenTool,
+  braces: Braces,
+  atom: Atom,
+  wind: Wind,
+  route: Route,
+  boxes: Boxes,
+  sparkles: Sparkles,
   git: GitBranch,
-  database: Database,
+  network: Network,
+  workflow: Workflow,
+  shield: ShieldCheck,
+  cloud: Cloud,
+  "cloud-cog": CloudCog,
+  pen: PenTool,
+  code: CodeXml,
+  bot: Bot,
+  send: Send,
+  zap: Zap,
+  "list-todo": ListTodo,
+  gauge: Gauge,
 };
 
 export default function AboutSkills() {
@@ -47,7 +67,7 @@ export default function AboutSkills() {
               </h4>
               <div className="flex flex-col gap-3">
                 {group.items.map((item) => {
-                  const Icon = SKILL_ICONS[item.icon] ?? Code2;
+                  const Icon = SKILL_ICONS[item.icon] ?? CodeXml;
                   return (
                     <span
                       key={item.name}

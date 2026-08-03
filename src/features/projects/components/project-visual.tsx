@@ -28,10 +28,7 @@ export default function ProjectVisual({
   const lines = formatProjectLabel(name);
 
   return (
-    <div
-      className={cn("relative overflow-hidden", className)}
-      {...props}
-    >
+    <div className={cn("relative overflow-clip", className)} {...props}>
       <div className="absolute inset-0 flex flex-row bg-black text-white">
         <div className="w-4 shrink-0 bg-white" />
 

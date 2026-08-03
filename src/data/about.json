@@ -31,28 +31,35 @@
     {
       "category": "Core Tech",
       "items": [
-        { "name": "TypeScript", "icon": "terminal" },
-        { "name": "React/Next.js", "icon": "code" },
-        { "name": "Tailwind CSS", "icon": "palette" },
-        { "name": "Zustand", "icon": "layers" },
-        { "name": "React Query", "icon": "database" }
+        { "name": "TypeScript", "icon": "braces" },
+        { "name": "React/Next.js", "icon": "atom" },
+        { "name": "Tailwind CSS", "icon": "wind" },
+        { "name": "TanStack (Query, Router, Form)", "icon": "route" },
+        { "name": "Zustand", "icon": "boxes" },
+        { "name": "Framer Motion/GSAP", "icon": "sparkles" }
       ]
     },
     {
       "category": "Engineering",
       "items": [
         { "name": "GitHub", "icon": "git" },
-        { "name": "Figma", "icon": "pen" },
-        { "name": "AWS Amplify", "icon": "cloud" },
-        { "name": "Cloudflare", "icon": "cloud" }
+        { "name": "REST / GraphQL", "icon": "network" },
+        { "name": "GitHub Actions", "icon": "workflow" },
+        { "name": "Better Auth", "icon": "shield" },
+        { "name": "Cloudflare", "icon": "cloud" },
+        { "name": "AWS Amplify", "icon": "cloud-cog" }
       ]
     },
     {
       "category": "Tools",
       "items": [
         { "name": "Figma", "icon": "pen" },
-        { "name": "GitHub Actions", "icon": "git" },
-        { "name": "REST / GraphQL", "icon": "database" }
+        { "name": "VS Code / Cursor", "icon": "code" },
+        { "name": "OpenCode", "icon": "bot" },
+        { "name": "Postman", "icon": "send" },
+        { "name": "Vite", "icon": "zap" },
+        { "name": "ClickUp", "icon": "list-todo" },
+        { "name": "Lighthouse", "icon": "gauge" }
       ]
     }
   ]
