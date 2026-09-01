@@ -13,8 +13,9 @@ function pathnameToLabel(pathname: string) {
   return "Home";
 }
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   const pathname = usePathname();
   const label = pathnameToLabel(pathname);
 
@@ -33,11 +34,6 @@ export default function Footer() {
               codur.dev
             </span>
           </Link>
-          {/* <div className="mt-8 font-mono text-xs leading-relaxed uppercase text-muted-foreground">
-            STATUS: OPERATIONAL
-            <br />
-            ENGINEER: ONLINE
-          </div> */}
         </div>
 
         <nav
@@ -72,9 +68,7 @@ export default function Footer() {
 
         <aside className="flex flex-col justify-end col-span-1 p-6 md:p-12">
           <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
-            © {currentYear} codur.dev.
-            <br />
-            {/* BUILT FOR ABSOLUTE PRECISION. */}
+            © {CURRENT_YEAR} codur.dev.
           </p>
         </aside>
       </section>

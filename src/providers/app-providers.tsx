@@ -1,8 +1,7 @@
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Toaster } from "@/components/ui/sonner";
 import type { ReactNode } from "react";
 
 import { ThemeProvider } from "./theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 interface AppProvidersProps {
   children: ReactNode;
@@ -17,7 +16,6 @@ export default function AppProviders({ children }: AppProvidersProps) {
       disableTransitionOnChange
     >
       <TooltipProvider>{children}</TooltipProvider>
-      <Toaster position="top-right" richColors />
     </ThemeProvider>
   );
 }

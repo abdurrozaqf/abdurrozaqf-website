@@ -89,7 +89,7 @@ interface SoftwareSourceCodeInput {
 }
 
 export function buildSoftwareSourceCodeSchema(
-  input: SoftwareSourceCodeInput
+  input: SoftwareSourceCodeInput,
 ): JsonLdObject {
   const pageUrl = `${SITE_URL}${input.path}`;
 
@@ -130,7 +130,7 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]): JsonLdObject {
 }
 
 export function buildProjectSchemas(
-  input: SoftwareSourceCodeInput
+  input: SoftwareSourceCodeInput,
 ): JsonLdObject[] {
   return [
     buildSoftwareSourceCodeSchema(input),

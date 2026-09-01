@@ -1,5 +1,5 @@
 import { Inter, Bebas_Neue, JetBrains_Mono } from "next/font/google";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import "@/styles/circular-transition.css";
 import "@/styles/globals.css";
@@ -12,6 +12,8 @@ import Layouts from "@/components/layouts";
 
 import { buildSiteSchemas } from "@/libs/seo";
 import { cn } from "@/libs/utils";
+
+const SITE_SCHEMAS = buildSiteSchemas();
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,6 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
+  preload: false,
 });
 
 const homeMetadata = buildPageMetadata({
@@ -58,6 +61,13 @@ export const metadata: Metadata = {
   manifest: METADATA.manifest,
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+};
+
 interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -80,7 +90,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <AppProviders>
           <Layouts>{children}</Layouts>
-          <JsonLd data={buildSiteSchemas()} />
+          <JsonLd data={SITE_SCHEMAS} />
         </AppProviders>
       </body>
     </html>
