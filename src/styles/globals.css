@@ -146,4 +146,30 @@
     text-transform: uppercase;
     color: var(--muted-foreground);
   }
+
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+  }
+}
+
+@keyframes contribution-dot-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-contribution-dot {
+  animation: contribution-dot-in 0.4s ease-out backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-contribution-dot {
+    animation: none;
+  }
 }

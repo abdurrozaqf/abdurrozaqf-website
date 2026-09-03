@@ -10,7 +10,7 @@ function pathnameToLabel(pathname: string) {
   if (pathname === "/") return "10";
   if (pathname === "/about") return "05";
   if (pathname === "/projects") return "07";
-  return "Home";
+  return "04";
 }
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -24,7 +24,7 @@ export default function Footer() {
       <section
         className={cn(
           "grid grid-cols-1 max-w-container-max md:grid-cols-4",
-          "divide-y md:divide-x md:divide-y-0 border-x w-full mx-auto"
+          "divide-y md:divide-x md:divide-y-0 border-x w-full mx-auto",
         )}
         aria-label="Footer Content"
       >
@@ -55,7 +55,7 @@ export default function Footer() {
                     rel={isExternal ? "noopener noreferrer" : undefined}
                     className={cn(
                       "tracking-[0.2em] transition-colors hover:text-foreground/80",
-                      "uppercase font-mono text-xs"
+                      "uppercase font-mono text-xs",
                     )}
                   >
                     {social.title}

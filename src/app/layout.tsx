@@ -81,12 +81,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
         "w-full h-full antialiased",
         inter.variable,
         bebasNeue.variable,
-        jetbrainsMono.variable
+        jetbrainsMono.variable,
       )}
     >
       <body
         suppressHydrationWarning
-        className={cn("w-full h-min overflow-y-auto overflow-x-hidden")}
+        className={cn(
+          "w-full min-h-screen flex flex-col overflow-y-auto overflow-x-hidden",
+        )}
       >
         <AppProviders>
           <Layouts>{children}</Layouts>

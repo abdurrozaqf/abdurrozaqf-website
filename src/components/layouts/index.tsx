@@ -11,7 +11,9 @@ export default function Layouts({ children }: LayoutsProps) {
   return (
     <>
       <Navbar />
-      <main className="flex-1 w-full mx-auto scroll-smooth">{children}</main>
+      <main className="flex flex-col flex-1 w-full mx-auto scroll-smooth">
+        {children}
+      </main>
       <Footer />
     </>
   );
