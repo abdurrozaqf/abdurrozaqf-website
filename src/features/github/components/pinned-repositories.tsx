@@ -9,9 +9,11 @@ interface Props {
 }
 
 export default function PinnedRepositories({ repositories }: Props) {
+  const hasRepositories = (repositories?.length ?? 0) > 0;
+
   return (
     <div className="grid grid-cols-1 gap-px p-px md:grid-cols-2 bg-foreground/20">
-      {repositories?.length && repositories?.length > 0 ? (
+      {hasRepositories ? (
         <>
           {repositories?.map((repo) => {
             return (
@@ -60,7 +62,7 @@ export default function PinnedRepositories({ repositories }: Props) {
             );
           })}
 
-          {repositories?.length && repositories?.length % 2 !== 0 && (
+          {repositories?.length && repositories.length % 2 !== 0 && (
             <div className="flex-1 bg-background" />
           )}
         </>

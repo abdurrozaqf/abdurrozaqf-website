@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/libs/utils";
 
 interface ExperienceItemProps {
@@ -28,7 +26,7 @@ export default function ExperienceItem({
               "size-3 shrink-0 rounded-full transition-all duration-200 group-hover:scale-[1.3] -mt-1",
               current
                 ? "bg-foreground"
-                : "border-2 border-foreground group-hover:bg-foreground"
+                : "border-2 border-foreground group-hover:bg-foreground",
             )}
           />
           <h3 className="text-2xl uppercase font-heading md:text-3xl">
@@ -38,7 +36,7 @@ export default function ExperienceItem({
         <span
           className={cn(
             "font-mono text-xs uppercase tracking-widest",
-            current ? "text-foreground" : "text-muted-foreground"
+            current ? "text-foreground" : "text-muted-foreground",
           )}
         >
           {period}

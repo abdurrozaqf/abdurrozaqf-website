@@ -1,19 +1,9 @@
-"use client";
-
-import { useMemo, lazy } from "react";
-
 import { Container, ContainerContent } from "@/components/elements/container";
 import type { TContributions, TRepositories } from "@/features/github";
+import ContributionCalendar from "@/features/github/components/contributions-calendar";
+import PinnedRepositories from "@/features/github/components/pinned-repositories";
 import { formatDate } from "@/utils/formatter";
 import { cn } from "@/libs/utils";
-
-const ContributionCalendar = lazy(
-  () => import("@/features/github/components/contributions-calendar")
-);
-
-const Repositories = lazy(
-  () => import("@/features/github/components/pinned-repositories")
-);
 
 interface TStats {
   repositories: number;
@@ -29,40 +19,40 @@ interface Props {
   stats: TStats;
 }
 
-export default function StatsSection(props: Props) {
-  const { contributions, pinned_repositories, stats } = props;
-
-  const stats_list = useMemo(() => {
-    return [
-      {
-        label: "Repositories",
-        value: stats.repositories?.toLocaleString(),
-      },
-      {
-        label: "Contributions",
-        value: contributions?.totalContributions?.toLocaleString(),
-      },
-      {
-        label: "Stars",
-        value: stats.stars?.toLocaleString(),
-      },
-      {
-        label: "Forks",
-        value: stats.forks?.toLocaleString(),
-      },
-      {
-        label: "Last Updated",
-        value: formatDate(stats.lastUpdated as string),
-      },
-      {
-        label: "Latest Repo",
-        value: stats.latestRepo?.name,
-      },
-    ];
-  }, [stats, contributions]);
+export default function StatsSection({
+  contributions,
+  pinned_repositories,
+  stats,
+}: Props) {
+  const stats_list = [
+    {
+      label: "Repositories",
+      value: stats.repositories?.toLocaleString(),
+    },
+    {
+      label: "Contributions",
+      value: contributions?.totalContributions?.toLocaleString(),
+    },
+    {
+      label: "Stars",
+      value: stats.stars?.toLocaleString(),
+    },
+    {
+      label: "Forks",
+      value: stats.forks?.toLocaleString(),
+    },
+    {
+      label: "Last Updated",
+      value: formatDate(stats.lastUpdated as string),
+    },
+    {
+      label: "Latest Repo",
+      value: stats.latestRepo?.name,
+    },
+  ];
 
   return (
-    <Container>
+    <Container className="cv-auto">
       <ContainerContent className="grid grid-cols-1 col-span-4 divide-y md:divide-x md:divide-y-0 md:grid-cols-4 border-x">
         <div className="col-span-1 p-6 md:p-12">
           <span className="block mb-8 modular-label">[ 08 // STATS ]</span>
@@ -79,11 +69,10 @@ export default function StatsSection(props: Props) {
                 <span>{stat.label}</span>
                 <span
                   className={cn(
-                    "text-muted-foreground",
                     stat.label === "Last Updated" ||
                       stat.label === "Latest Repo"
-                      ? "tracking-tighter"
-                      : ""
+                      ? "tracking-tighter text-muted-foreground"
+                      : "text-muted-foreground",
                   )}
                 >
                   {stat.value}
@@ -112,7 +101,7 @@ export default function StatsSection(props: Props) {
           </h3>
 
           <div className="px-6 md:px-12">
-            <Repositories
+            <PinnedRepositories
               repositories={pinned_repositories as TRepositories[]}
             />
           </div>

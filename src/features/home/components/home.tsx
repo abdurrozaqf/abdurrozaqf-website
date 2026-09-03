@@ -4,19 +4,21 @@ import StatsSection from "./stats-section";
 import HeroSection from "./hero-section";
 
 import { TContributions, TMappedGithubOverview } from "@/features/github";
-// import { getGithubContributions, getGithubOverview } from "@/features/github";
 
 interface Props {
   overview?: TMappedGithubOverview | null;
   contributions?: TContributions | null;
 }
 
+const EMPTY_OVERVIEW = {
+  repositories: [],
+  pinnedRepositories: [],
+  stats: null,
+};
+
 export default function HomePage({ overview, contributions }: Props) {
-  const { repositories, pinnedRepositories, stats } = overview ?? {
-    repositories: [],
-    pinnedRepositories: [],
-    stats: null,
-  };
+  const { repositories, pinnedRepositories, stats } =
+    overview ?? EMPTY_OVERVIEW;
 
   const featured_project = repositories[0];
   const secondary_projects = repositories.slice(1, 3);

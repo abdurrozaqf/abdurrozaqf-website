@@ -31,7 +31,7 @@ export default function ProjectsSection({
         </ContainerContent>
       </Container>
 
-      <Container>
+      <Container className="cv-auto">
         <ContainerContent className="grid grid-cols-1 divide-y md:divide-y-0 md:divide-x md:grid-cols-4 border-x">
           <Link
             href={
@@ -78,7 +78,7 @@ export default function ProjectsSection({
                   key={project.id}
                   href={`/projects/${project.name}`}
                   className={cn(
-                    "grid flex-1 w-full grid-cols-1 xl:grid-cols-2"
+                    "grid flex-1 w-full grid-cols-1 xl:grid-cols-2",
                   )}
                 >
                   <div className="flex flex-col justify-between p-6 border-b md:p-8 xl:border-r xl:border-b-0">

@@ -48,7 +48,7 @@ const SKILL_ICONS: Record<string, LucideIcon> = {
 
 export default function AboutSkills() {
   return (
-    <Container>
+    <Container className="cv-auto">
       <ContainerContent className="grid grid-cols-1 col-span-4 md:grid-cols-4 border-x">
         <div className="col-span-1 p-6 md:p-12 md:border-r">
           <span className="block mb-6 modular-label md:mb-8">

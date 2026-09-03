@@ -5,7 +5,7 @@ import { SOCIAL_MEDIA } from "@/constants/social-media";
 import about from "@/data/about.json";
 
 const CTA_SOCIALS = SOCIAL_MEDIA.filter((social) =>
-  ["Github", "Linkedin"].includes(social.title)
+  ["Github", "Linkedin"].includes(social.title),
 ).map((social) => ({
   label: social.title === "Github" ? "GH" : "LI",
   href: social.href,

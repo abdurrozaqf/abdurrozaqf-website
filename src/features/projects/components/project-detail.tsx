@@ -61,7 +61,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
         icon: CircleDotIcon,
       },
     ],
-    [repo.stargazers_count, repo.forks, repo.watchers, repo.open_issues]
+    [repo.stargazers_count, repo.forks, repo.watchers, repo.open_issues],
   );
 
   const timeline: TimelineItem[] = useMemo(
@@ -85,7 +85,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
         relative: formatDate(repo.pushed_at),
       },
     ],
-    [repo.created_at, repo.updated_at, repo.pushed_at]
+    [repo.created_at, repo.updated_at, repo.pushed_at],
   );
 
   return (
@@ -132,7 +132,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
         <ContainerContent className="grid grid-cols-1 col-span-4 md:grid-cols-4 border-x">
           <div className="col-span-1 p-6 md:col-span-3 md:p-12 md:border-r">
             <span className="block mb-6 modular-label md:mb-8">
-              [ CASE_STUDY // {label} ]
+              [ 01 // {label} ]
             </span>
             <h1 className="mb-6 wrap-break-word font-heading text-[48px] uppercase leading-[0.85] tracking-tight md:mb-8 md:text-[88px] lg:text-[112px]">
               {repo.name}
@@ -235,7 +235,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
                   "flex flex-col gap-4 p-6 md:p-10 bg-background md:border-b-0",
                   index === 0 && "border-r border-b",
                   index === 1 && "border-b",
-                  index === 2 && "border-r"
+                  index === 2 && "border-r",
                 )}
               >
                 <div className="flex items-center justify-between">

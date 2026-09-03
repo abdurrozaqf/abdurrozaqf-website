@@ -35,14 +35,14 @@ const ACTIONS = [
 export default function NotFoundPage() {
   return (
     <>
-      <Container>
+      <Container className="flex flex-col grow">
         <ContainerContent
           className={cn(
-            "grid grid-cols-1 col-span-4 md:grid-cols-4 border-x",
-            "divide-y md:divide-y-0 md:divide-x"
+            "grid grid-cols-1 col-span-4 md:grid-cols-4 border-x grow",
+            "divide-y md:divide-y-0 md:divide-x",
           )}
         >
-          <div className="relative flex flex-col justify-between col-span-1 p-6 md:col-span-3 md:p-12">
+          <div className="flex relative flex-col col-span-1 justify-between p-6 md:col-span-3 md:p-12">
             <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground md:top-6 md:left-6">
               ROUTE: UNMAPPED
             </span>
@@ -59,7 +59,7 @@ export default function NotFoundPage() {
                 <span className="font-mono text-sm tracking-widest uppercase text-muted-foreground">
                   [ STATUS: PAGE_MISSING ]
                 </span>
-                <p className="max-w-md pb-8 text-base tracking-wide uppercase text-muted-foreground md:pb-0">
+                <p className="pb-8 max-w-md text-base tracking-wide uppercase text-muted-foreground md:pb-0">
                   This page is not part of the website — it may have moved, or
                   the URL is simply wrong.
                 </p>
@@ -78,20 +78,20 @@ export default function NotFoundPage() {
               </h3>
               <div className="space-y-2 font-mono text-[10px] uppercase text-muted-foreground">
                 {SYSTEM_LOGS.map((log) => (
-                  <div key={log.label} className="flex justify-between gap-4">
+                  <div key={log.label} className="flex gap-4 justify-between">
                     <span>{log.label}</span>
                     <span
                       className={cn(
                         log.tone === "primary"
                           ? "text-foreground"
-                          : "text-portfolio-muted"
+                          : "text-portfolio-muted",
                       )}
                     >
                       {log.value}
                     </span>
                   </div>
                 ))}
-                <div className="h-px my-4 bg-border" />
+                <div className="my-4 h-px bg-border" />
                 <div className="flex flex-col gap-1">
                   <span className="text-muted-foreground/50">DETAIL:</span>
                   <span className="text-[11px] leading-tight text-foreground">
@@ -101,12 +101,12 @@ export default function NotFoundPage() {
               </div>
             </div>
 
-            {/* <div className="relative flex flex-col justify-between p-6 md:p-8 bg-portfolio-surface-low">
+            {/* <div className="flex relative flex-col justify-between p-6 md:p-8 bg-portfolio-surface-low">
               <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground md:top-6 md:left-6">
                 LOC: {site_data.location}
               </span>
               <div className="pt-8 mt-auto">
-                <div className="flex items-center justify-center mb-4 border size-12 border-border">
+                <div className="flex justify-center items-center mb-4 border size-12 border-border">
                   <Crosshair aria-hidden className="size-5 text-foreground" />
                 </div>
                 <p className="text-sm uppercase text-foreground">
@@ -122,7 +122,7 @@ export default function NotFoundPage() {
         <ContainerContent
           className={cn(
             "grid grid-cols-1 col-span-4 md:grid-cols-3 border-x",
-            "divide-y md:divide-y-0 md:divide-x"
+            "divide-y md:divide-y-0 md:divide-x",
           )}
         >
           {ACTIONS.map((action) => (
@@ -131,13 +131,13 @@ export default function NotFoundPage() {
               href={action.href}
               className={cn(
                 "flex flex-col gap-4 p-6 transition-colors group md:p-12",
-                "hover:bg-foreground/5"
+                "hover:bg-foreground/5",
               )}
             >
               <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                 {action.id}
               </span>
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex gap-4 justify-between items-center">
                 <h4 className="text-3xl uppercase font-heading md:text-4xl">
                   {action.title}
                 </h4>
@@ -149,14 +149,14 @@ export default function NotFoundPage() {
             </Link>
           ))}
 
-          {/* <div className="flex flex-col justify-center gap-4 p-6 md:p-12 bg-foreground/5">
+          {/* <div className="flex flex-col gap-4 justify-center p-6 md:p-12 bg-foreground/5">
             <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
               [ 03 // STATUS ]
             </span>
-            <div className="flex items-center gap-4">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-emerald-400" />
-                <span className="relative inline-flex rounded-full size-2 bg-emerald-500" />
+            <div className="flex gap-4 items-center">
+              <span className="flex relative size-2">
+                <span className="inline-flex absolute w-full h-full bg-emerald-400 rounded-full opacity-75 animate-ping" />
+                <span className="inline-flex relative bg-emerald-500 rounded-full size-2" />
               </span>
               <h4 className="font-mono text-sm tracking-widest uppercase text-foreground">
                 {site_data.status}

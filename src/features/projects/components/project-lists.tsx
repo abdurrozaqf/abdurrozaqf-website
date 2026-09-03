@@ -26,7 +26,7 @@ export default function ProjectLists({ projects }: ProjectListsProps) {
         </ContainerContent>
       </Container>
 
-      <Container>
+      <Container className="cv-auto">
         <ContainerContent className="divide-y border-x">
           <ul className="grid grid-cols-1 divide-y md:divide-y-0 md:divide-x md:grid-cols-4 w-full">
             {featured.map((project, index) => (
