@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { TRepositories } from "@/features/github";
 import { cn } from "@/libs/utils";
 import { ProjectVisual } from "@/features/projects";
+import { trackEvent } from "@/libs/analytics";
+import { ANALYTICS_EVENTS } from "@/constants/analytics";
 
 interface ProjectCardProps {
   project: TRepositories;
@@ -28,15 +30,23 @@ export default function ProjectCard({
     <li
       className={cn(
         "flex flex-col w-full",
-        isFeatured ? "col-span-1 md:col-span-2" : "col-span-1"
+        isFeatured ? "col-span-1 md:col-span-2" : "col-span-1",
       )}
     >
-      <Link href={href} className="flex flex-col flex-1 group">
+      <Link
+        href={href}
+        onClick={() =>
+          trackEvent(ANALYTICS_EVENTS.VIEW_PROJECTS_DETAIL, {
+            project_name: project.name,
+          })
+        }
+        className="flex flex-col flex-1 group"
+      >
         <div className="flex flex-col flex-1 p-6 border-b md:p-8">
           <span
             className={cn(
               "block modular-label tracking-tighter",
-              isFeatured ? "mb-6" : "mb-4"
+              isFeatured ? "mb-6" : "mb-4",
             )}
           >
             {`[ ${formatIndex(index)} // ${label} ]`}
@@ -47,7 +57,7 @@ export default function ProjectCard({
               "uppercase font-heading transition-transform duration-300",
               isFeatured
                 ? "mb-4 text-3xl md:text-4xl"
-                : "mb-2 text-xl md:text-2xl"
+                : "mb-2 text-xl md:text-2xl",
             )}
           >
             {project.name}

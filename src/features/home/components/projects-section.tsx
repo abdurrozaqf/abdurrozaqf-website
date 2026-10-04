@@ -4,6 +4,8 @@ import { Container, ContainerContent } from "@/components/elements/container";
 import type { TRepositories } from "@/features/github";
 import { cn } from "@/libs/utils";
 import { ProjectVisual } from "@/features/projects";
+import { trackEvent } from "@/libs/analytics";
+import { ANALYTICS_EVENTS } from "@/constants/analytics";
 
 interface Props {
   featuredProject: TRepositories | undefined;
@@ -39,6 +41,12 @@ export default function ProjectsSection({
                 ? `/projects/${featuredProject.name}`
                 : "/projects"
             }
+            onClick={() => {
+              if (!featuredProject?.name) return;
+              trackEvent(ANALYTICS_EVENTS.VIEW_PROJECTS_DETAIL, {
+                project_name: featuredProject.name,
+              });
+            }}
             className="flex flex-col flex-1 w-full col-span-1 divide-y md:col-span-2"
           >
             <div className="flex flex-col flex-1 p-6 md:p-8">
@@ -80,6 +88,11 @@ export default function ProjectsSection({
                   className={cn(
                     "grid flex-1 w-full grid-cols-1 xl:grid-cols-2",
                   )}
+                  onClick={() =>
+                    trackEvent(ANALYTICS_EVENTS.VIEW_PROJECTS_DETAIL, {
+                      project_name: project.name,
+                    })
+                  }
                 >
                   <div className="flex flex-col justify-between p-6 border-b md:p-8 xl:border-r xl:border-b-0">
                     <div>
