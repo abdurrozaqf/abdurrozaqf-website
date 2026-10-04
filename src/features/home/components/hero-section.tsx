@@ -1,5 +1,4 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import ViewProjectsButton from "./view-projects-button";
 
 import { Container, ContainerContent } from "@/components/elements/container";
 import { METADATA } from "@/constants/metadata";
@@ -26,15 +25,7 @@ export default function HeroSection() {
         </div>
 
         <div className="flex flex-col justify-end col-span-1 p-6 md:p-12">
-          <Link
-            href="/projects"
-            className="flex flex-col items-center justify-center w-full gap-4 transition-all border-2 group aspect-square hover:bg-foreground hover:text-background"
-          >
-            <span className="font-mono text-xs uppercase tracking-[0.2em]">
-              View Projects
-            </span>
-            <ArrowRight className="transition-transform size-10 group-hover:translate-x-2" />
-          </Link>
+          <ViewProjectsButton />
         </div>
       </ContainerContent>
     </Container>

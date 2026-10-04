@@ -1,8 +1,9 @@
 import Link from "next/link";
 
+import DownloadCvButton from "./download-cv-button";
+
 import { Container, ContainerContent } from "@/components/elements/container";
 import { SOCIAL_MEDIA } from "@/constants/social-media";
-import about from "@/data/about.json";
 
 const CTA_SOCIALS = SOCIAL_MEDIA.filter((social) =>
   ["Github", "Linkedin"].includes(social.title),
@@ -12,8 +13,6 @@ const CTA_SOCIALS = SOCIAL_MEDIA.filter((social) =>
 }));
 
 export default function AboutCta() {
-  const isExternalCv = about.cvHref.startsWith("http");
-
   return (
     <Container className="bg-foreground text-background border-background">
       <ContainerContent className="grid grid-cols-1 col-span-4 md:grid-cols-4 border-x border-background">
@@ -26,18 +25,7 @@ export default function AboutCta() {
         </div>
 
         <div className="flex flex-col items-center justify-center col-span-1 gap-6 p-6 md:p-12">
-          <Link
-            href={about.cvHref}
-            target={isExternalCv ? "_blank" : undefined}
-            rel={isExternalCv ? "noopener noreferrer" : undefined}
-            download={
-              !isExternalCv ? "Abdur-Rozaq-Fakhruddin-Resume.pdf" : undefined
-            }
-            className="w-full py-4 text-2xl text-center uppercase transition-all border-2 border-background font-heading hover:bg-background hover:text-foreground md:py-6 md:text-3xl"
-          >
-            Download CV
-          </Link>
-
+          <DownloadCvButton />
           <div className="flex gap-6">
             {CTA_SOCIALS.map((social) => (
               <Link

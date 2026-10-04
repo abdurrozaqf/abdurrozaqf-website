@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 
 import { useCircularTransition } from "@/hooks/use-circular-transition";
+import { ANALYTICS_EVENTS } from "@/constants/analytics";
+import { trackEvent } from "@/libs/analytics";
 import { cn } from "@/libs/utils";
 
 const NAV_LINKS = [
@@ -55,6 +57,12 @@ export default function Navbar() {
         <div className="flex items-center col-span-1 px-4 md:col-span-2">
           <Link
             href="/"
+            onClick={() =>
+              trackEvent(ANALYTICS_EVENTS.NAV_CLICK, {
+                nav_item: "logo",
+                nav_location: "header",
+              })
+            }
             className="text-2xl tracking-tight uppercase font-heading md:text-3xl md:leading-8"
           >
             codur.dev
@@ -71,6 +79,12 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() =>
+                  trackEvent(ANALYTICS_EVENTS.NAV_CLICK, {
+                    nav_item: link.title,
+                    nav_location: "header_desktop",
+                  })
+                }
                 className={cn(
                   "font-mono text-xs uppercase tracking-widest transition-colors text-foreground",
                   isActive ? "opacity-100" : "opacity-50 hover:opacity-100",
@@ -89,6 +103,12 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 aria-label={link.title}
+                onClick={() =>
+                  trackEvent(ANALYTICS_EVENTS.NAV_CLICK, {
+                    nav_item: link.title,
+                    nav_location: "header_mobile",
+                  })
+                }
                 className={cn(
                   "px-2 font-mono uppercase mx-auto",
                   "block md:hidden",

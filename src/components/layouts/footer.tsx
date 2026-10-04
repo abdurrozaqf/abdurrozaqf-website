@@ -3,7 +3,9 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
+import { ANALYTICS_EVENTS } from "@/constants/analytics";
 import { SOCIAL_MEDIA } from "@/constants/social-media";
+import { trackEvent } from "@/libs/analytics";
 import { cn } from "@/libs/utils";
 
 function pathnameToLabel(pathname: string) {
@@ -29,7 +31,16 @@ export default function Footer() {
         aria-label="Footer Content"
       >
         <div className="flex flex-col justify-between col-span-1 p-6 md:p-12">
-          <Link href="/" className="w-fit">
+          <Link
+            href="/"
+            onClick={() =>
+              trackEvent(ANALYTICS_EVENTS.NAV_CLICK, {
+                nav_item: "logo",
+                nav_location: "footer",
+              })
+            }
+            className="w-fit"
+          >
             <span className="block text-3xl tracking-tighter uppercase font-heading md:text-4xl">
               codur.dev
             </span>
@@ -53,6 +64,12 @@ export default function Footer() {
                     href={social.href}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
+                    onClick={() =>
+                      trackEvent(ANALYTICS_EVENTS.SOCIAL_CLICK, {
+                        social_network: social.title,
+                        social_location: "footer",
+                      })
+                    }
                     className={cn(
                       "tracking-[0.2em] transition-colors hover:text-foreground/80",
                       "uppercase font-mono text-xs",
