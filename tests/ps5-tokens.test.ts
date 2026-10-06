@@ -41,6 +41,27 @@ describe("ps5 tokens", () => {
     );
   });
 
+  it("keeps hover surfaces legible against the light foreground", () => {
+    // --foreground is #F4F5F7, so any near-white surface token paired with it
+    // (e.g. hover:bg-muted hover:text-foreground) would be white-on-white.
+    for (const v of [
+      "--muted: rgb(255 255 255 / 0.08)",
+      "--secondary: rgb(255 255 255 / 0.12)",
+      "--accent: rgb(255 255 255 / 0.16)",
+      "--muted-foreground: var(--color-ps5-text)",
+      "--secondary-foreground: var(--color-ps5-text)",
+      "--accent-foreground: var(--color-ps5-text)",
+    ]) {
+      assert.ok(css.includes(v), `missing ${v}`);
+    }
+    for (const stale of [
+      "--muted: oklch(0.97 0 0);",
+      "--secondary: oklch(0.97 0 0);",
+      "--accent: oklch(0.97 0 0);",
+    ]) {
+      assert.ok(!css.includes(stale), `near-white surface still present: ${stale}`);
+    }
+  });
   it("forces dark shell background on body via token utilities", () => {
     assert.ok(layout.includes("bg-ps5-bg"), "missing body bg token utility");
     assert.ok(layout.includes("text-ps5-text"), "missing body text token utility");

@@ -110,10 +110,14 @@ The layout reflects the PS5 Home Screen arrangement:
 
 ## 6. Sound Effects & Micro-Interactions (Optional)
 
-To complete the PS5 experience, incorporate light web audio API triggers:
+UI sound effects are intentionally omitted in this build. The project's
+silent-navigation constraint takes precedence over PS5 fidelity here: no Web Audio
+API is used anywhere in the application, and there are no autoplay motion loops.
+The focus and selection states described in Section 5 are therefore communicated
+visually only, via scale, glow, and border changes.
 
-- **Navigation Tick:** High-frequency, soft mechanical click audio on tile focus change.
-- **Select Sound:** Resonant electronic confirmation sound on click.
+If sound is ever introduced, it must be opt-in, user-activated, and paired with a
+persistent mute control.
 
 ---
 
