@@ -99,7 +99,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         suppressHydrationWarning
         className={cn(
-          "w-full min-h-screen flex flex-col overflow-y-auto overflow-x-hidden bg-[#0A0D14] text-[#F4F5F7]",
+          "w-full min-h-screen flex flex-col overflow-y-auto overflow-x-hidden bg-ps5-bg text-ps5-text",
         )}
       >
         <noscript>

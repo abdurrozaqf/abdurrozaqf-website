@@ -6,6 +6,7 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "eslint .",
+    "test": "tsx --test tests/**/*.test.ts",
     "clean:open-next": "node scripts/clean-open-next.mjs",
     "build": "next build && opennextjs-cloudflare build --skipNextBuild",
     "preview": "npm run build && opennextjs-cloudflare preview",
@@ -38,6 +39,7 @@
     "eslint": "^9.39.5",
     "postcss": "^8.5.19",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.20.6",
     "typescript": "^5",
     "wrangler": "^4.105.0"
   },
