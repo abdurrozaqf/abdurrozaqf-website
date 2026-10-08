@@ -12,11 +12,10 @@ export default function Ps5Backdrop({ imageUrl, alt = "" }: Ps5BackdropProps) {
     <div
       aria-hidden={true}
       className={cn(
-        "fixed inset-0 -z-10 overflow-hidden",
+        "fixed inset-0 -z-10 overflow-hidden bg-ps5-bg",
         "transition-opacity duration-300 motion-reduce:transition-none",
         imageUrl ? "opacity-100" : "opacity-0",
       )}
-      style={{ backgroundColor: "#0A0D14" }}
     >
       {imageUrl ? (
         <>

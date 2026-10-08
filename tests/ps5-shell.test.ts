@@ -55,6 +55,27 @@ describe("ps5 shell palette drift guard", () => {
     assert.ok(all.includes("rgba(0,112,209,0.45)"), "ps5 glow rgba missing");
   });
 
+  it("pins the exact glow per component", () => {
+    // Presence-anywhere is too loose: the tile-only 0.5 glow could drift into the
+    // hero and still pass. Pin the value each component is allowed to carry.
+    assert.ok(
+      files.topbar.includes("rgba(0,112,209,0.45)"),
+      "topbar glow must be the palette 0.45",
+    );
+    assert.ok(
+      files.hero.includes("rgba(0,112,209,0.45)"),
+      "hero glow must be the palette 0.45",
+    );
+    assert.ok(
+      !files.hero.includes("rgba(0,112,209,0.5)"),
+      "hero must not use the tile-only 0.5 glow",
+    );
+    assert.ok(
+      files.tile.includes("rgba(0,112,209,0.5)"),
+      "tile glow stays 0.5 per the tile brief",
+    );
+  });
+
   it("leaves bg and text surface to the body token utilities", () => {
     for (const key of ["topbar", "dock", "tile", "hero", "backdrop"] as const) {
       assert.ok(
@@ -125,6 +146,16 @@ describe("ps5 shell behavior constraints", () => {
   });
 });
 
+// Only external http(s) URLs or the internal absolute allowlist may pass.
+// Everything else — javascript:, data:, mailto:, ftp:, protocol-relative, relative
+// paths, or any unknown internal route — must be rejected.
+function isAllowedDestination(destination: string): boolean {
+  return (
+    /^https?:\/\//.test(destination) ||
+    /^\/(?:$|projects(?:\/|$)|about(?:\/|$))/.test(destination)
+  );
+}
+
 describe("ps5 shell route destinations", () => {
   it("links only to real routes", () => {
     const all = [files.topbar, files.dock].join("\n");
@@ -133,22 +164,48 @@ describe("ps5 shell route destinations", () => {
       assert.ok(all.includes(`href: ${route}`), `missing route ${route}`);
     }
 
-    // The navigation hrefs are declared as object literals, so read them by shape
-    // rather than asking a lookahead to decide whether a value like `"/"` is valid.
-    // (The previous negative lookahead matched `href: "/"` itself, since `$` cannot
-    // match before the closing quote — it flagged every allowed route.)
+    // The navigation hrefs are declared as object literals, so read them by shape.
     const destinations = Array.from(
       all.matchAll(/href:\s*"([^"]+)"/g),
       (match) => match[1],
     );
 
     for (const destination of destinations) {
-      const isAllowed =
-        destination.startsWith("/") === false ||
-        /^https?:/.test(destination) ||
-        /^\/(?:$|projects(?:\/|$)|about(?:\/|$))/.test(destination);
+      assert.ok(
+        isAllowedDestination(destination),
+        `unknown route in topbar/dock: ${destination}`,
+      );
+    }
+  });
 
-      assert.ok(isAllowed, `unknown route in topbar/dock: ${destination}`);
+  it("rejects unsafe or unknown destinations", () => {
+    for (const unsafe of [
+      "javascript:alert(1)",
+      "data:text/html,x",
+      "mailto:x@y.z",
+      "ftp://example.com",
+      "//evil.com",
+      "/evil",
+      "relative/path",
+    ]) {
+      assert.ok(
+        !isAllowedDestination(unsafe),
+        `guard must reject unsafe destination: ${unsafe}`,
+      );
+    }
+
+    for (const allowed of [
+      "/",
+      "/projects",
+      "/projects/foo",
+      "/about",
+      "https://github.com/abdurrozaqf",
+      "http://example.com",
+    ]) {
+      assert.ok(
+        isAllowedDestination(allowed),
+        `guard must allow real destination: ${allowed}`,
+      );
     }
   });
 });

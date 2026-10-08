@@ -53,7 +53,7 @@ export default function Ps5HeroDetail({
             "inline-flex items-center justify-center min-h-11 px-8 rounded-3xl",
             "text-sm font-semibold text-[#0A0D14] bg-[#F4F5F7]",
             "transition-all duration-300 motion-reduce:transition-none",
-            "hover:shadow-[0_0_20px_rgba(0,112,209,0.5)]",
+            "hover:shadow-[0_0_20px_rgba(0,112,209,0.45)]",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0070D1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0D14]",
           )}
           style={{ transitionTimingFunction: "cubic-bezier(0.25,1,0.5,1)" }}
@@ -69,7 +69,7 @@ export default function Ps5HeroDetail({
               "text-sm font-semibold text-[#F4F5F7]",
               "bg-transparent border border-[#00439C]",
               "transition-all duration-300 motion-reduce:transition-none",
-              "hover:border-[#0070D1] hover:shadow-[0_0_20px_rgba(0,112,209,0.5)]",
+              "hover:border-[#0070D1] hover:shadow-[0_0_20px_rgba(0,112,209,0.45)]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0070D1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0D14]",
             )}
             style={{ transitionTimingFunction: "cubic-bezier(0.25,1,0.5,1)" }}
