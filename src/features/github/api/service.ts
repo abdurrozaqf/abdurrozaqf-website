@@ -52,10 +52,17 @@ export async function getGithubContributions() {
   }
 }
 
+const REPO_NAME_REGEX = /^[a-zA-Z0-9._-]+$/;
+
 export async function getGithubRepositoryDetail(repoName: string) {
+  if (!repoName || !REPO_NAME_REGEX.test(repoName)) {
+    return ResponseHelper.error("Invalid repository name", null);
+  }
+
   try {
+    const safeRepo = encodeURIComponent(repoName);
     const data = await fetchGithubRest<TDetailRepositories>(
-      `/repos/${GITHUB_ACCOUNTS.username}/${repoName}`
+      `/repos/${GITHUB_ACCOUNTS.username}/${safeRepo}`
     );
 
     return ResponseHelper.success("Success to get repository detail", data);

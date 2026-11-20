@@ -22,5 +22,11 @@ export function formatMetric(value: number | undefined): string {
 }
 
 export function hasLiveDemo(homepage: string | null | undefined): boolean {
-  return Boolean(homepage?.trim());
+  if (!homepage?.trim()) return false;
+  try {
+    const url = new URL(homepage.trim());
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
 }

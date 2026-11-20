@@ -12,8 +12,8 @@ export default function BackButton({ url }: BackButtonProps) {
   const router = useRouter();
 
   const handleOnClick = () => {
-    if (url) {
-      window.location.href = url;
+    if (url && (url.startsWith("/") || /^https?:\/\//.test(url))) {
+      router.push(url);
     } else {
       router.back();
     }

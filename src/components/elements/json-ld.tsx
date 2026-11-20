@@ -28,7 +28,7 @@ export function JsonLd({ data }: JsonLdProps): ReactNode {
           key={getSchemaKey(schema, index)}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema),
+            __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
           }}
         />
       ))}
