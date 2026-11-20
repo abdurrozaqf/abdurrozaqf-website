@@ -7,7 +7,7 @@ import { getGithubOverview } from "@/features/github";
 export const metadata: Metadata = buildPageMetadata({
   title: "Projects",
   description:
-    "Selected Next.js and React projects by Abdur Rozaq Fakhruddin — high-performance interfaces, brutalist aesthetics, and production-ready front-end engineering.",
+    "Selected Next.js and React projects by Abdur Rozaq Fakhruddin, featuring high-performance interfaces, clean design systems, and production-ready front-end engineering.",
   path: "/projects",
 });
 

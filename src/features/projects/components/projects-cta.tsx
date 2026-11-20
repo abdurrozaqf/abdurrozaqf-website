@@ -7,7 +7,7 @@ export default function ProjectsCta() {
     <Container>
       <ContainerContent className="flex flex-col items-center justify-center gap-8 p-12 border-x md:p-24">
         <p className="modular-label text-foreground text-center">
-          WANT TO SEE MORE TECHNICAL DEEP DIVES?
+          LOOKING FOR MORE IMPLEMENTATION DETAILS?
         </p>
         <Link
           href="mailto:rozaqa27@gmail.com"

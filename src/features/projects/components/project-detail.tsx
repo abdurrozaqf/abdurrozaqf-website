@@ -90,7 +90,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
 
   return (
     <>
-      {/* 01 — Location */}
+      {/* 01 // Location */}
       <Container>
         <ContainerContent className="col-span-4 border-x">
           <nav className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between md:px-12">
@@ -127,7 +127,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
         </ContainerContent>
       </Container>
 
-      {/* 02 — Case study hero */}
+      {/* 02 // Case study hero */}
       <Container>
         <ContainerContent className="grid grid-cols-1 col-span-4 md:grid-cols-4 border-x">
           <div className="col-span-1 p-6 md:col-span-3 md:p-12 md:border-r">
@@ -179,7 +179,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
         </ContainerContent>
       </Container>
 
-      {/* 03 — Full-bleed preview */}
+      {/* 03 // Full-bleed preview */}
       <Container>
         <ContainerContent className="col-span-4 border-x">
           <figure className="group">
@@ -223,7 +223,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
         </ContainerContent>
       </Container>
 
-      {/* 04 — Metrics bento */}
+      {/* 04 // Metrics bento */}
       <Container>
         <ContainerContent className="grid grid-cols-2 col-span-4 md:grid-cols-4 border-x md:divide-x">
           {metrics.map((metric, index) => {
@@ -251,7 +251,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
         </ContainerContent>
       </Container>
 
-      {/* 05 — Stack + timeline */}
+      {/* 05 // Stack + timeline */}
       <Container>
         <ContainerContent className="grid grid-cols-1 col-span-4 md:grid-cols-4 border-x divide-y md:divide-y-0 md:divide-x">
           <div className="col-span-1 p-6 md:col-span-2 md:p-12">
@@ -304,7 +304,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
                       dateTime={item.dateTime}
                       className="block font-mono text-sm"
                     >
-                      {item.absolute || "—"}
+                      {item.absolute || "-"}
                     </time>
                     {item.relative && (
                       <span className="block mt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
@@ -319,7 +319,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
         </ContainerContent>
       </Container>
 
-      {/* 06 — Actions */}
+      {/* 06 // Actions */}
       <Container>
         <ContainerContent className="grid grid-cols-1 col-span-4 md:grid-cols-4 border-x divide-y md:divide-y-0 md:divide-x">
           <div className="col-span-1 p-6 md:col-span-2 md:p-12">
@@ -363,7 +363,7 @@ export default function ProjectDetailPage({ repo }: ProjectDetailPageProps) {
         </ContainerContent>
       </Container>
 
-      {/* 07 — Closing CTA */}
+      {/* 07 // Closing CTA */}
       <Container>
         <ContainerContent className="flex flex-col items-center justify-center gap-8 p-12 border-x md:p-24">
           <p className="modular-label text-foreground text-center">

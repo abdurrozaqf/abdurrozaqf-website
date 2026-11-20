@@ -60,8 +60,8 @@ export default function NotFoundPage() {
                   [ STATUS: PAGE_MISSING ]
                 </span>
                 <p className="pb-8 max-w-md text-base tracking-wide uppercase text-muted-foreground md:pb-0">
-                  This page is not part of the website — it may have moved, or
-                  the URL is simply wrong.
+                  This page is not part of the website. It may have moved, or
+                  the URL might be mistyped.
                 </p>
               </div>
             </div>
@@ -110,7 +110,7 @@ export default function NotFoundPage() {
                   <Crosshair aria-hidden className="size-5 text-foreground" />
                 </div>
                 <p className="text-sm uppercase text-foreground">
-                  Still here — just not on this path. Pick a route below.
+                  Still here, just not on this path. Pick a route below.
                 </p>
               </div>
             </div> */}

@@ -18,7 +18,7 @@ function getProjectDescription(
   description: string | null
 ): string {
   return (
-    description || `${name} — open-source project by ${METADATA.authors.name}.`
+    description || `${name}, an open-source project by ${METADATA.authors.name}.`
   );
 }
 

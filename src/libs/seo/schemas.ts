@@ -99,7 +99,7 @@ export function buildSoftwareSourceCodeSchema(
     name: input.name,
     description:
       input.description ||
-      `${input.name} — project by ${METADATA.authors.name}.`,
+      `${input.name}, an open-source project by ${METADATA.authors.name}.`,
     url: pageUrl,
     codeRepository: input.htmlUrl,
     programmingLanguage: input.language || undefined,

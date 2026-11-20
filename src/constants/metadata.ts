@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 export const SITE_URL = process.env.NEXT_PUBLIC_DOMAIN || "https://codur.dev";
 
 const SITE_DESCRIPTION =
-  "Front-End Engineer specializing in Next.js, React, and TypeScript. Explore the portfolio of Abdur Rozaq Fakhruddin — high-performance web interfaces, based in Indonesia.";
+  "Front-End Engineer specializing in Next.js, React, and TypeScript. Explore the portfolio of Abdur Rozaq Fakhruddin, featuring high-performance web interfaces based in Indonesia.";
 
 const DEFAULT_OG_IMAGE = {
   url: `${SITE_URL}/og-picture.png`,
   width: 1200,
   height: 630,
-  alt: "Abdur Rozaq Fakhruddin — Front-End Engineer",
+  alt: "Abdur Rozaq Fakhruddin | Front-End Engineer",
 } as const;
 
 export const METADATA = {

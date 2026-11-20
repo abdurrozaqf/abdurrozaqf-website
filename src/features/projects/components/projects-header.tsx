@@ -19,9 +19,9 @@ export default function ProjectsHeader({ projectCount }: ProjectsHeaderProps) {
             PROJECTS
           </h1>
           <p className="max-w-2xl pl-6 text-lg leading-relaxed border-l-2 border-foreground text-muted-foreground md:text-xl">
-            Building digital experiences with precision. A curated collection of
-            technical explorations focusing on high-performance interfaces,
-            brutalist aesthetics, and seamless user interaction.
+            A collection of front-end projects, experiments, and web applications
+            built with Next.js, React, and TypeScript, focused on performance and
+            clean interfaces.
           </p>
         </div>
 

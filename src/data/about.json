@@ -4,19 +4,19 @@
   "portrait": "/profile-picture.webp",
   "cvHref": "/Abdur Rozaq Fakhruddin - Resume.pdf",
   "story": {
-    "lead": "I view code not just as a set of instructions, but as a digital architecture that requires structural integrity. My journey began at the intersection of educational technology and modern web engineering, where I discovered the power of precise interfaces.",
+    "lead": "I build web applications with an emphasis on structure, performance, and clarity. My background combines educational technology and web engineering, focusing on how people interact with software and how to make interfaces reliable and intuitive.",
     "paragraphs": [
-      "I'm a bachelor of Educational Technology and a Front-End Engineer enthusiast. Through the Immersive IT Bootcamp at Alterra Academy, I deepened my craft across JavaScript, UI/UX, Git, React.js, Next.js, Tailwind CSS, REST APIs, and deployment with Vercel.",
-      "I specialize in resilient, accessible, and performant systems—stripping away the unnecessary to reveal the essential. I thrive between design and development, translating clean aesthetics into fluid interactive experiences. Build for longevity. Code for precision. Design for humans."
+      "I hold a degree in Educational Technology and work as a front-end engineer. Through an intensive bootcamp at Alterra Academy, I built a foundation across JavaScript, UI design, React, Next.js, Tailwind CSS, REST APIs, and modern deployment workflows.",
+      "I focus on building accessible, fast, and maintainable front-end systems. Working closely with design systems, I translate design concepts into responsive interfaces that prioritize usability, performance, and clean code."
     ]
   },
   "experience": [
     {
       "title": "Front-End Engineer",
       "company": "PRIMUSE",
-      "period": "Mar 2024 — Jul 2026",
+      "period": "Mar 2024 - Jul 2026",
       "current": true,
-      "description": "Building high-performance web applications with React, Next.js, and TypeScript. Focused on lighthouse scores above 90%, responsive design, and production-ready interfaces.",
+      "description": "Building high-performance web applications with React, Next.js, and TypeScript. Focused on Lighthouse scores above 90%, responsive design, and production-ready interfaces.",
       "tags": [
         "TypeScript",
         "React/Next.js",
