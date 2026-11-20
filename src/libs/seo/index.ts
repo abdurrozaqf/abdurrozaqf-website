@@ -3,6 +3,7 @@ export {
   buildPersonSchema,
   buildWebsiteSchema,
   buildProfilePageSchema,
+  buildAboutPageSchema,
   buildSiteSchemas,
   buildSoftwareSourceCodeSchema,
   buildBreadcrumbSchema,

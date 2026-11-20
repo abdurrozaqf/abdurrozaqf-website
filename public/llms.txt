@@ -1,0 +1,44 @@
+# Abdur Rozaq Fakhruddin (codur.dev)
+
+> Abdur Rozaq Fakhruddin is a Front-End Engineer based in Indonesia specializing in Next.js, React, TypeScript, Tailwind CSS, and high-performance user interfaces.
+
+## Identity & Professional Overview
+- Full Name: Abdur Rozaq Fakhruddin
+- Professional Role: Front-End Specialist & Software Engineer
+- Brand / Domain: codur.dev (https://codur.dev)
+- Location: Indonesia (Remote / UTC+07)
+- Email: rozaqa27@gmail.com
+- GitHub: https://github.com/abdurrozaqf
+- LinkedIn: https://www.linkedin.com/in/abdurrozaqfakhruddin/
+- Twitter / X: https://twitter.com/abdurrozaqf_
+- Resume: https://codur.dev/Abdur%20Rozaq%20Fakhruddin%20-%20Resume.pdf
+
+## Core Expertise & Technical Stacks
+- Frameworks & Libraries: React, Next.js (App Router, Server Components), TypeScript, Vite
+- Styling & UI Systems: Tailwind CSS, CSS Modules, Radix UI, Shadcn UI, Framer Motion
+- State Management & Data Fetching: TanStack Query (React Query), TanStack Form, Zustand
+- Cloud & Infrastructure: Cloudflare Workers, Cloudflare Pages, Vercel, AWS Amplify, GitHub Actions CI/CD
+- API & Databases: REST APIs, GraphQL, Prisma, Supabase, Better Auth
+- Performance & Quality: Core Web Vitals optimization, Lighthouse 90+ auditing, Accessibility (a11y), Semantic HTML
+
+## Work Experience
+- Front-End Engineer at PRIMUSE (March 2024 - July 2026):
+  - Built high-performance, responsive web applications with React, Next.js, and TypeScript.
+  - Achieved consistent Lighthouse performance scores > 90%.
+  - Integrated CI/CD workflows with GitHub Actions and Cloudflare/AWS cloud deployments.
+- Intensive Software Engineering Bootcamp at Alterra Academy:
+  - Strong technical foundation across JavaScript, UI design, React ecosystem, and API architectures.
+
+## Selected Portfolio Projects
+- Wisata-App (https://codur.dev/projects/Wisata-App): Destination exploration and travel curation platform.
+- Pokedex App (https://codur.dev/projects/pokedex-app): Interactive Pokemon encyclopedia built with responsive design.
+- Cloudbite (https://codur.dev/projects/cloudbite): Edge computing and cloud application demo.
+- Byek-Movies (https://codur.dev/projects/byek-movies): Movie discovery and rating interface.
+- Browser-Supply (https://codur.dev/projects/browser-supply): Browser automation tools and utilities.
+- abdurrozaqf-website (https://codur.dev/projects/abdurrozaqf-website): Personal portfolio, open-source repository, and modular design system.
+
+## Important Links
+- Home: https://codur.dev/
+- Projects: https://codur.dev/projects
+- About: https://codur.dev/about
+- Sitemap: https://codur.dev/sitemap.xml

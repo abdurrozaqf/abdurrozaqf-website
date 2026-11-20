@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import AboutPage from "@/features/about";
 import { buildPageMetadata } from "@/constants/metadata";
+import { JsonLd } from "@/components/elements/json-ld";
+import { buildAboutPageSchema } from "@/libs/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "About",
@@ -12,5 +14,10 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function Page() {
-  return <AboutPage />;
+  return (
+    <>
+      <JsonLd data={buildAboutPageSchema()} />
+      <AboutPage />
+    </>
+  );
 }

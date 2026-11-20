@@ -25,14 +25,20 @@ export async function fetchGithubGraphQL<T>(
   query: string,
   variables?: Record<string, unknown>
 ): Promise<T> {
+  const token = process.env.GITHUB_TOKEN?.trim();
+  const headers: Record<string, string> = {
+    "Content-Type": "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+    "User-Agent": "MyGitHubApp",
+  };
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
   const response = await fetch(GRAPHQL_ENDPOINT, {
     method: "POST",
-    headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN!}`,
-      "Content-Type": "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "MyGitHubApp",
-    },
+    headers,
     body: JSON.stringify({
       query,
       variables: {
@@ -62,13 +68,19 @@ export async function fetchGithubGraphQL<T>(
  * GitHub REST API (GET)
  */
 export async function fetchGithubRest<T>(endpoint: string): Promise<T> {
+  const token = process.env.GITHUB_TOKEN?.trim();
+  const headers: Record<string, string> = {
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+    "User-Agent": "MyGitHubApp",
+  };
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
   const response = await fetch(`${REST_ENDPOINT}${endpoint}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN!}`,
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "MyGitHubApp",
-    },
+    headers,
     next: defaultNextCache,
   });
 

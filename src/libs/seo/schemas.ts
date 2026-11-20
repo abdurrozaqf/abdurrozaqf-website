@@ -1,8 +1,8 @@
 import { METADATA, SITE_URL } from "@/constants/metadata";
 
 export const SCHEMA_IDS = {
-  person: `${SITE_URL}#person`,
-  website: `${SITE_URL}#website`,
+  person: `${SITE_URL}/#person`,
+  website: `${SITE_URL}/#website`,
   profilePage: `${SITE_URL}/#profilepage`,
 } as const;
 
@@ -16,12 +16,30 @@ export function buildPersonSchema(): JsonLdObject {
     name: METADATA.authors.name,
     givenName: "Abdur Rozaq",
     familyName: "Fakhruddin",
-    alternateName: [METADATA.shortTitle, "abdurrozaqf"],
+    alternateName: [METADATA.shortTitle, "abdurrozaqf", "codur"],
     jobTitle: "Front-End Engineer",
     description: METADATA.description,
     url: SITE_URL,
     email: METADATA.authors.email,
-    image: METADATA.openGraph.images.url,
+    image: `${SITE_URL}/profile-picture.webp`,
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Front-End Engineer",
+      skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "UI Engineering",
+        "Web Performance Optimization",
+      ],
+    },
+    alumniOf: [
+      {
+        "@type": "EducationalOrganization",
+        name: "Alterra Academy",
+      },
+    ],
     knowsAbout: [
       "Front-End Development",
       "Next.js",
@@ -30,6 +48,9 @@ export function buildPersonSchema(): JsonLdObject {
       "Tailwind CSS",
       "Web Performance",
       "UI Engineering",
+      "Cloudflare Workers",
+      "Answer Engine Optimization (AEO)",
+      "Generative Engine Optimization (GEO)",
     ],
     address: {
       "@type": "PostalAddress",
@@ -60,6 +81,8 @@ export function buildWebsiteSchema(): JsonLdObject {
 }
 
 export function buildProfilePageSchema(): JsonLdObject {
+  const person = buildPersonSchema();
+
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -69,7 +92,24 @@ export function buildProfilePageSchema(): JsonLdObject {
     description: METADATA.description,
     inLanguage: "en",
     isPartOf: { "@id": SCHEMA_IDS.website },
-    mainEntity: { "@id": SCHEMA_IDS.person },
+    mainEntity: person,
+  };
+}
+
+export function buildAboutPageSchema(): JsonLdObject {
+  const person = buildPersonSchema();
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${SITE_URL}/about#webpage`,
+    url: `${SITE_URL}/about`,
+    name: `About | ${METADATA.shortTitle}`,
+    description:
+      "Engineering philosophy, experience, and technical toolkit of Abdur Rozaq Fakhruddin, Front-End Engineer specializing in Next.js, React, and TypeScript.",
+    inLanguage: "en",
+    isPartOf: { "@id": SCHEMA_IDS.website },
+    mainEntity: person,
   };
 }
 
