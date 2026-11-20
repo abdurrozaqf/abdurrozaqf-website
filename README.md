@@ -21,19 +21,19 @@ Personal website and portfolio built with Next.js. Showcase selected projects, G
 
 ## Tech Stack
 
-| Category      | Technology                                                |
-| ------------- | --------------------------------------------------------- |
-| Framework     | [Next.js 16](https://nextjs.org/) (App Router)            |
-| Language      | [TypeScript](https://www.typescriptlang.org/) + React 19  |
-| Styling       | [Tailwind CSS 4](https://tailwindcss.com/)                |
-| UI Components | [shadcn/ui](https://ui.shadcn.com/) + Radix UI            |
-| Data Fetching | [TanStack React Query](https://tanstack.com/query)        |
-| HTTP Client   | [Axios](https://axios-http.com/)                          |
-| Animation     | [Framer Motion](https://www.framer.com/motion/)           |
-| Scroll FX     | [AOS](https://michalsnik.github.io/aos/)                  |
-| State         | [Zustand](https://zustand-demo.pmnd.rs/)                  |
-| Icons         | [Lucide React](https://lucide.dev/) + React Icons         |
-| Deploy        | [OpenNext](https://opennext.js.org/) + Cloudflare Workers |
+| Category      | Technology                                                          |
+| ------------- | ------------------------------------------------------------------- |
+| Framework     | [Next.js 16](https://nextjs.org/) (App Router)                      |
+| Language      | [TypeScript](https://www.typescriptlang.org/) + React 19            |
+| Styling       | [Tailwind CSS 4](https://tailwindcss.com/)                          |
+| UI Components | [shadcn/ui](https://ui.shadcn.com/) + Radix UI                      |
+| Data Fetching | [TanStack React Query](https://tanstack.com/query)                  |
+| HTTP Client   | [Axios](https://axios-http.com/)                                    |
+| Animation     | [Framer Motion](https://www.framer.com/motion/)                     |
+| Scroll FX     | [AOS](https://michalsnik.github.io/aos/)                            |
+| State         | [Zustand](https://zustand-demo.pmnd.rs/)                            |
+| Icons         | [Lucide React](https://lucide.dev/) + React Icons                   |
+| Deploy        | [vinext](https://github.com/cloudflare/vinext) + Cloudflare Workers |
 
 ## Architecture
 
@@ -94,16 +94,14 @@ npm run dev
 
 ## Scripts
 
-| Command              | Description                                      |
-| -------------------- | ------------------------------------------------ |
-| `npm run dev`        | Start Next.js development server                 |
-| `npm run build`      | Production build (Next.js + OpenNext Cloudflare) |
-| `npm run start`      | Serve the local Next.js production build         |
-| `npm run lint`       | Run ESLint                                       |
-| `npm run preview`    | Build and preview on Cloudflare locally          |
-| `npm run deploy`     | Build and deploy to Cloudflare Workers           |
-| `npm run upload`     | Build and upload worker without full deploy flow |
-| `npm run cf-typegen` | Generate Cloudflare env TypeScript types         |
+| Command            | Description                                        |
+| ------------------ | -------------------------------------------------- |
+| `npm run dev`      | Start vinext development server (Vite + HMR)       |
+| `npm run dev:next` | Start native Next.js development server            |
+| `npm run build`    | Production build (Vite + Cloudflare Workers)       |
+| `npm run start`    | Preview the built Worker locally with Vite preview |
+| `npm run deploy`   | Build and deploy to Cloudflare Workers with vinext |
+| `npm run lint`     | Run ESLint                                         |
 
 ## Project Structure
 
