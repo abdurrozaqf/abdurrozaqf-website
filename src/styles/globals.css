@@ -55,34 +55,23 @@
   --color-portfolio-surface-low: #201f1f;
   --color-portfolio-border-subtle: rgb(255 255 255 / 0.1);
   --spacing-container-max: 1440px;
-
-  /* PS5 Tokens */
-  --color-ps5-bg: #0A0D14;
-  --color-ps5-text: #F4F5F7;
-  --color-ps5-muted: #8F97A4;
-  --color-ps5-blue: #0070D1;
-  --color-ps5-blue-deep: #00439C;
-  --color-ps5-glow: rgba(0,112,209,0.45);
-  --color-ps5-card: rgb(255 255 255 / 0.08);
-  --color-ps5-card-active: rgb(255 255 255 / 0.2);
-  --color-ps5-overlay: rgb(10 13 20 / 0.7);
 }
 
 :root {
-  --background: var(--color-ps5-bg);
-  --foreground: var(--color-ps5-text);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: rgb(255 255 255 / 0.12);
-  --secondary-foreground: var(--color-ps5-text);
-  --muted: rgb(255 255 255 / 0.08);
-  --muted-foreground: var(--color-ps5-text);
-  --accent: rgb(255 255 255 / 0.16);
-  --accent-foreground: var(--color-ps5-text);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
