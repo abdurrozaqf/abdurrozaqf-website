@@ -5,6 +5,7 @@ export default defineConfig({
     name: "abdurrozaqf",
     entrypoint: "vinext/server/fetch-handler",
     compatibilityDate: "2026-11-20",
+    compatibilityFlags: ["nodejs_compat"],
     assets: {
       htmlHandling: "none",
       notFoundHandling: "none",
@@ -12,6 +13,7 @@ export default defineConfig({
     },
     env: {
       ASSETS: bindings.assets(),
+      GITHUB_TOKEN: bindings.secret(),
     },
   }),
 });

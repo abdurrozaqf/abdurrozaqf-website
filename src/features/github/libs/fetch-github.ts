@@ -18,23 +18,40 @@ const defaultNextCache = {
   tags: ["github"],
 };
 
+function getGithubToken(): string | undefined {
+  const token = process.env.GITHUB_TOKEN?.trim();
+  if (token) return token;
+
+  const g = globalThis as unknown as {
+    GITHUB_TOKEN?: string;
+    env?: { GITHUB_TOKEN?: string };
+  };
+  if (g.GITHUB_TOKEN?.trim()) return g.GITHUB_TOKEN.trim();
+  if (g.env?.GITHUB_TOKEN?.trim()) return g.env.GITHUB_TOKEN.trim();
+
+  return undefined;
+}
+
 /**
  * GitHub GraphQL (POST)
  */
 export async function fetchGithubGraphQL<T>(
   query: string,
-  variables?: Record<string, unknown>
+  variables?: Record<string, unknown>,
 ): Promise<T> {
-  const token = process.env.GITHUB_TOKEN?.trim();
+  const token = getGithubToken();
+  if (!token) {
+    throw new Error(
+      "GitHub GraphQL Error: GITHUB_TOKEN environment variable is not configured.",
+    );
+  }
+
   const headers: Record<string, string> = {
+    Authorization: `Bearer ${token}`,
     "Content-Type": "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
     "User-Agent": "MyGitHubApp",
   };
-
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
 
   const response = await fetch(GRAPHQL_ENDPOINT, {
     method: "POST",
@@ -51,7 +68,7 @@ export async function fetchGithubGraphQL<T>(
 
   if (!response.ok) {
     throw new Error(
-      `GitHub GraphQL Error: ${response.status} ${response.statusText}`
+      `GitHub GraphQL Error: ${response.status} ${response.statusText}`,
     );
   }
 
@@ -68,7 +85,7 @@ export async function fetchGithubGraphQL<T>(
  * GitHub REST API (GET)
  */
 export async function fetchGithubRest<T>(endpoint: string): Promise<T> {
-  const token = process.env.GITHUB_TOKEN?.trim();
+  const token = getGithubToken();
   const headers: Record<string, string> = {
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
@@ -86,7 +103,7 @@ export async function fetchGithubRest<T>(endpoint: string): Promise<T> {
 
   if (!response.ok) {
     throw new Error(
-      `GitHub REST Error: ${response.status} ${response.statusText}`
+      `GitHub REST Error: ${response.status} ${response.statusText}`,
     );
   }
 
